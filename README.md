@@ -39,3 +39,4 @@ npm run preview
 
 - Vercel (recommended): Import the repo, set Framework to Next.js, deploy.
 - Static export (limited features): `npm run export` → outputs to `out/`.
+# blueprint-studio
