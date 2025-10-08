@@ -19,8 +19,44 @@
   }
 }
 
+/* Respect manual theme toggle by using .dark class on html */
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Subtle motion */
+.hover-card:hover {
+  transform: translateY(-2px);
+  transition: transform 200ms ease;
+}
+
+/* Entrance animations */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: fadeInUp 600ms ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Floating blob animations for spline fallback */
+@keyframes floatY {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+.animate-float { animation: floatY 6s ease-in-out infinite; }
+.animate-float-delayed { animation: floatY 7.5s ease-in-out infinite; animation-delay: 300ms; }

@@ -1,0 +1,69 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "contact": "Contact"
+  },
+  "home": {
+    "eyebrow": "Blueprint Studio",
+    "title": "Building modern apps and experiences — for impact and freedom",
+    "desc": "We are Chinguun and Shinezaya, partners in life and work, and proud parents of Uulen. We design and build iOS and web products (React, Vue) with a focus on craft, performance, and outcomes.",
+    "ctaWork": "View work",
+    "ctaContact": "Get in touch",
+    "features": {
+      "ios": {"title": "iOS Development", "desc": "Swift, SwiftUI, UIKit — clean architecture, testing, performance."},
+      "web": {"title": "Web Frontend", "desc": "React, Next.js, Vue — modern UI, accessibility, delightful UX."},
+      "outcomes": {"title": "Outcomes & Reliability", "desc": "Ship measurable results; prioritize reliability, performance, and clarity."}
+    }
+  },
+  "about": {
+    "title": "About Blueprint Studio",
+    "intro": "We are Chinguun and Shinezaya — a husband-and-wife team building thoughtful iOS and web products. Our daughter, Uulen, inspires our craft and our purpose: to deliver work that improves people’s lives and gives our family freedom.",
+    "glance": {"title": "At a glance", "desc": "Where we are and where we’re headed."},
+    "whatWeDo": {"title": "What we do", "desc": "Craft, performance, and outcomes.", "cards": {
+      "ios": {"title": "iOS Development", "desc": "Swift, SwiftUI, UIKit — clean architecture, testing, performance."},
+      "web": {"title": "Web Frontend", "desc": "React, Next.js, Vue — accessible, responsive, delightful."},
+      "ux": {"title": "Product & UX", "desc": "Flows, interaction design, systems, and measurable impact."}
+    }},
+    "milestones": {"title": "Milestones", "desc": "Key targets on our 10-year journey."},
+    "principles": {"title": "Principles", "desc": "How we operate and make decisions."},
+    "next": {"title": "What’s next", "desc": "Let’s build something great together."},
+    "ctaText": "Have a project in mind? We’d love to help.",
+    "cta": "Get in touch"
+  },
+  "services": {
+    "title": "Services",
+    "intro": "We help startups and teams design, build, and ship polished mobile and web apps.",
+    "cards": {
+      "ios": {"title": "iOS App Development", "desc": "Swift, SwiftUI, UIKit, clean architecture, testing, app store readiness."},
+      "web": {"title": "Frontend Engineering", "desc": "React, Next.js, Vue, responsive UI, accessibility, performance."},
+      "ux": {"title": "Product Design & UX", "desc": "Flows, wireframes, interaction design, and design systems."}
+    }
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "intro": "Selected projects representing our focus on clarity, performance, and outcomes.",
+    "items": [
+      {"title": "iOS Productivity App", "summary": "SwiftUI app with offline-first sync and 40% performance gain."},
+      {"title": "React SaaS Dashboard", "summary": "Next.js dashboard with charts, auth, and accessible components."},
+      {"title": "Vue Marketing Site", "summary": "SEO-optimized site with 95+ Lighthouse scores and CMS integration."}
+    ]
+  },
+  "contact": {
+    "title": "Contact",
+    "intro": "Tell us about your project. We typically reply within 1 business day.",
+    "form": {
+      "name": "Name",
+      "namePh": "Your name",
+      "email": "Email",
+      "emailPh": "you@example.com",
+      "message": "Message",
+      "messagePh": "What can we help with?",
+      "submit": "Send"
+    }
+  }
+}
+
+
