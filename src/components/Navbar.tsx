@@ -7,7 +7,7 @@ import AuthButton from "@/components/AuthButton";
 import ThemeToggle from "@/components/ThemeToggle";
 import LangToggle from "@/components/LangToggle";
 
-const navItems = [
+const navItems: Array<{ href: string; key: "home" | "about" | "services" | "portfolio" | "contact" }> = [
   { href: "/", key: "home" },
   { href: "/about", key: "about" },
   { href: "/services", key: "services" },
@@ -21,21 +21,21 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-black/5 dark:border-white/10">
+    <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-foreground/15">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex h-16 items-center justify-between">
-          <Link href={`/${locale}`} className="font-sans text-lg font-semibold tracking-tight">
+          <Link href={`/${locale}`} className="font-sans text-lg font-semibold tracking-tight text-foreground">
             Blueprint Studio
           </Link>
 
-          <nav className="hidden md:flex items-center gap-6 text-sm">
+          <nav className="hidden md:flex items-center gap-6 text-sm text-foreground">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={`/${locale}${item.href}`}
                 className="hover:opacity-80 transition-opacity"
               >
-                {t(item.key as any)}
+                {t(item.key)}
               </Link>
             ))}
           </nav>
@@ -48,7 +48,7 @@ export function Navbar() {
 
           <button
             aria-label="Toggle menu"
-            className="md:hidden inline-flex items-center justify-center rounded-md border border-black/10 dark:border-white/20 px-3 py-2 text-sm"
+            className="md:hidden inline-flex items-center justify-center rounded-md border border-foreground/20 px-3 py-2 text-sm text-foreground"
             onClick={() => setOpen((v) => !v)}
           >
             {open ? "Close" : "Menu"}
@@ -57,16 +57,16 @@ export function Navbar() {
       </div>
 
       {open && (
-        <div className="md:hidden border-t border-black/5 dark:border-white/10">
+        <div className="md:hidden border-t border-foreground/15">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 py-3 flex flex-col gap-2">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={`/${locale}${item.href}`}
-                className="py-2"
+                className="py-2 text-foreground"
                 onClick={() => setOpen(false)}
               >
-                {t(item.key as any)}
+                {t(item.key)}
               </Link>
             ))}
             <div className="pt-2 flex items-center gap-2">

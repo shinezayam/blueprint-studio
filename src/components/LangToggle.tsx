@@ -26,7 +26,7 @@ export default function LangToggle() {
   return (
     <button
       onClick={toggle}
-      className="rounded-md border border-black/10 dark:border-white/20 px-3 py-2 text-sm hover:bg-black/5 dark:hover:bg-white/10"
+      className="rounded-md border border-foreground/20 px-3 py-2 text-sm hover:bg-foreground/10 text-foreground"
       aria-label="Toggle language"
     >
       {locale.toUpperCase()}

@@ -3,15 +3,17 @@
 import Section from "@/components/Section";
 import StatCard from "@/components/StatCard";
 import Timeline from "@/components/Timeline";
-import {useTranslations} from "next-intl";
+import Link from "next/link";
+import {useLocale, useTranslations} from "next-intl";
 
 export default function AboutPage() {
   const t = useTranslations("about");
+  const locale = useLocale();
   return (
     <div className="space-y-10">
       <header className="space-y-3">
-        <h1 className="text-3xl font-semibold tracking-tight">{t("title")}</h1>
-        <p className="max-w-2xl text-black/80 dark:text-white/80">{t("intro")}</p>
+        <h1 className="text-3xl font-semibold tracking-tight text-foreground">{t("title")}</h1>
+        <p className="max-w-2xl text-foreground/80">{t("intro")}</p>
       </header>
 
       <Section title={t("glance.title")} description={t("glance.desc")}>
@@ -25,17 +27,17 @@ export default function AboutPage() {
 
       <Section title={t("whatWeDo.title")} description={t("whatWeDo.desc")}>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div className="rounded-xl border border-black/10 dark:border-white/20 p-5">
-            <h3 className="font-medium mb-1">{t("whatWeDo.cards.ios.title")}</h3>
-            <p className="text-sm text-black/70 dark:text-white/70">{t("whatWeDo.cards.ios.desc")}</p>
+          <div className="rounded-xl border border-foreground/20 p-5">
+            <h3 className="font-medium mb-1 text-foreground">{t("whatWeDo.cards.ios.title")}</h3>
+            <p className="text-sm text-foreground/70">{t("whatWeDo.cards.ios.desc")}</p>
           </div>
-          <div className="rounded-xl border border-black/10 dark:border-white/20 p-5">
-            <h3 className="font-medium mb-1">{t("whatWeDo.cards.web.title")}</h3>
-            <p className="text-sm text-black/70 dark:text-white/70">{t("whatWeDo.cards.web.desc")}</p>
+          <div className="rounded-xl border border-foreground/20 p-5">
+            <h3 className="font-medium mb-1 text-foreground">{t("whatWeDo.cards.web.title")}</h3>
+            <p className="text-sm text-foreground/70">{t("whatWeDo.cards.web.desc")}</p>
           </div>
-          <div className="rounded-xl border border-black/10 dark:border-white/20 p-5">
-            <h3 className="font-medium mb-1">{t("whatWeDo.cards.ux.title")}</h3>
-            <p className="text-sm text-black/70 dark:text-white/70">{t("whatWeDo.cards.ux.desc")}</p>
+          <div className="rounded-xl border border-foreground/20 p-5">
+            <h3 className="font-medium mb-1 text-foreground">{t("whatWeDo.cards.ux.title")}</h3>
+            <p className="text-sm text-foreground/70">{t("whatWeDo.cards.ux.desc")}</p>
           </div>
         </div>
       </Section>
@@ -52,18 +54,18 @@ export default function AboutPage() {
       </Section>
 
       <Section title={t("principles.title")} description={t("principles.desc")}>
-        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-black/80 dark:text-white/80">
-          <li className="rounded-xl border border-black/10 dark:border-white/20 p-5">Pay yourself first — invest 30-50% monthly</li>
-          <li className="rounded-xl border border-black/10 dark:border-white/20 p-5">Time in market &gt; timing the market</li>
-          <li className="rounded-xl border border-black/10 dark:border-white/20 p-5">Increase income aggressively (remote iOS)</li>
-          <li className="rounded-xl border border-black/10 dark:border-white/20 p-5">Live below your means; avoid lifestyle creep</li>
+        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-foreground/80">
+          <li className="rounded-xl border border-foreground/20 p-5">Pay yourself first — invest 30-50% monthly</li>
+          <li className="rounded-xl border border-foreground/20 p-5">Time in market &gt; timing the market</li>
+          <li className="rounded-xl border border-foreground/20 p-5">Increase income aggressively (remote iOS)</li>
+          <li className="rounded-xl border border-foreground/20 p-5">Live below your means; avoid lifestyle creep</li>
         </ul>
       </Section>
 
       <Section title={t("next.title")} description={t("next.desc")}>
-        <div className="rounded-xl border border-black/10 dark:border-white/20 p-5 flex items-center justify-between gap-3">
-          <div className="text-sm text-black/80 dark:text-white/80">{t("ctaText")}</div>
-          <a href="/contact" className="inline-flex rounded-md bg-black text-white px-4 py-2 text-sm hover:opacity-90 dark:bg-white dark:text-black">{t("cta")}</a>
+        <div className="rounded-xl border border-foreground/20 p-5 flex items-center justify-between gap-3">
+          <div className="text-sm text-foreground/80">{t("ctaText")}</div>
+          <Link href={`/${locale}/contact`} className="inline-flex rounded-md bg-foreground text-background px-4 py-2 text-sm hover:opacity-90">{t("cta")}</Link>
         </div>
       </Section>
     </div>
