@@ -116,9 +116,9 @@ export default function PortfolioPage() {
         {items.map((item, i) => {
           // Custom layout for Gerege App
           if (item.customLayout === "gerege") {
-            const wideImages = item.images.filter(img => img.isWide === true);
-            const signInImage = item.images.find(img => img.isSignIn === true);
-            const mobileImages = item.images.filter(img => !img.isWide && !img.isSignIn);
+            const wideImages = item.images.filter(img => (img as { isWide?: boolean }).isWide === true);
+            const signInImage = item.images.find(img => (img as { isSignIn?: boolean }).isSignIn === true);
+            const mobileImages = item.images.filter(img => !(img as { isWide?: boolean }).isWide && !(img as { isSignIn?: boolean }).isSignIn);
 
             return (
               <div key={i} className="rounded-xl border border-foreground/20 overflow-hidden bg-background">
