@@ -113,7 +113,7 @@ export default function ContactForm() {
       {/* Status Messages */}
       {submitStatus === "success" && (
         <div className="p-3 rounded-md bg-green-100 text-green-800 border border-green-200">
-          <p className="text-sm">Thank you! Your message has been sent successfully. We'll get back to you within 1 business day.</p>
+          <p className="text-sm">Thank you! Your message has been sent successfully. We&apos;ll get back to you within 1 business day.</p>
         </div>
       )}
       

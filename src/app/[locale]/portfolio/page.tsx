@@ -214,8 +214,8 @@ export default function PortfolioPage() {
 
           // Custom layout for BeFit and DBox (wide image centered, then mobile screenshots)
           if (item.customLayout === "befit" || item.customLayout === "dbox") {
-            const centeredImage = item.images.find(img => (img as any).isCentered === true);
-            const mobileImages = item.images.filter(img => !(img as any).isCentered);
+            const centeredImage = item.images.find(img => (img as { isCentered?: boolean }).isCentered === true);
+            const mobileImages = item.images.filter(img => !(img as { isCentered?: boolean }).isCentered);
 
             return (
               <div key={i} className="rounded-xl border border-foreground/20 overflow-hidden bg-background">
