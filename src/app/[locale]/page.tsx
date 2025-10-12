@@ -21,7 +21,9 @@ export default function Home() {
           </div>
         </div>
         <div className="fade-in-up" style={{ animationDelay: "80ms" }}>
-          <SplineHero />
+          <div className="hidden sm:block">
+            <SplineHero />
+          </div>
         </div>
       </div>
 

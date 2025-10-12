@@ -11,7 +11,7 @@ export default function AboutPage() {
   const t = useTranslations("about");
   const locale = useLocale();
   return (
-    <div className="space-y-10">
+    <div className="space-y-10 overflow-x-hidden">
       <header className="space-y-3">
         <h1 className="text-3xl font-semibold tracking-tight text-foreground">{t("title")}</h1>
         <p className="max-w-2xl text-foreground/80">{t("intro")}</p>

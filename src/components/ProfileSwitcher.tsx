@@ -16,6 +16,9 @@ export default function ProfileSwitcher() {
 
   const ROBOT_SCENE_PATH = "/robot_arm/scene.splinecode";
 
+  const chImages = (t.raw("chinguun.images") as string[]) || [];
+  const shImages = (t.raw("shinezaya.images") as string[]) || [];
+
   useEffect(() => {
     let isMounted = true;
     fetch(ROBOT_SCENE_PATH, { method: "HEAD" })
@@ -30,7 +33,7 @@ export default function ProfileSwitcher() {
   }, []);
 
   return (
-    <div className="relative space-y-22 mt-32 py-22 overflow-hidden">
+    <div className="relative space-y-16 mt-28 sm:mt-32 py-16 sm:py-22 overflow-hidden">
       {/* Robot Arm Background - Receives mouse events but positioned behind UI elements */}
       <div className="absolute inset-0  overflow-hidden pointer-events-auto" style={{ zIndex: 1 }}>
         <div className="absolute inset-0 flex items-center justify-center opacity-25">
@@ -51,57 +54,81 @@ export default function ProfileSwitcher() {
       </div>
 
       {/* Profile Images Display - Outside the cards */}
-      <div className="flex justify-center items-center gap-8 relative mb-6 pointer-events-none" style={{ zIndex: 1 }}>
-        {/* Chinguun Images */}
-        <div className={`flex gap-6 transition-all duration-500 pointer-events-none ${
-          isChinguun ? 'opacity-100 scale-100' : 'opacity-40 scale-90'
-        }`}>
-          {(t.raw("chinguun.images") as string[]).map((img, idx) => (
-            <div 
-              key={idx} 
-              className="relative w-40 h-40 rounded-full overflow-hidden border-4 border-foreground/10 shadow-xl hover:scale-110 hover:shadow-2xl hover:border-foreground/30 transition-all duration-500 hover:rotate-3 cursor-pointer pointer-events-auto"
+      <div className="flex justify-center items-center gap-6 sm:gap-10 flex-wrap relative mb-6 pointer-events-none" style={{ zIndex: 1 }}>
+        {/* Chinguun Images (Primary + Overlapped Secondary) */}
+        <div className={`relative transition-all duration-500 pointer-events-none ${isChinguun ? 'opacity-100 scale-100' : 'opacity-40 scale-90'}`}>
+          {chImages[0] && (
+            <div
+              className="relative w-28 h-28 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-foreground/10 shadow-xl hover:scale-110 hover:shadow-2xl hover:border-foreground/30 transition-all duration-500 hover:rotate-3 cursor-pointer pointer-events-auto"
               onClick={() => setActiveProfile("chinguun")}
             >
               <Image
-                src={img}
-                alt={`${t("chinguun.name")} ${idx + 1}`}
+                src={chImages[0]}
+                alt={`${t("chinguun.name")} 1`}
                 fill
                 className="object-cover"
                 sizes="160px"
-                priority={idx === 0}
+                priority
               />
             </div>
-          ))}
+          )}
+          {chImages[1] && (
+            <div
+              className="absolute -bottom-2 -right-2 sm:-bottom-3 sm:-right-3 w-12 h-12 sm:w-16 sm:h-16 rounded-full overflow-hidden border-4 border-background shadow-xl ring-2 ring-foreground/10 bg-background cursor-pointer pointer-events-auto"
+              onClick={() => setActiveProfile("chinguun")}
+              aria-label="Show more Chinguun photos"
+            >
+              <Image
+                src={chImages[1]}
+                alt={`${t("chinguun.name")} 2`}
+                fill
+                className="object-cover"
+                sizes="64px"
+              />
+            </div>
+          )}
         </div>
 
-        {/* Shinezaya Images */}
-        <div className={`flex gap-6 transition-all duration-500 pointer-events-none ${
-          isShinezaya ? 'opacity-100 scale-100' : 'opacity-40 scale-90'
-        }`}>
-          {(t.raw("shinezaya.images") as string[]).map((img, idx) => (
-            <div 
-              key={idx} 
-              className="relative w-40 h-40 rounded-full overflow-hidden border-4 border-foreground/10 shadow-xl hover:scale-110 hover:shadow-2xl hover:border-foreground/30 transition-all duration-500 hover:rotate-3 cursor-pointer pointer-events-auto"
+        {/* Shinezaya Images (Primary + Overlapped Secondary) */}
+        <div className={`relative transition-all duration-500 pointer-events-none ${isShinezaya ? 'opacity-100 scale-100' : 'opacity-40 scale-90'}`}>
+          {shImages[0] && (
+            <div
+              className="relative w-28 h-28 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-foreground/10 shadow-xl hover:scale-110 hover:shadow-2xl hover:border-foreground/30 transition-all duration-500 hover:rotate-3 cursor-pointer pointer-events-auto"
               onClick={() => setActiveProfile("shinezaya")}
             >
               <Image
-                src={img}
-                alt={`${t("shinezaya.name")} ${idx + 1}`}
+                src={shImages[0]}
+                alt={`${t("shinezaya.name")} 1`}
                 fill
                 className="object-cover"
                 sizes="160px"
-                priority={idx === 0}
+                priority
               />
             </div>
-          ))}
+          )}
+          {shImages[1] && (
+            <div
+              className="absolute -bottom-2 -right-2 sm:-bottom-3 sm:-right-3 w-12 h-12 sm:w-16 sm:h-16 rounded-full overflow-hidden border-4 border-background shadow-xl ring-2 ring-foreground/10 bg-background cursor-pointer pointer-events-auto"
+              onClick={() => setActiveProfile("shinezaya")}
+              aria-label="Show more Shinezaya photos"
+            >
+              <Image
+                src={shImages[1]}
+                alt={`${t("shinezaya.name")} 2`}
+                fill
+                className="object-cover"
+                sizes="64px"
+              />
+            </div>
+          )}
         </div>
       </div>
 
       {/* Toggle Buttons with Hover Area */}
-      <div className="flex justify-center items-center gap-12 relative pointer-events-none" style={{ zIndex: 10 }}>
+      <div className="flex justify-center items-center gap-4 sm:gap-12 px-4 relative pointer-events-none" style={{ zIndex: 10 }}>
         <button
           onClick={() => setActiveProfile("chinguun")}
-          className={`px-12 py-4 rounded-full font-semibold text-lg transition-all duration-500 relative transform pointer-events-auto ${
+          className={`px-6 sm:px-12 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg transition-all duration-500 relative transform pointer-events-auto ${
             isChinguun
               ? "bg-foreground text-background shadow-2xl scale-110 ring-4 ring-foreground/20 animate-pulse-subtle"
               : "bg-foreground/10 text-foreground hover:bg-foreground/20 hover:scale-110 hover:shadow-lg"
@@ -112,7 +139,7 @@ export default function ProfileSwitcher() {
 
         {/* Interactive hover area between buttons - transparent to allow Spline interaction */}
         <div
-          className="w-24 h-14 cursor-pointer group relative pointer-events-none"
+          className="hidden sm:block w-24 h-14 cursor-pointer group relative pointer-events-none"
           onMouseEnter={() => setIsHoveringCenter(true)}
           onMouseLeave={() => setIsHoveringCenter(false)}
         >
@@ -130,7 +157,7 @@ export default function ProfileSwitcher() {
 
         <button
           onClick={() => setActiveProfile("shinezaya")}
-          className={`px-12 py-4 rounded-full font-semibold text-lg transition-all duration-500 relative transform pointer-events-auto ${
+          className={`px-6 sm:px-12 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg transition-all duration-500 relative transform pointer-events-auto ${
             isShinezaya
               ? "bg-foreground text-background shadow-2xl scale-110 ring-4 ring-foreground/20 animate-pulse-subtle"
               : "bg-foreground/10 text-foreground hover:bg-foreground/20 hover:scale-110 hover:shadow-lg"

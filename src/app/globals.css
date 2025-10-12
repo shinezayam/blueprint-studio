@@ -65,3 +65,22 @@ body {
 }
 
 .animate-pulse-subtle { animation: pulseSubtle 3s ease-in-out infinite; }
+
+/* Finishing touches: gentle float and fade utilities */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes floatDelayed {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-float-delayed { animation: floatDelayed 7s ease-in-out infinite; }
+
+/* Hover lift for cards */
+.hover\:lift:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(0,0,0,0.12); }
