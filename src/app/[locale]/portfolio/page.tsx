@@ -202,8 +202,8 @@ export default function PortfolioPage() {
                     {item.duration && <p><strong className="text-foreground">Duration:</strong> {item.duration}</p>}
                     {item.users && <p><strong className="text-foreground">Users:</strong> {item.users}</p>}
                     {item.role && <p className="sm:col-span-2"><strong className="text-foreground">Role:</strong> {item.role}</p>}
-                    {item.lead && <p><strong className="text-foreground">Lead:</strong> {item.lead}</p>}
-                    {item.tools && <p><strong className="text-foreground">Tools:</strong> {item.tools}</p>}
+                    {(item as { lead?: string }).lead && <p><strong className="text-foreground">Lead:</strong> {(item as { lead?: string }).lead}</p>}
+                    {(item as { tools?: string }).tools && <p><strong className="text-foreground">Tools:</strong> {(item as { tools?: string }).tools}</p>}
                     {item.features && <p className="sm:col-span-2"><strong className="text-foreground">Features:</strong> {item.features}</p>}
                     {item.outcome && <p className="sm:col-span-2"><strong className="text-foreground">Outcome:</strong> {item.outcome}</p>}
                   </div>
