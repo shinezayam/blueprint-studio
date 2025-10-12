@@ -57,3 +57,11 @@ body {
 
 .animate-float { animation: floatY 6s ease-in-out infinite; }
 .animate-float-delayed { animation: floatY 7.5s ease-in-out infinite; animation-delay: 300ms; }
+
+/* Subtle pulse animation for active buttons */
+@keyframes pulseSubtle {
+  0%, 100% { opacity: 1; transform: scale(1.1); }
+  50% { opacity: 0.95; transform: scale(1.08); }
+}
+
+.animate-pulse-subtle { animation: pulseSubtle 3s ease-in-out infinite; }

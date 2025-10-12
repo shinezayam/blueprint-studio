@@ -8,47 +8,202 @@
   },
   "home": {
     "eyebrow": "Blueprint Studio",
-    "title": "Building modern apps and experiences — for impact and freedom",
-    "desc": "We are Chinguun and Shinezaya, partners in life and work, and proud parents of Uulen. We design and build iOS and web products (React, Vue) with a focus on craft, performance, and outcomes.",
-    "ctaWork": "View work",
-    "ctaContact": "Get in touch",
+    "title": "We design, build, and ship modern apps.",
+    "desc": "Blueprint Studio is Chinguun (iOS + Web) & Shinezaya (Web + Design + UX). We turn ideas into production-grade mobile and web products — multilingual, accessible, and fast.",
+    "ctaWork": "View Work",
+    "ctaContact": "Get in Touch",
+    "proofBar": {
+      "projects": "6+ production apps",
+      "platforms": "iOS • Web • Design",
+      "techStack": "Swift • React • Vue • Go",
+      "languages": "Multilingual (EN / MN / KR)"
+    },
     "features": {
-      "ios": {"title": "iOS Development", "desc": "Swift, SwiftUI, UIKit — clean architecture, testing, performance."},
-      "web": {"title": "Web Frontend", "desc": "React, Next.js, Vue — modern UI, accessibility, delightful UX."},
-      "outcomes": {"title": "Outcomes & Reliability", "desc": "Ship measurable results; prioritize reliability, performance, and clarity."}
+      "ios": {"title": "iOS Development", "desc": "Swift • SwiftUI • UIKit • Firebase • Go APIs"},
+      "web": {"title": "Web Development", "desc": "React • Next.js • Vue/Nuxt • Tailwind • Go/Postgres backends"},
+      "ux": {"title": "UX & Design", "desc": "Figma • Design systems • Wireframes • User flows"}
     }
   },
   "about": {
     "title": "About Blueprint Studio",
-    "intro": "We are Chinguun and Shinezaya — a husband-and-wife team building thoughtful iOS and web products. Our daughter, Uulen, inspires our craft and our purpose: to deliver work that improves people’s lives and gives our family freedom.",
-    "glance": {"title": "At a glance", "desc": "Where we are and where we’re headed."},
-    "whatWeDo": {"title": "What we do", "desc": "Craft, performance, and outcomes.", "cards": {
-      "ios": {"title": "iOS Development", "desc": "Swift, SwiftUI, UIKit — clean architecture, testing, performance."},
-      "web": {"title": "Web Frontend", "desc": "React, Next.js, Vue — accessible, responsive, delightful."},
-      "ux": {"title": "Product & UX", "desc": "Flows, interaction design, systems, and measurable impact."}
+    "intro": "Mongolia-based husband-and-wife team raising daughter Uulen. We've built apps ranging from national GovTech (Gerege) to fitness & e-commerce. Both self-taught plus university educated. Fluent English (native-like from Ireland childhood).",
+    "profiles": {
+      "chinguun": {
+        "name": "Chinguun",
+        "role": "iOS + Web Developer",
+        "bio": "From Ireland to Mongolia — a journey of learning, building, and growth. I'm an iOS developer and UX lead passionate about turning ideas into products that make life easier. With experience in national-scale GovTech systems like Gerege Pay, I blend design thinking, engineering precision, and a lifelong commitment to learning. My path has taken me from designing posters after class to leading the front-end of Mongolia's largest digital services platform — always guided by curiosity and craftsmanship.",
+        "images": ["/chinguun/image 187.png", "/chinguun/image 188.png"],
+        "certificates": [
+          {"name": "Automating Real World Tasks with Python", "file": "/Porfolio Chinguun/Coursera Automating Real World Tasks with Python.pdf"},
+          {"name": "Configuration Management and the Cloud", "file": "/Porfolio Chinguun/Coursera Configuration Management and the Cloud.pdf"},
+          {"name": "Crash Course on Python", "file": "/Porfolio Chinguun/Coursera Crash Course on Python.pdf"},
+          {"name": "Introduction to Git and Github", "file": "/Porfolio Chinguun/Coursera Introduction to Git and Github.pdf"},
+          {"name": "Programming Fundamentals in Swift", "file": "/Porfolio Chinguun/Coursera Programming Fundamentals in Swift.pdf"},
+          {"name": "Troubleshooting and Debugging Techniques", "file": "/Porfolio Chinguun/Coursera Troubleshooting and Debugging Techniques.pdf"},
+          {"name": "Using Python to Interact with the Operating System", "file": "/Porfolio Chinguun/Coursera Using Python to Interact with the Operating System.pdf"}
+        ],
+        "awards": [
+          {"name": "SAT Score (2019)", "file": "/Porfolio Chinguun/SOME AWARDS/SAT 2019.JPG"},
+          {"name": "3rd Place in District (200k students)", "file": "/Porfolio Chinguun/SOME AWARDS/3rd Place in District of 200k kids.jpg"},
+          {"name": "English Olympiad - 1st Place (Darkhan City)", "file": "/Porfolio Chinguun/SOME AWARDS/English Olympiad 1st Place in Darkhan City.jpg"},
+          {"name": "English Turkish School Olympiad - 3rd Place", "file": "/Porfolio Chinguun/SOME AWARDS/English Turkish School Olympiad 3rd Place.jpg"},
+          {"name": "First Class Certificate (Ireland)", "file": "/Porfolio Chinguun/SOME AWARDS/First Class.jpg"},
+          {"name": "Second Class Certificate (Ireland)", "file": "/Porfolio Chinguun/SOME AWARDS/Second Class.jpg"},
+          {"name": "Report Card - 3rd Grade", "file": "/Porfolio Chinguun/SOME AWARDS/Repord 3rd grade.jpg"}
+        ]
+      },
+      "shinezaya": {
+        "name": "Shinezaya",
+        "role": "UI/UX Designer + Web Developer",
+        "bio": "Hi, I'm Shinezaya. I believe the digital world is not just code, pixels, and buttons — it's the story between people and technology. Making that story clearer and more delightful is both my work and my passion.",
+        "fullBio": "For the past 3+ years as a UI/UX designer, I've been crafting meaningful experiences that are memorable and easy to understand. To me, great design is 'invisible'—it quietly guides users through their journey while solving real problems. Every project brings a new challenge, a new insight, and a new opportunity. When I'm not designing, I love exploring trends, trying new tools, or sharing learnings with the design community.",
+        "skills": ["Figma", "Adobe XD", "Sketch", "Prototyping", "Visual Design", "User Research", "Next.js", "TypeScript", "React", "Vibe Coding"],
+        "images": ["/shinezaya/image 189.png", "/shinezaya/shinezaya.jpg"]
+      }
+    },
+    "story": {
+      "title": "Our Story",
+      "desc": "From Ireland to Mongolia — a journey of learning, building, and growth."
+    },
+    "glance": {"title": "Fast Stats", "desc": "Where we are today."},
+    "whatWeDo": {"title": "What we do", "desc": "iOS, Web, and Design — end-to-end product development.", "cards": {
+      "ios": {"title": "iOS Development", "desc": "Swift • SwiftUI • UIKit • Firebase • Go APIs"},
+      "web": {"title": "Web Development", "desc": "React • Next.js • Vue/Nuxt • Tailwind • Go/Postgres backends"},
+      "ux": {"title": "UX & Design", "desc": "Figma • Design systems • Wireframes • User flows"}
     }},
-    "milestones": {"title": "Milestones", "desc": "Key targets on our 10-year journey."},
-    "principles": {"title": "Principles", "desc": "How we operate and make decisions."},
-    "next": {"title": "What’s next", "desc": "Let’s build something great together."},
-    "ctaText": "Have a project in mind? We’d love to help.",
+    "achievements": {
+      "title": "Achievements & Education",
+      "desc": "Always learning, always building.",
+      "items": {
+        "chinguunBachelor": "Combined Bachelor's degree in Software Engineering — Mongolian University of Science and Technology (2025)",
+        "chinguunGerege": "Full-time Software Developer at Gerege Pay — Since March 2024, iOS & frontend lead for national GovTech platform",
+        "shinezayaMedical": "Traditional Medical Doctor — Graduated 2024, combining healthcare knowledge with digital product design",
+        "shinezayaGerege": "Full-time UX/UI Designer at Gerege Systems — Since August 2024, crafting user experiences for nationwide services",
+        "google": "Grow with Google Mongolia (2025) — Top 300 / 5,000; Python track A 94%; team lead; 4th place Smart Meal Planner",
+        "coursera": "Coursera Certificates (×7) — Python, Git, Automation, Cloud, Swift, Debugging, System Operations",
+        "uxAcademy": "User Experience Academy: UI/UX Design Fundamentals Certificate (2022) — Foundation in user-centered design principles",
+        "mindset": "Always Learning Mindset — Reinvests earnings in education; fan of Cal Newport and Deep Work philosophy"
+      }
+    },
+    "timeline": {
+      "title": "Personal Timeline & Story",
+      "desc": "Key moments that shaped our journey.",
+      "items": [
+        {
+          "period": "2007 – 2010",
+          "title": "Ireland",
+          "desc": "Lived with my parents in Ireland during early childhood — those years shaped my English fluency (C2 level today) and gave me a lifelong love of technology and global culture."
+        },
+        {
+          "period": "2017",
+          "title": "High-School Milestone",
+          "desc": "Scored 1420 on the SAT, began preparing for a career in computer science and design."
+        },
+        {
+          "period": "2019 – 2025",
+          "title": "University & Side Gigs",
+          "desc": "Studied at the Mongolian University of Science and Technology, graduating June 2025. While studying, worked evenings as a freelance UI/UX and graphic designer, producing social-media visuals and brand posters for local businesses. Those design years later became the foundation of my front-end precision and Figma fluency."
+        },
+        {
+          "period": "Summer 2023",
+          "title": "Work & Travel USA",
+          "desc": "Joined the Work and Travel exchange program in the United States. Worked double shifts—often 70 hours per week—saving every paycheck. At the end of the program, invested the entire savings to buy a MacBook Pro M1 (14\")—my first professional development machine and the start of my software career. That purchase marked a turning point: from designer to full-time developer."
+        },
+        {
+          "period": "March 2024",
+          "title": "Joined Gerege Pay",
+          "desc": "Hired by Gerege Pay, one of Mongolia's key tech innovators known for its nationwide kiosk systems serving government service centers across 24 provinces. Began as an iOS developer and UX lead, responsible for core front-end flows and design-system alignment in the Gerege App (23,000+ active users)."
+        },
+        {
+          "period": "2025",
+          "title": "Blueprint Studio Founded",
+          "desc": "After a year of professional growth, co-founded Blueprint Studio with my wife Shinezaya to merge our skills in iOS, web, and Figma-driven design. Together we now build multilingual, production-ready apps—combining technology, design, and AI productivity for clients worldwide."
+        }
+      ]
+    },
+    "milestones": {"title": "Future Milestones", "desc": "Key targets on our 10-year journey."},
+    "principles": {"title": "Our Principles", "desc": "How we operate and make decisions."},
+    "next": {"title": "What's next", "desc": "Let's build something great together."},
+    "ctaText": "Have a project in mind? We'd love to help.",
     "cta": "Get in touch"
   },
   "services": {
     "title": "Services",
-    "intro": "We help startups and teams design, build, and ship polished mobile and web apps.",
+    "intro": "We help startups and teams design, build, and ship polished mobile and web apps — from concept to production.",
     "cards": {
-      "ios": {"title": "iOS App Development", "desc": "Swift, SwiftUI, UIKit, clean architecture, testing, app store readiness."},
-      "web": {"title": "Frontend Engineering", "desc": "React, Next.js, Vue, responsive UI, accessibility, performance."},
-      "ux": {"title": "Product Design & UX", "desc": "Flows, wireframes, interaction design, and design systems."}
+      "ios": {
+        "title": "iOS App Development",
+        "desc": "Swift/SwiftUI/UIKit, App Store operations, Go API integration, Firebase, offline-first sync. Clean architecture, testing, and performance optimization."
+      },
+      "web": {
+        "title": "Frontend Engineering",
+        "desc": "Next.js/React/Vue/Nuxt, multilingual support, SEO 95+, Go + Postgres APIs. Responsive, accessible, and performant web applications."
+      },
+      "ux": {
+        "title": "Product Design & UX",
+        "desc": "Figma design systems, user flows, prototyping, handoff perfection. We ensure pixel-perfect implementation and exceptional user experience."
+      }
     }
   },
   "portfolio": {
     "title": "Portfolio",
-    "intro": "Selected projects representing our focus on clarity, performance, and outcomes.",
+    "intro": "Real projects used by thousands of people — from GovTech to e-commerce. Each case study shows Problem → Solution → Tech → Outcome.",
     "items": [
-      {"title": "iOS Productivity App", "summary": "SwiftUI app with offline-first sync and 40% performance gain."},
-      {"title": "React SaaS Dashboard", "summary": "Next.js dashboard with charts, auth, and accessible components."},
-      {"title": "Vue Marketing Site", "summary": "SEO-optimized site with 95+ Lighthouse scores and CMS integration."}
+      {
+        "title": "LaundryZone",
+        "type": "Web",
+        "summary": "Multilingual laundry locator (EN/MN/KR)",
+        "stack": "React, Next.js, Tailwind, EmailJS, i18n",
+        "team": "2 (Chinguun & Shinezaya)",
+        "duration": "1 month",
+        "features": "40 branch map, contact form, SEO, responsive",
+        "outcome": "First studio web build; strong UI/UX and localization execution"
+      },
+      {
+        "title": "Gerege App",
+        "type": "iOS",
+        "summary": "Government services mobile app",
+        "users": "23,000 active Mongolia-wide",
+        "team": "Up to 6 devs",
+        "role": "iOS frontend lead and UX lead — SwiftUI, Combine, REST APIs, Figma handoff, usability reviews",
+        "features": "Vehicle toll, parking, bus/train tickets, 126 gov payments, kiosk support",
+        "outcome": "National-scale GovTech platform; improved UX clarity and performance"
+      },
+      {
+        "title": "Fitness Helper",
+        "type": "iOS",
+        "summary": "University graduation project → App Store release",
+        "stack": "SwiftUI, Firebase, HealthKit",
+        "features": "Macro tracking, progress charts, AI tips (optional future)",
+        "outcome": "Solo design-to-deploy app showing end-to-end ability"
+      },
+      {
+        "title": "Dream Box MN",
+        "type": "iOS",
+        "summary": "Lootbox-style app (gig project)",
+        "stack": "SwiftUI (frontend), Go backend (API + services), Firebase auth",
+        "team": "2 (Chinguun + CTO for backend)",
+        "duration": "≈ 2 months",
+        "features": "Sign-in, lootbox animation, inventory UI, 1:1 Figma accuracy",
+        "outcome": "Delivered App Store app with pixel-perfect UI in record time"
+      },
+      {
+        "title": "E-Commerce Platform",
+        "type": "Web",
+        "summary": "Full-stack web store",
+        "stack": "Vue 3, Nuxt 3, Go (backend API), PostgreSQL, Tailwind CSS",
+        "team": "3–4 developers",
+        "role": "Frontend engineer (UX flows, checkout, responsive layouts); contributed to Go API spec design",
+        "outcome": "Stable and scalable storefront with modern stack and smooth user journey"
+      },
+      {
+        "title": "Women's Federation of Darkhan",
+        "type": "Web",
+        "summary": "Freelance project (in progress)",
+        "lead": "Shinezaya",
+        "tools": "LLM-assisted Next.js + Figma workflow",
+        "outcome": "Showcase of AI-aided productivity and non-profit impact"
+      }
     ]
   },
   "contact": {

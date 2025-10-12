@@ -25,6 +25,21 @@ export default function Home() {
         </div>
       </div>
 
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 fade-in-up text-center" style={{ animationDelay: "180ms" }}>
+        <div className="p-4">
+          <p className="text-sm font-medium text-foreground">{t("proofBar.projects")}</p>
+        </div>
+        <div className="p-4">
+          <p className="text-sm font-medium text-foreground">{t("proofBar.platforms")}</p>
+        </div>
+        <div className="p-4">
+          <p className="text-sm font-medium text-foreground">{t("proofBar.techStack")}</p>
+        </div>
+        <div className="p-4">
+          <p className="text-sm font-medium text-foreground">{t("proofBar.languages")}</p>
+        </div>
+      </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 fade-in-up" style={{ animationDelay: "220ms" }}>
         <div className="rounded-xl border border-foreground/20 p-5">
           <h3 className="font-medium mb-1 text-foreground">{t("features.ios.title")}</h3>
@@ -35,8 +50,8 @@ export default function Home() {
           <p className="text-sm text-foreground/70">{t("features.web.desc")}</p>
         </div>
         <div className="rounded-xl border border-foreground/20 p-5">
-          <h3 className="font-medium mb-1 text-foreground">{t("features.outcomes.title")}</h3>
-          <p className="text-sm text-foreground/70">{t("features.outcomes.desc")}</p>
+          <h3 className="font-medium mb-1 text-foreground">{t("features.ux.title")}</h3>
+          <p className="text-sm text-foreground/70">{t("features.ux.desc")}</p>
         </div>
       </div>
     </section>
