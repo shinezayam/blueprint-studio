@@ -150,6 +150,17 @@
     "intro": "Real projects used by thousands of people — from GovTech to e-commerce. Each case study shows Problem → Solution → Tech → Outcome.",
     "items": [
       {
+        "title": "ai.gerege.mn",
+        "type": "Web",
+        "summary": "AI chatbot with automatic speech recognition for Gerege Systems",
+        "stack": "Next.js, React, Tailwind CSS, AI/ML integration, Speech Recognition",
+        "team": "2 (Chinguun & Khuderchuluun)",
+        "duration": "2 months",
+        "role": "Full-stack development and UX design — built AI-powered chatbot platform with automatic speech recognition and natural language processing",
+        "features": "AI chatbot, automatic speech recognition, voice-to-text, multilingual interface, admin dashboard, analytics",
+        "outcome": "Production chatbot platform with speech recognition serving Gerege Systems customers"
+      },
+      {
         "title": "LaundryZone",
         "type": "Web",
         "summary": "Multilingual laundry locator (EN/MN/KR)",
