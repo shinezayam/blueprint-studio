@@ -28,10 +28,10 @@ function FileChip({ name, file, icon }: { name: string; file: string; icon: stri
       {open && (
         <div className="absolute left-1/2 bottom-full z-50 mb-2 w-[300px] max-w-[80vw] -translate-x-1/2 rounded-xl border border-foreground/15 bg-background shadow-2xl overflow-hidden fade-in-up" style={{ animationDuration: "220ms" }}>
           {isPdf ? (
-            <iframe src={`${encodeURI(file)}#toolbar=0&navpanes=0`} className="w-full h-[360px] bg-white" title={name} />
+            <iframe src={`${encodeURI(file)}#toolbar=0&navpanes=0`} className="w-full h-[360px] bg-white pointer-events-none" title={name} />
           ) : (
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={encodeURI(file)} alt={name} className="w-full max-h-[360px] object-contain bg-foreground/5" loading="lazy" />
+            <img src={encodeURI(file)} alt={name} className="w-full max-h-[360px] object-contain bg-foreground/5 pointer-events-none" loading="lazy" />
           )}
           <div className="px-3 py-2 text-xs text-foreground/60 border-t border-foreground/10">{name}</div>
         </div>
@@ -68,7 +68,7 @@ export default function ProfileSwitcher() {
   }, []);
 
   return (
-    <div className="relative space-y-16 mt-28 sm:mt-32 py-16 sm:py-22 overflow-hidden">
+    <div className="relative space-y-16 py-10 sm:py-14 overflow-hidden">
       {/* Robot Arm Background - Receives mouse events but positioned behind UI elements.
           Wheel events are stopped in the capture phase so the Spline canvas never
           zooms/moves the scene on scroll — the page scrolls normally instead. */}
@@ -185,13 +185,15 @@ export default function ProfileSwitcher() {
       </div>
 
       {/* Profile Cards Container */}
-      <div className="relative min-h-[650px] pointer-events-none" style={{ zIndex: 10 }}>
+      {/* Active card stays in normal flow so the page grows with its content;
+          only the inactive card is absolutely positioned for the slide effect. */}
+      <div className="relative pointer-events-none" style={{ zIndex: 10 }}>
         {/* Chinguun Profile */}
         <div
-          className={`absolute inset-0 transition-all duration-500 ${
+          className={`transition-all duration-500 ${
             isChinguun
-              ? "opacity-100 translate-x-0 pointer-events-auto"
-              : "opacity-0 -translate-x-full pointer-events-none"
+              ? "relative opacity-100 translate-x-0 pointer-events-auto"
+              : "absolute inset-0 opacity-0 -translate-x-full pointer-events-none"
           }`}
         >
           <div className="rounded-2xl border border-foreground/20 p-8 bg-background/95 backdrop-blur-sm space-y-6 shadow-lg pointer-events-auto">
@@ -235,10 +237,10 @@ export default function ProfileSwitcher() {
 
         {/* Shinezaya Profile */}
         <div
-          className={`absolute inset-0 transition-all duration-500 ${
+          className={`transition-all duration-500 ${
             isShinezaya
-              ? "opacity-100 translate-x-0 pointer-events-auto"
-              : "opacity-0 translate-x-full pointer-events-none"
+              ? "relative opacity-100 translate-x-0 pointer-events-auto"
+              : "absolute inset-0 opacity-0 translate-x-full pointer-events-none"
           }`}
         >
           <div className="rounded-2xl border border-foreground/20 p-8 bg-background/95 backdrop-blur-sm space-y-6 shadow-lg pointer-events-auto">

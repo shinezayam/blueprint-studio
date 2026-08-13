@@ -18,9 +18,7 @@ export default function AboutPage() {
 
       {/* Profile Switcher Section */}
       <Section title="Meet the Team" description="Get to know the people behind Blueprint Studio.">
-        <div className="mt-32">
-          <ProfileSwitcher />
-        </div>
+        <ProfileSwitcher />
       </Section>
 
       <Section title={t("glance.title")} description={t("glance.desc")}>
