@@ -28,8 +28,8 @@
   --card-fill-fg: #06131f;
 
   /* CTA button */
-  --cta-bg: #63d4f4;
-  --cta-fg: #06131f;
+  --cta-bg: #1438cc;
+  --cta-fg: #ffffff;
 
   --shadow-sm: 0 1px 2px rgba(8, 9, 12, 0.06), 0 1px 3px rgba(8, 9, 12, 0.05);
   --shadow-md: 0 10px 30px -12px rgba(8, 9, 12, 0.22);
