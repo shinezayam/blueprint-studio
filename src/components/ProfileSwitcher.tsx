@@ -73,7 +73,7 @@ export default function ProfileSwitcher() {
           Wheel events are stopped in the capture phase so the Spline canvas never
           zooms/moves the scene on scroll — the page scrolls normally instead. */}
       <div
-        className="absolute inset-0  overflow-hidden pointer-events-auto"
+        className="absolute inset-0 overflow-hidden pointer-events-none md:pointer-events-auto"
         style={{ zIndex: 1 }}
         ref={(el) => {
           if (el && !el.dataset.wheelGuard) {
