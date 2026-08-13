@@ -21,9 +21,9 @@
     },
     "proofBar": {
       "projects": "20+ төсөл хүргэсэн",
-      "platforms": "iOS • Android • Вэб • Backend",
-      "techStack": "Swift • React • Go • Redis",
-      "languages": "Олон хэлтэй (EN / MN / KR)"
+      "platforms": "Программ хангамж — iOS • Android • Вэб",
+      "techStack": "Брэндинг ба дизайн",
+      "languages": "Маркетинг ба видео контент"
     },
     "features": {
       "ios": {"title": "iOS & Android хөгжүүлэлт", "desc": "Swift • SwiftUI • Kotlin • Jetpack Compose • Firebase • Go APIs"},
