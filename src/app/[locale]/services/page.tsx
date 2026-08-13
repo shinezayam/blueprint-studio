@@ -10,6 +10,8 @@ export default function ServicesPage() {
     { key: "ios", icon: "iphone" },
     { key: "web", icon: "domain" },
     { key: "ux", icon: "design" },
+    { key: "backend", icon: "server" },
+    { key: "content", icon: "drone" },
   ] as const;
 
   return (

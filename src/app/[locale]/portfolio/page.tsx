@@ -51,6 +51,8 @@ function ProjectHeader({ item, index }: { item: ProjectItem; index: number }) {
 function ProjectGallery({ item }: { item: ProjectItem }) {
   const shell = "bg-gradient-to-b from-white/[0.04] to-transparent px-4 sm:px-6 pt-6 pb-4 sm:pb-6";
 
+  if (item.images.length === 0) return null;
+
   if (item.customLayout === "gerege") {
     const wide = item.images.filter((img) => img.isWide);
     const signIn = item.images.find((img) => img.isSignIn);
@@ -187,6 +189,17 @@ export default function PortfolioPage() {
   const t = useTranslations("portfolio");
 
   const items: ProjectItem[] = [
+    {
+      title: t("items.7.title"),
+      type: t("items.7.type"),
+      summary: t("items.7.summary"),
+      stack: t("items.7.stack"),
+      team: t("items.7.team"),
+      role: t("items.7.role"),
+      features: t("items.7.features"),
+      outcome: t("items.7.outcome"),
+      images: [],
+    },
     {
       title: t("items.0.title"),
       type: t("items.0.type"),

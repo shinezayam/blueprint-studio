@@ -11,7 +11,7 @@
   "home": {
     "eyebrow": "Blueprint Studio",
     "title": "We design, build, and ship modern apps.",
-    "desc": "Blueprint Studio is Chinguun (iOS + Web) & Shinezaya (Web + Design + UX). We turn ideas into production-grade mobile and web products — multilingual, accessible, and fast.",
+    "desc": "Blueprint Studio is Chinguun (Full-stack: iOS + Web + Backend) & Shinezaya (Web + Design + UX). We turn ideas into production-grade mobile and web products — multilingual, accessible, and fast.",
     "ctaWork": "View Work",
     "ctaContact": "Get in Touch",
     "finale": {
@@ -20,9 +20,9 @@
       "cta": "Start a project"
     },
     "proofBar": {
-      "projects": "6+ production apps",
-      "platforms": "iOS • Web • Design",
-      "techStack": "Swift • React • Vue • Go",
+      "projects": "7+ production apps",
+      "platforms": "iOS • Web • Backend • Design",
+      "techStack": "Swift • React • Go • Redis",
       "languages": "Multilingual (EN / MN / KR)"
     },
     "features": {
@@ -136,7 +136,7 @@
   },
   "services": {
     "title": "Services",
-    "intro": "We help startups and teams design, build, and ship polished mobile and web apps — from concept to production.",
+    "intro": "We help startups and teams design, build, and ship polished products end to end — full-stack development from concept to production, plus drone footage and marketing content.",
     "cards": {
       "ios": {
         "title": "iOS App Development",
@@ -149,6 +149,14 @@
       "ux": {
         "title": "Product Design & UX",
         "desc": "Figma design systems, user flows, prototyping, handoff perfection. We ensure pixel-perfect implementation and exceptional user experience."
+      },
+      "backend": {
+        "title": "Backend & System Design",
+        "desc": "Go APIs, PostgreSQL, Redis caching, MinIO object storage, Grafana monitoring. Production-grade infrastructure — real-time chat, notifications, and auth (Google & Apple sign-in) included."
+      },
+      "content": {
+        "title": "Drone & Marketing Content",
+        "desc": "DJI Mini 3 aerial footage, marketing reels, and social-media content. We shoot, edit, and deliver ready-to-post visuals for your brand."
       }
     }
   },
@@ -185,7 +193,7 @@
         "team": "Up to 6 devs",
         "role": "iOS frontend lead and UX lead — SwiftUI, Combine, REST APIs, Figma handoff, usability reviews",
         "features": "Vehicle toll, parking, bus/train tickets, 126 gov payments, kiosk support",
-        "outcome": "National-scale GovTech platform; improved UX clarity and performance"
+        "outcome": "National-scale GovTech platform; shipped a fully refreshed UI in 2026 with improved clarity and performance"
       },
       {
         "title": "Fitness Helper",
@@ -221,6 +229,16 @@
         "lead": "Shinezaya",
         "tools": "LLM-assisted Next.js + Figma workflow",
         "outcome": "Showcase of AI-aided productivity and non-profit impact"
+      },
+      {
+        "title": "GeClub",
+        "type": "iOS",
+        "summary": "Fitness club app with real-time chat, workout planning, and notifications — live on the iOS App Store",
+        "stack": "SwiftUI, Go, Redis, MinIO, Grafana, LiveKit, Google & Apple Sign-In",
+        "team": "2 (Chinguun & Shinezaya)",
+        "role": "Full-stack — iOS app, backend system design with Redis caching, MinIO object storage, and Grafana observability, through to App Store release",
+        "features": "LiveKit real-time chat, workout planning, push notifications, Google & Apple login, media storage on MinIO, Grafana monitoring dashboards",
+        "outcome": "Successfully shipped to the iOS App Store — our first fully self-built product with production backend infrastructure"
       }
     ]
   },
