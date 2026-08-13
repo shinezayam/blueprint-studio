@@ -4,9 +4,9 @@ import type { NextConfig } from "next";
 const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
-  // Bare domain (QR target) → Mongolian by default
+  // Bare domain → /en, which displays Mongolian (the primary audience)
   async redirects() {
-    return [{ source: "/", destination: "/mn", permanent: false }];
+    return [{ source: "/", destination: "/en", permanent: false }];
   },
 };
 

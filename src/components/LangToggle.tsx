@@ -5,6 +5,9 @@ import {useLocale} from "next-intl";
 
 export default function LangToggle() {
   const locale = useLocale();
+  // /en displays Mongolian and /mn displays English, so the label shows
+  // the language actually on screen (the opposite of the URL locale).
+  const displayLocale = locale === "en" ? "mn" : "en";
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -29,7 +32,7 @@ export default function LangToggle() {
       className="inline-flex h-11 items-center rounded-lg border border-foreground/15 px-3 text-sm font-medium text-foreground hover:bg-foreground/[0.06] transition-colors"
       aria-label="Toggle language"
     >
-      {locale.toUpperCase()}
+      {displayLocale.toUpperCase()}
     </button>
   );
 }

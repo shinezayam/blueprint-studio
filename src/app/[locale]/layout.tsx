@@ -30,10 +30,12 @@ async function loadMessages(locale: string) {
 export default async function RootLayout(props: { children: React.ReactNode; params: Promise<{ locale: string }> }) {
   const {children, params} = props;
   const {locale} = await params;
-  const messages = await loadMessages(locale);
+  // Intentional swap: /en displays Mongolian, /mn displays English.
+  const displayLocale = locale === "en" ? "mn" : "en";
+  const messages = await loadMessages(displayLocale);
 
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang={displayLocale} suppressHydrationWarning>
       <head>
         <meta name="color-scheme" content="dark" />
         <script
