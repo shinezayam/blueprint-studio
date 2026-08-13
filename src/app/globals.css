@@ -17,9 +17,11 @@
 
   --cta-from: #4959f6;
   --cta-to: #63d4f4;
-  --accent: #2a7fe0;
-  --accent-soft: rgba(73, 89, 246, 0.10);
-  --ring: rgba(99, 212, 244, 0.45);
+  --accent: #1438cc;
+  --accent-soft: rgba(20, 56, 204, 0.10);
+  --accent-a: #1438cc;
+  --accent-b: #1438cc;
+  --ring: rgba(20, 56, 204, 0.40);
 
   /* Card hover fill — a bit darker cyan in light mode for contrast */
   --card-fill: #2fa8cc;
@@ -58,6 +60,8 @@
   --cta-to: #63d4f4;
   --accent: #63d4f4;
   --accent-soft: rgba(99, 212, 244, 0.12);
+  --accent-a: #4959f6;
+  --accent-b: #63d4f4;
   --ring: rgba(99, 212, 244, 0.55);
 
   /* Card hover fill — solid brand cyan in dark mode */
@@ -174,8 +178,11 @@ body {
   color: var(--card-fill-fg);
 }
 .card-hover:hover .icon-tile {
-  background: #06131f;
+  background: rgba(255, 255, 255, 0.92);
   border-color: transparent;
+}
+.card-hover:hover .icon8 {
+  background-color: #06131f;
 }
 
 /* Chip / pill label */
@@ -196,8 +203,7 @@ body {
   width: 0.42rem;
   height: 0.42rem;
   border-radius: 999px;
-  background: linear-gradient(135deg, var(--cta-from), var(--cta-to));
-  box-shadow: 0 0 8px 1px rgba(99, 212, 244, 0.6);
+  background: linear-gradient(135deg, var(--accent-a), var(--accent-b));
 }
 
 /* Eyebrow label */
@@ -216,10 +222,10 @@ body {
   width: 1.6rem;
   height: 2px;
   border-radius: 2px;
-  background: linear-gradient(90deg, var(--cta-from), var(--cta-to));
+  background: linear-gradient(90deg, var(--accent-a), var(--accent-b));
 }
 
-/* Gradient icon tile */
+/* Accent icon tile */
 .icon-tile {
   display: inline-flex;
   align-items: center;
@@ -227,9 +233,22 @@ body {
   width: 2.75rem;
   height: 2.75rem;
   border-radius: 0.85rem;
-  background: linear-gradient(135deg, rgba(73, 89, 246, 0.18), rgba(99, 212, 244, 0.18));
-  border: 1px solid color-mix(in srgb, var(--cta-to) 30%, transparent);
-  color: var(--cta-to);
+  background: var(--accent-soft);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  color: var(--accent);
+}
+
+/* Icons8 icon rendered as a mask so it takes the accent color per theme */
+.icon8 {
+  display: inline-block;
+  flex: none;
+  background-color: var(--accent);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
 }
 
 /* ==========================================================================
@@ -244,7 +263,7 @@ body {
 
 /* Blue→cyan accent gradient for emphasized words */
 .text-cta {
-  background: linear-gradient(120deg, var(--cta-from) 0%, var(--cta-to) 100%);
+  background: linear-gradient(120deg, var(--accent-a) 0%, var(--accent-b) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

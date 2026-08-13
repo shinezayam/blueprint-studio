@@ -1,26 +1,29 @@
 type Props = {
   name: string;
   size?: number;
-  color?: string;
   alt?: string;
   className?: string;
 };
 
 /**
- * Icons8 line icon, rendered in the brand accent color by default.
- * See https://icons8.com — decorative, so alt is empty unless provided.
+ * Icons8 line icon rendered as a CSS mask so it adopts the current accent
+ * color per theme (see `.icon8` in globals.css) instead of a baked-in color.
+ * See https://icons8.com — decorative, so aria-hidden unless `alt` is given.
  */
-export default function Icon({ name, size = 28, color = "63D4F4", alt = "", className }: Props) {
+export default function Icon({ name, size = 28, alt, className }: Props) {
+  const url = `https://img.icons8.com/ios/100/${name}.png`;
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src={`https://img.icons8.com/ios/100/${color}/${name}.png`}
-      width={size}
-      height={size}
-      alt={alt}
-      loading="lazy"
-      className={className}
-      style={{ width: size, height: size }}
+    <span
+      role="img"
+      aria-label={alt || undefined}
+      aria-hidden={alt ? undefined : true}
+      className={`icon8${className ? ` ${className}` : ""}`}
+      style={{
+        width: size,
+        height: size,
+        WebkitMaskImage: `url("${url}")`,
+        maskImage: `url("${url}")`,
+      }}
     />
   );
 }
