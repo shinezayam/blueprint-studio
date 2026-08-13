@@ -6,6 +6,40 @@ import { useTranslations } from "next-intl";
 import Spline from "@splinetool/react-spline";
 import Icon from "@/components/Icon";
 
+/* Chip that previews its certificate/award file in a hover popup instead of
+   opening a new tab. Click toggles it for touch devices. */
+function FileChip({ name, file, icon }: { name: string; file: string; icon: string }) {
+  const [open, setOpen] = useState(false);
+  const isPdf = file.toLowerCase().endsWith(".pdf");
+  return (
+    <div
+      className="relative"
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+    >
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        className="w-full px-3 py-2 rounded-lg bg-foreground/5 text-foreground text-sm border border-foreground/10 hover:bg-foreground/10 hover:border-foreground/20 transition-all duration-200 flex items-center gap-2 text-left cursor-pointer"
+      >
+        <Icon name={icon} size={14} className="shrink-0" />
+        <span className="line-clamp-1">{name}</span>
+      </button>
+      {open && (
+        <div className="absolute left-1/2 bottom-full z-50 mb-2 w-[300px] max-w-[80vw] -translate-x-1/2 rounded-xl border border-foreground/15 bg-background shadow-2xl overflow-hidden fade-in-up" style={{ animationDuration: "220ms" }}>
+          {isPdf ? (
+            <iframe src={`${encodeURI(file)}#toolbar=0&navpanes=0`} className="w-full h-[360px] bg-white" title={name} />
+          ) : (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={encodeURI(file)} alt={name} className="w-full max-h-[360px] object-contain bg-foreground/5" loading="lazy" />
+          )}
+          <div className="px-3 py-2 text-xs text-foreground/60 border-t border-foreground/10">{name}</div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function ProfileSwitcher() {
   const t = useTranslations("about.profiles");
   const [activeProfile, setActiveProfile] = useState<"chinguun" | "shinezaya">("chinguun");
@@ -196,16 +230,7 @@ export default function ProfileSwitcher() {
                     </h4>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {(t.raw("chinguun.certificates") as Array<{name: string, file: string}>).map((cert, idx) => (
-                        <a
-                          key={idx}
-                          href={cert.file}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="px-3 py-2 rounded-lg bg-foreground/5 text-foreground text-sm border border-foreground/10 hover:bg-foreground/10 hover:border-foreground/20 transition-all duration-200 flex items-center gap-2"
-                        >
-                          <Icon name="graduation-cap" size={14} className="shrink-0" />
-                          <span className="line-clamp-1">{cert.name}</span>
-                        </a>
+                        <FileChip key={idx} name={cert.name} file={cert.file} icon="graduation-cap" />
                       ))}
                     </div>
                   </div>
@@ -217,16 +242,7 @@ export default function ProfileSwitcher() {
                     </h4>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {(t.raw("chinguun.awards") as Array<{name: string, file: string}>).map((award, idx) => (
-                        <a
-                          key={idx}
-                          href={award.file}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="px-3 py-2 rounded-lg bg-foreground/5 text-foreground text-sm border border-foreground/10 hover:bg-foreground/10 hover:border-foreground/20 transition-all duration-200 flex items-center gap-2"
-                        >
-                          <Icon name="star" size={14} className="shrink-0" />
-                          <span className="line-clamp-1">{award.name}</span>
-                        </a>
+                        <FileChip key={idx} name={award.name} file={award.file} icon="star" />
                       ))}
                     </div>
                   </div>

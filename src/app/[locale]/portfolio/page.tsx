@@ -24,7 +24,7 @@ type ProjectItem = {
   tools?: string;
   features?: string;
   outcome?: string;
-  link?: string;
+  links?: { href: string; label: string }[];
   images: ProjectImage[];
 };
 
@@ -148,15 +148,20 @@ function ProductCard({ item, index, dragLabel }: { item: ProjectItem; index: num
         </div>
         <div className="flex flex-col justify-end gap-3">
           <p className="text-foreground/60 leading-relaxed text-base sm:text-lg">{item.summary}</p>
-          {item.link && (
-            <a
-              href={item.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-cta hover:opacity-80 transition-opacity"
-            >
-              {item.link.replace(/^https?:\/\//, "")} ↗
-            </a>
+          {item.links && item.links.length > 0 && (
+            <div className="flex flex-wrap gap-2.5">
+              {item.links.map((l) => (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-[color-mix(in_srgb,var(--accent)_40%,transparent)] bg-[color-mix(in_srgb,var(--accent)_8%,transparent)] px-4 py-2 text-sm font-semibold text-cta transition-all hover:bg-[color-mix(in_srgb,var(--accent)_16%,transparent)] hover:-translate-y-0.5"
+                >
+                  {l.label} ↗
+                </a>
+              ))}
+            </div>
           )}
         </div>
       </div>
@@ -234,7 +239,7 @@ export default function PortfolioPage() {
       role: t("items.7.role"),
       features: t("items.7.features"),
       outcome: t("items.7.outcome"),
-      link: "https://geclub.mn",
+      links: [{ href: "https://geclub.mn", label: "geclub.mn" }],
       images: [
         { src: "/GeClub/geclub-1.png", width: 1242, height: 2688 },
         { src: "/GeClub/geclub-2.png", width: 1242, height: 2688 },
@@ -252,6 +257,10 @@ export default function PortfolioPage() {
       role: t("items.2.role"),
       features: t("items.2.features"),
       outcome: t("items.2.outcome"),
+      links: [
+        { href: "https://app.gerege.mn", label: "app.gerege.mn" },
+        { href: "https://apps.apple.com/mn/app/gerege/id1427293169", label: "App Store" },
+      ],
       images: [
         { src: "/Gerege app/gerege-preview-1.png", width: 1242, height: 2688 },
         { src: "/Gerege app/gerege-preview-2.png", width: 1242, height: 2688 },
@@ -269,7 +278,7 @@ export default function PortfolioPage() {
       duration: t("items.1.duration"),
       features: t("items.1.features"),
       outcome: t("items.1.outcome"),
-      link: "https://laundryzone.mn",
+      links: [{ href: "https://laundryzone.mn", label: "laundryzone.mn" }],
       images: [
         { src: "/LaundryZone/image 174.png", width: 1795, height: 1044 },
         { src: "/LaundryZone/image 175.png", width: 1800, height: 1037 },
@@ -288,7 +297,7 @@ export default function PortfolioPage() {
       team: t("items.5.team"),
       role: t("items.5.role"),
       outcome: t("items.5.outcome"),
-      link: "https://shop.gerege.mn",
+      links: [{ href: "https://shop.gerege.mn", label: "shop.gerege.mn" }],
       images: [
         { src: "/Gerege shop/image 160.png", width: 1800, height: 1034 },
         { src: "/Gerege shop/image 162.png", width: 1800, height: 1034 },
@@ -329,7 +338,7 @@ export default function PortfolioPage() {
       role: t("items.0.role"),
       features: t("items.0.features"),
       outcome: t("items.0.outcome"),
-      link: "https://ai.gerege.mn",
+      links: [{ href: "https://ai.gerege.mn", label: "ai.gerege.mn" }],
       images: [
         { src: "/ai.gerege.mn/image 218.png", width: 1819, height: 1282 },
         { src: "/ai.gerege.mn/image 219.png", width: 1820, height: 1282 },

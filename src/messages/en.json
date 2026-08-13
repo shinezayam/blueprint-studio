@@ -94,38 +94,28 @@
       }
     },
     "timeline": {
-      "title": "Personal Timeline & Story",
-      "desc": "Key moments that shaped our journey.",
+      "title": "Our Journey",
+      "desc": "From Ireland to building national-scale products.",
       "items": [
         {
           "period": "2007 – 2010",
           "title": "Ireland",
-          "desc": "Lived with my parents in Ireland during early childhood — those years shaped my English fluency (C2 level today) and gave me a lifelong love of technology and global culture."
-        },
-        {
-          "period": "2017",
-          "title": "High-School Milestone",
-          "desc": "Scored 1420 on the SAT, began preparing for a career in computer science and design."
+          "desc": "Childhood years in Ireland — native-level English and an early connection to technology and global culture."
         },
         {
           "period": "2019 – 2025",
-          "title": "University & Side Gigs",
-          "desc": "Studied at the Mongolian University of Science and Technology, graduating June 2025. While studying, worked evenings as a freelance UI/UX and graphic designer, producing social-media visuals and brand posters for local businesses. Those design years later became the foundation of my front-end precision and Figma fluency."
+          "title": "University & Design Work",
+          "desc": "Software Engineering at the Mongolian University of Science and Technology, freelancing in UI/UX and brand design alongside — the foundation of our front-end precision and Figma fluency."
         },
         {
-          "period": "Summer 2023",
-          "title": "Work & Travel USA",
-          "desc": "Joined the Work and Travel exchange program in the United States. Worked double shifts—often 70 hours per week—saving every paycheck. At the end of the program, invested the entire savings to buy a MacBook Pro M1 (14\")—my first professional development machine and the start of my software career. That purchase marked a turning point: from designer to full-time developer."
-        },
-        {
-          "period": "March 2024",
-          "title": "Joined Gerege Pay",
-          "desc": "Hired by Gerege Pay, one of Mongolia's key tech innovators known for its nationwide kiosk systems serving government service centers across 24 provinces. Began as an iOS developer and UX lead, responsible for core front-end flows and design-system alignment in the Gerege App (23,000+ active users)."
+          "period": "2024",
+          "title": "Gerege Pay",
+          "desc": "iOS developer and UX lead on the Gerege App — core front-end flows and design-system alignment for a national platform with 23,000+ active users across 24 provinces."
         },
         {
           "period": "2025",
-          "title": "Blueprint Studio Founded",
-          "desc": "After a year of professional growth, co-founded Blueprint Studio with my wife Shinezaya to merge our skills in iOS, web, and Figma-driven design. Together we now build multilingual, production-ready apps—combining technology, design, and AI productivity for clients worldwide."
+          "title": "Blueprint Studio",
+          "desc": "Founded Blueprint Studio together — multilingual, production-ready apps combining engineering, design, and AI-driven productivity for clients worldwide."
         }
       ]
     },
