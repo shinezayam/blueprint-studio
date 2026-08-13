@@ -20,10 +20,10 @@
       "cta": "Төсөл эхлүүлэх"
     },
     "proofBar": {
-      "projects": "20+ төсөл хүргэсэн",
-      "platforms": "Программ хангамж — iOS • Android • Вэб",
-      "techStack": "Брэндинг ба дизайн",
-      "languages": "Маркетинг ба видео контент"
+      "projects": "20+ бүтээгдэхүүн, цааш нэмэгдсээр",
+      "platforms": "Нэйтив — iOS · Android · Вэб",
+      "techStack": "Онцгойрон харагдах брэнд",
+      "languages": "Гүйлгээг зогсоох контент"
     },
     "features": {
       "ios": {"title": "iOS & Android хөгжүүлэлт", "desc": "Swift • SwiftUI • Kotlin • Jetpack Compose • Firebase • Go APIs"},

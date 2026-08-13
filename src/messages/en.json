@@ -20,10 +20,10 @@
       "cta": "Start a project"
     },
     "proofBar": {
-      "projects": "20+ projects shipped",
-      "platforms": "Software — iOS • Android • Web",
-      "techStack": "Branding & Design",
-      "languages": "Marketing & Video Content"
+      "projects": "20+ products shipped & counting",
+      "platforms": "Native — iOS · Android · Web",
+      "techStack": "Brands that stand out",
+      "languages": "Content that stops the scroll"
     },
     "features": {
       "ios": {"title": "iOS & Android Development", "desc": "Swift • SwiftUI • Kotlin • Jetpack Compose • Firebase • Go APIs"},
