@@ -101,12 +101,11 @@ export default function AboutPage() {
       <Section title={t("timeline.title")} description={t("timeline.desc")}>
         <Timeline
           items={[
-            { title: t("timeline.items.0.period"), subtitle: t("timeline.items.0.title"), details: t("timeline.items.0.desc") },
-            { title: t("timeline.items.1.period"), subtitle: t("timeline.items.1.title"), details: t("timeline.items.1.desc") },
-            { title: t("timeline.items.2.period"), subtitle: t("timeline.items.2.title"), details: t("timeline.items.2.desc") },
-            { title: t("timeline.items.3.period"), subtitle: t("timeline.items.3.title"), details: t("timeline.items.3.desc") },
-            { title: t("timeline.items.4.period"), subtitle: t("timeline.items.4.title"), details: t("timeline.items.4.desc") },
-            { title: t("timeline.items.5.period"), subtitle: t("timeline.items.5.title"), details: t("timeline.items.5.desc") },
+            ...(t.raw("timeline.items") as Array<{period: string; title: string; desc: string}>).map((item) => ({
+              title: item.period,
+              subtitle: item.title,
+              details: item.desc,
+            })),
           ]}
         />
       </Section>

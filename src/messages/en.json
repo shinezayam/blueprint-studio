@@ -11,7 +11,7 @@
   "home": {
     "eyebrow": "Blueprint Studio",
     "title": "Ideas, Made Real.",
-    "desc": "Blueprint Studio is Chinguun (Full-stack: iOS + Web + Backend) & Shinezaya (Web + Design + UX). We turn ideas into production-grade mobile and web products — multilingual, accessible, and fast.",
+    "desc": "We turn ideas into production-grade products — iOS, Android, web, and design. Multilingual, fast, and accessible.",
     "ctaWork": "View Work",
     "ctaContact": "Get in Touch",
     "finale": {
@@ -33,7 +33,7 @@
   },
   "about": {
     "title": "About Blueprint Studio",
-    "intro": "Mongolia-based husband-and-wife team. We've built apps ranging from national GovTech (Gerege) to fitness & e-commerce. Both self-taught plus university educated. Fluent English (native-like from Ireland childhood).",
+    "intro": "Mongolia-based product studio. We've shipped products ranging from national GovTech (Gerege) to fitness and e-commerce, working fluently in both English and Mongolian.",
     "profiles": {
       "chinguun": {
         "name": "Chinguun",
@@ -237,6 +237,20 @@
         "role": "Full-stack — iOS app, backend system design with Redis caching, MinIO object storage, and Grafana observability, through to App Store release",
         "features": "LiveKit real-time chat, workout planning, push notifications, Google & Apple login, media storage on MinIO, Grafana monitoring dashboards",
         "outcome": "Successfully shipped to the iOS App Store and ranked #1 trending app — our first fully self-built product with production backend infrastructure"
+      },
+      {
+        "title": "Mongol School",
+        "type": "Web",
+        "summary": "Official website for Mongol School — a foundation school focused on character development, with programs, campus life, and admissions",
+        "features": "Program showcase, campus environment gallery, enrollment registration, contact and admissions flow",
+        "outcome": "Live production website serving the school's admissions and parent communication"
+      },
+      {
+        "title": "Sayan Dent",
+        "type": "Web",
+        "summary": "Website for Sayan Dent dental clinic — services, doctor profiles, and online appointment booking",
+        "features": "Service catalog from implants to veneers, doctor profiles, online appointment booking, patient sign-in",
+        "outcome": "Modern clinic website with a warm brand identity, live in production"
       }
     ]
   },

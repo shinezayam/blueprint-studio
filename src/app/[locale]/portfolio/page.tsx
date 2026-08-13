@@ -89,15 +89,15 @@ function ProductGallery({ item, dragLabel }: { item: ProjectItem; dragLabel: str
           return (
             <div
               key={idx}
-              className="gallery-frame h-[340px] sm:h-[430px]"
-              style={{ aspectRatio: `${img.width} / ${img.height}`, maxWidth: wide ? "82vw" : "70vw" }}
+              className={wide ? "gallery-frame w-[min(88vw,780px)]" : "gallery-frame h-[340px] sm:h-[430px]"}
+              style={{ aspectRatio: `${img.width} / ${img.height}` }}
             >
               <Image
                 src={img.src}
                 alt={`${item.title} preview ${idx + 1}`}
                 fill
-                className="object-cover"
-                sizes={wide ? "(max-width: 768px) 82vw, 700px" : "(max-width: 768px) 55vw, 200px"}
+                className="object-contain"
+                sizes={wide ? "(max-width: 768px) 88vw, 780px" : "(max-width: 768px) 55vw, 220px"}
               />
             </div>
           );
@@ -306,6 +306,34 @@ export default function PortfolioPage() {
         { src: "/Gerege shop/image 165.png", width: 476, height: 1034 },
         { src: "/Gerege shop/image 166.png", width: 475, height: 1034 },
         { src: "/Gerege shop/image 167.png", width: 476, height: 1034 },
+      ],
+    },
+    {
+      title: t("items.8.title"),
+      type: t("items.8.type"),
+      summary: t("items.8.summary"),
+      features: t("items.8.features"),
+      outcome: t("items.8.outcome"),
+      links: [{ href: "https://mongolschool.mn", label: "mongolschool.mn" }],
+      images: [
+        { src: "/mongolschool/mongolschool-1.png", width: 2400, height: 1500 },
+        { src: "/mongolschool/mongolschool-2.png", width: 2400, height: 1500 },
+        { src: "/mongolschool/mongolschool-3.png", width: 2400, height: 1500 },
+        { src: "/mongolschool/mongolschool-mobile.png", width: 780, height: 1688 },
+      ],
+    },
+    {
+      title: t("items.9.title"),
+      type: t("items.9.type"),
+      summary: t("items.9.summary"),
+      features: t("items.9.features"),
+      outcome: t("items.9.outcome"),
+      links: [{ href: "https://sayandent.vercel.app", label: "sayandent.vercel.app" }],
+      images: [
+        { src: "/sayandent/sayandent-1.png", width: 2400, height: 1500 },
+        { src: "/sayandent/sayandent-2.png", width: 2400, height: 1500 },
+        { src: "/sayandent/sayandent-3.png", width: 2400, height: 1500 },
+        { src: "/sayandent/sayandent-mobile.png", width: 780, height: 1688 },
       ],
     },
     {
