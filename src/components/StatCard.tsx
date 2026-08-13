@@ -6,11 +6,11 @@ type Props = {
 
 export default function StatCard({ label, value, hint }: Props) {
   return (
-    <div className="rounded-xl border border-foreground/20 p-5 hover-card">
-      <div className="text-sm text-foreground/60">{label}</div>
-      <div className="text-2xl font-semibold tracking-tight text-foreground">{value}</div>
+    <div className="card card-hover p-5">
+      <div className="text-xs uppercase tracking-wider text-foreground/50 font-medium">{label}</div>
+      <div className="text-3xl font-semibold tracking-tight text-foreground mt-1.5">{value}</div>
       {hint ? (
-        <div className="text-xs text-foreground/60 mt-1">{hint}</div>
+        <div className="text-xs text-foreground/55 mt-1.5">{hint}</div>
       ) : null}
     </div>
   );

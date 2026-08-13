@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import {Suspense} from "react";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Montserrat, Geist_Mono } from "next/font/google";
 import "../globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Providers from "@/components/Providers";
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
+const montserrat = Montserrat({ variable: "--font-montserrat", subsets: ["latin", "cyrillic"], display: "swap" });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -35,15 +35,15 @@ export default async function RootLayout(props: { children: React.ReactNode; par
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
-        <meta name="color-scheme" content="light" />
+        <meta name="color-scheme" content="dark" />
         <script
           suppressHydrationWarning
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('theme');if(!t){localStorage.setItem('theme','light');t='light';}var m=document.querySelector('meta[name="color-scheme"]');if(t==='dark'){document.documentElement.classList.add('dark');if(m)m.setAttribute('content','dark');}else{document.documentElement.classList.remove('dark');if(m)m.setAttribute('content','light');}}catch(e){}})();`
+            __html: `(function(){try{var t=localStorage.getItem('theme');if(!t){localStorage.setItem('theme','dark');t='dark';}var m=document.querySelector('meta[name="color-scheme"]');if(t==='dark'){document.documentElement.classList.add('dark');if(m)m.setAttribute('content','dark');}else{document.documentElement.classList.remove('dark');if(m)m.setAttribute('content','light');}}catch(e){}})();`
           }}
         />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${montserrat.variable} ${geistMono.variable} antialiased`}>
         <Providers locale={locale} messages={messages}>
           <Suspense fallback={null}>
             <Navbar />

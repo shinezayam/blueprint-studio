@@ -7,8 +7,8 @@ export default function AuthButton() {
 
   if (status === "loading") {
     return (
-      <div className="rounded-md border border-foreground/20 px-3 py-2 text-sm text-foreground">
-        Loading...
+      <div className="inline-flex h-10 items-center rounded-lg border border-foreground/15 px-3 text-sm text-foreground/60">
+        Loading…
       </div>
     );
   }
@@ -17,21 +17,21 @@ export default function AuthButton() {
     return (
       <button
         onClick={() => signIn("google")}
-        className="rounded-md border border-foreground/20 px-3 py-2 text-sm hover:bg-foreground/10 text-foreground"
+        className="inline-flex h-10 items-center rounded-lg border border-foreground/15 px-3 text-sm font-medium text-foreground hover:bg-foreground/[0.06] transition-colors"
       >
-        Sign in with Google
+        Sign in
       </button>
     );
   }
 
   return (
-    <div className="flex items-center gap-2">
-      <span className="text-sm text-foreground/70">
+    <div className="flex items-center gap-2.5">
+      <span className="hidden lg:inline text-sm text-foreground/60 max-w-[12rem] truncate">
         {session.user?.name || session.user?.email}
       </span>
       <button
         onClick={() => signOut()}
-        className="rounded-md bg-foreground text-background px-3 py-2 text-sm hover:opacity-90"
+        className="btn btn-primary h-10 !py-0"
       >
         Sign out
       </button>

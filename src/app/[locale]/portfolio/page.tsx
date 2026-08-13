@@ -3,11 +3,190 @@
 import {Suspense} from "react";
 import {useTranslations} from "next-intl";
 import Image from "next/image";
+import PageHeader from "@/components/PageHeader";
+
+type ProjectImage = {
+  src: string;
+  width: number;
+  height: number;
+  isWide?: boolean;
+  isSignIn?: boolean;
+  isCentered?: boolean;
+};
+
+type ProjectItem = {
+  title: string;
+  type: string;
+  summary: string;
+  stack?: string;
+  team?: string;
+  duration?: string;
+  role?: string;
+  users?: string;
+  lead?: string;
+  tools?: string;
+  features?: string;
+  outcome?: string;
+  customLayout?: "gerege" | "befit" | "dbox";
+  images: ProjectImage[];
+};
+
+const zoomImg = "object-contain transition-transform duration-700 ease-out group-hover:scale-[1.05]";
+const frame = "relative group rounded-xl overflow-hidden border border-foreground/10 bg-background";
+
+function ProjectHeader({ item, index }: { item: ProjectItem; index: number }) {
+  return (
+    <div className="flex items-start gap-4 sm:gap-5 px-6 sm:px-8 pt-7 sm:pt-9">
+      <span className="text-cta text-4xl sm:text-5xl font-semibold tabular-nums leading-none select-none">
+        {String(index + 1).padStart(2, "0")}
+      </span>
+      <div className="space-y-2 pt-0.5">
+        <h3 className="font-semibold text-2xl sm:text-3xl tracking-[-0.02em] text-foreground">{item.title}</h3>
+        <p className="text-sm text-foreground/50">{item.type}</p>
+      </div>
+    </div>
+  );
+}
+
+function ProjectGallery({ item }: { item: ProjectItem }) {
+  const shell = "bg-gradient-to-b from-white/[0.04] to-transparent px-4 sm:px-6 pt-6 pb-4 sm:pb-6";
+
+  if (item.customLayout === "gerege") {
+    const wide = item.images.filter((img) => img.isWide);
+    const signIn = item.images.find((img) => img.isSignIn);
+    const mobile = item.images.filter((img) => !img.isWide && !img.isSignIn);
+    return (
+      <div className={`${shell} space-y-4`}>
+        {wide.length > 0 && (
+          <div className="space-y-4">
+            {wide.map((img, idx) => (
+              <div key={idx} className={`w-full ${frame}`} style={{ aspectRatio: `${img.width}/${img.height}` }}>
+                <Image src={img.src} alt={`${item.title} screenshot ${idx + 1}`} fill className={zoomImg} sizes="100vw" />
+              </div>
+            ))}
+          </div>
+        )}
+        <div className="flex flex-wrap justify-center gap-4">
+          {signIn && (
+            <div className={frame} style={{ width: "240px", height: `${(240 * signIn.height) / signIn.width}px`, maxHeight: "400px" }}>
+              <Image src={signIn.src} alt={`${item.title} sign in`} fill className={zoomImg} sizes="240px" />
+            </div>
+          )}
+          {mobile.map((img, idx) => (
+            <div key={idx} className={frame} style={{ width: "180px", height: `${(180 * img.height) / img.width}px`, maxHeight: "400px" }}>
+              <Image src={img.src} alt={`${item.title} mobile screenshot ${idx + 1}`} fill className={zoomImg} sizes="180px" />
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  if (item.customLayout === "befit" || item.customLayout === "dbox") {
+    const centered = item.images.find((img) => img.isCentered);
+    const mobile = item.images.filter((img) => !img.isCentered);
+    return (
+      <div className={`${shell} space-y-4`}>
+        {centered && (
+          <div className="flex justify-center">
+            <div className={frame} style={{ width: "100%", maxWidth: "800px", aspectRatio: `${centered.width}/${centered.height}` }}>
+              <Image src={centered.src} alt={`${item.title} preview`} fill className={zoomImg} sizes="(max-width: 800px) 100vw, 800px" />
+            </div>
+          </div>
+        )}
+        {mobile.length > 0 && (
+          <div className="flex flex-wrap justify-center gap-4">
+            {mobile.map((img, idx) => (
+              <div key={idx} className={frame} style={{ width: "180px", height: `${(180 * img.height) / img.width}px`, maxHeight: "400px" }}>
+                <Image src={img.src} alt={`${item.title} mobile screenshot ${idx + 1}`} fill className={zoomImg} sizes="180px" />
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  // Default: split by aspect ratio
+  const wide = item.images.filter((img) => img.width / img.height > 1.2);
+  const tall = item.images.filter((img) => img.width / img.height <= 1.2);
+  return (
+    <div className={shell}>
+      {wide.length > 0 && (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+          {wide.map((img, idx) => (
+            <div key={idx} className={`w-full ${frame}`} style={{ aspectRatio: `${img.width}/${img.height}` }}>
+              <Image src={img.src} alt={`${item.title} screenshot ${idx + 1}`} fill className={zoomImg} sizes="(max-width: 768px) 100vw, 50vw" />
+            </div>
+          ))}
+        </div>
+      )}
+      {tall.length > 0 && (
+        <div className="flex flex-wrap justify-center gap-4">
+          {tall.map((img, idx) => (
+            <div key={idx} className={frame} style={{ width: "200px", height: `${(200 * img.height) / img.width}px`, maxHeight: "450px" }}>
+              <Image src={img.src} alt={`${item.title} mobile screenshot ${idx + 1}`} fill className={zoomImg} sizes="200px" />
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function MetaRow({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="pl-4 border-l border-foreground/15">
+      <div className="text-[0.68rem] uppercase tracking-wider text-foreground/45 font-medium">{label}</div>
+      <div className="text-sm text-foreground/85 mt-1 leading-snug">{value}</div>
+    </div>
+  );
+}
+
+function ProjectDetails({ item }: { item: ProjectItem }) {
+  const meta = ([
+    ["Stack", item.stack],
+    ["Team", item.team],
+    ["Duration", item.duration],
+    ["Users", item.users],
+    ["Role", item.role],
+    ["Lead", item.lead],
+    ["Tools", item.tools],
+  ] as [string, string | undefined][]).filter((e): e is [string, string] => Boolean(e[1]));
+
+  return (
+    <div className="border-t border-foreground/10 p-6 sm:p-8 space-y-6">
+      <p className="text-foreground/70 leading-relaxed text-base sm:text-lg max-w-3xl">{item.summary}</p>
+
+      {meta.length > 0 && (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-5">
+          {meta.map(([label, value]) => (
+            <MetaRow key={label} label={label} value={value} />
+          ))}
+        </div>
+      )}
+
+      {item.features && (
+        <div>
+          <div className="text-[0.68rem] uppercase tracking-wider text-foreground/45 font-medium mb-2">Key features</div>
+          <p className="text-sm text-foreground/75 leading-relaxed max-w-3xl">{item.features}</p>
+        </div>
+      )}
+
+      {item.outcome && (
+        <div className="rounded-2xl border border-cyan-400/25 bg-gradient-to-br from-indigo-500/10 to-cyan-400/10 p-5 sm:p-6">
+          <div className="mb-1.5 text-[0.68rem] uppercase tracking-wider font-semibold text-cta">Outcome</div>
+          <p className="text-sm sm:text-base text-foreground/90 leading-relaxed">{item.outcome}</p>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function PortfolioPage() {
   const t = useTranslations("portfolio");
 
-  const items = [
+  const items: ProjectItem[] = [
     {
       title: t("items.0.title"),
       type: t("items.0.type"),
@@ -127,274 +306,22 @@ export default function PortfolioPage() {
 
   return (
     <Suspense fallback={null}>
-    <div className="space-y-10">
-      <header className="space-y-3">
-        <h1 className="text-3xl font-semibold tracking-tight text-foreground">{t("title")}</h1>
-      <p className="max-w-2xl text-foreground/80">{t("intro")}</p>
-      </header>
+      <div className="space-y-16">
+        <PageHeader eyebrow="Portfolio" title={t("title")} description={t("intro")} />
 
-      <div className="space-y-12">
-        {items.map((item, i) => {
-          // Custom layout for Gerege App
-          if (item.customLayout === "gerege") {
-            const wideImages = item.images.filter(img => (img as { isWide?: boolean }).isWide === true);
-            const signInImage = item.images.find(img => (img as { isSignIn?: boolean }).isSignIn === true);
-            const mobileImages = item.images.filter(img => !(img as { isWide?: boolean }).isWide && !(img as { isSignIn?: boolean }).isSignIn);
-
-            return (
-              <div key={i} className="rounded-xl border border-foreground/20 overflow-hidden bg-background">
-                {/* Image Gallery - Custom Gerege Layout */}
-                <div className="bg-foreground/5 p-4 sm:p-6 space-y-4">
-                  {/* Wide Screenshots - Stacked Vertically */}
-                  {wideImages.length > 0 && (
-                    <div className="space-y-4">
-                      {wideImages.map((img, idx) => (
-                        <div
-                          key={idx}
-                          className="relative w-full rounded-lg overflow-hidden border border-foreground/10 bg-background"
-                          style={{ aspectRatio: `${img.width}/${img.height}` }}
-                        >
-                          <Image
-                            src={img.src}
-                            alt={`${item.title} screenshot ${idx + 1}`}
-                            fill
-                            className="object-contain"
-                            sizes="100vw"
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  )}
-
-                  {/* Mobile Screenshots - Horizontal Row with Sign-in */}
-                  <div className="flex flex-wrap justify-center gap-4">
-                    {signInImage && (
-                      <div
-                        className="relative rounded-lg overflow-hidden border border-foreground/10 bg-background"
-                        style={{
-                          width: '240px',
-                          height: `${(240 * signInImage.height) / signInImage.width}px`,
-                          maxHeight: '400px'
-                        }}
-                      >
-                        <Image
-                          src={signInImage.src}
-                          alt={`${item.title} sign in`}
-                          fill
-                          className="object-contain"
-                          sizes="240px"
-                        />
-                      </div>
-                    )}
-                    {mobileImages.map((img, idx) => (
-                      <div
-                        key={idx}
-                        className="relative rounded-lg overflow-hidden border border-foreground/10 bg-background"
-                        style={{
-                          width: '180px',
-                          height: `${(180 * img.height) / img.width}px`,
-                          maxHeight: '400px'
-                        }}
-                      >
-                        <Image
-                          src={img.src}
-                          alt={`${item.title} mobile screenshot ${idx + 1}`}
-                          fill
-                          className="object-contain"
-                          sizes="180px"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Project Details */}
-                <div className="p-6 space-y-4">
-                  <div className="flex items-start justify-between gap-3">
-                    <div>
-                      <h3 className="font-semibold text-xl text-foreground">{item.title}</h3>
-                      <p className="text-sm text-foreground/60 mt-1">{item.type}</p>
-                    </div>
-                  </div>
-                  <p className="text-foreground/80 leading-relaxed">{item.summary}</p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-foreground/70 pt-2">
-                    {item.stack && <p><strong className="text-foreground">Stack:</strong> {item.stack}</p>}
-                    {item.team && <p><strong className="text-foreground">Team:</strong> {item.team}</p>}
-                    {item.duration && <p><strong className="text-foreground">Duration:</strong> {item.duration}</p>}
-                    {item.users && <p><strong className="text-foreground">Users:</strong> {item.users}</p>}
-                    {item.role && <p className="sm:col-span-2"><strong className="text-foreground">Role:</strong> {item.role}</p>}
-                    {(item as { lead?: string }).lead && <p><strong className="text-foreground">Lead:</strong> {(item as { lead?: string }).lead}</p>}
-                    {(item as { tools?: string }).tools && <p><strong className="text-foreground">Tools:</strong> {(item as { tools?: string }).tools}</p>}
-                    {item.features && <p className="sm:col-span-2"><strong className="text-foreground">Features:</strong> {item.features}</p>}
-                    {item.outcome && <p className="sm:col-span-2"><strong className="text-foreground">Outcome:</strong> {item.outcome}</p>}
-                  </div>
-                </div>
-              </div>
-            );
-          }
-
-          // Custom layout for BeFit and DBox (wide image centered, then mobile screenshots)
-          if (item.customLayout === "befit" || item.customLayout === "dbox") {
-            const centeredImage = item.images.find(img => (img as { isCentered?: boolean }).isCentered === true);
-            const mobileImages = item.images.filter(img => !(img as { isCentered?: boolean }).isCentered);
-
-            return (
-              <div key={i} className="rounded-xl border border-foreground/20 overflow-hidden bg-background">
-                {/* Image Gallery - Centered Wide + Mobile */}
-                <div className="bg-foreground/5 p-4 sm:p-6 space-y-4">
-                  {/* Centered Wide Screenshot */}
-                  {centeredImage && (
-                    <div className="flex justify-center">
-                      <div
-                        className="relative rounded-lg overflow-hidden border border-foreground/10 bg-background"
-                        style={{
-                          width: '100%',
-                          maxWidth: '800px',
-                          aspectRatio: `${centeredImage.width}/${centeredImage.height}`
-                        }}
-                      >
-                        <Image
-                          src={centeredImage.src}
-                          alt={`${item.title} preview`}
-                          fill
-                          className="object-contain"
-                          sizes="(max-width: 800px) 100vw, 800px"
-                        />
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Mobile Screenshots */}
-                  {mobileImages.length > 0 && (
-                    <div className="flex flex-wrap justify-center gap-4">
-                      {mobileImages.map((img, idx) => (
-                        <div
-                          key={idx}
-                          className="relative rounded-lg overflow-hidden border border-foreground/10 bg-background"
-                          style={{
-                            width: '180px',
-                            height: `${(180 * img.height) / img.width}px`,
-                            maxHeight: '400px'
-                          }}
-                        >
-                          <Image
-                            src={img.src}
-                            alt={`${item.title} mobile screenshot ${idx + 1}`}
-                            fill
-                            className="object-contain"
-                            sizes="180px"
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-
-                {/* Project Details */}
-                <div className="p-6 space-y-4">
-                  <div className="flex items-start justify-between gap-3">
-                    <div>
-                      <h3 className="font-semibold text-xl text-foreground">{item.title}</h3>
-                      <p className="text-sm text-foreground/60 mt-1">{item.type}</p>
-                    </div>
-                  </div>
-                  <p className="text-foreground/80 leading-relaxed">{item.summary}</p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-foreground/70 pt-2">
-                    {item.stack && <p><strong className="text-foreground">Stack:</strong> {item.stack}</p>}
-                    {item.team && <p><strong className="text-foreground">Team:</strong> {item.team}</p>}
-                    {item.duration && <p><strong className="text-foreground">Duration:</strong> {item.duration}</p>}
-                    {item.users && <p><strong className="text-foreground">Users:</strong> {item.users}</p>}
-                    {item.role && <p className="sm:col-span-2"><strong className="text-foreground">Role:</strong> {item.role}</p>}
-                    {item.features && <p className="sm:col-span-2"><strong className="text-foreground">Features:</strong> {item.features}</p>}
-                    {item.outcome && <p className="sm:col-span-2"><strong className="text-foreground">Outcome:</strong> {item.outcome}</p>}
-                  </div>
-                </div>
-              </div>
-            );
-          }
-
-          // Default layout for other projects
-          // Separate images by aspect ratio
-          const wideImages = item.images.filter(img => img.width / img.height > 1.2);
-          const tallImages = item.images.filter(img => img.width / img.height <= 1.2);
-
-          return (
-            <div key={i} className="rounded-xl border border-foreground/20 overflow-hidden bg-background">
-              {/* Image Gallery */}
-              <div className="bg-foreground/5 p-4 sm:p-6">
-                {/* Wide/Desktop Screenshots */}
-                {wideImages.length > 0 && (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                    {wideImages.map((img, idx) => (
-                      <div
-                        key={idx}
-                        className="relative w-full rounded-lg overflow-hidden border border-foreground/10 bg-background"
-                        style={{ aspectRatio: `${img.width}/${img.height}` }}
-                      >
-                        <Image
-                          src={img.src}
-                          alt={`${item.title} screenshot ${idx + 1}`}
-                          fill
-                          className="object-contain"
-                          sizes="(max-width: 768px) 100vw, 50vw"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                {/* Tall/Mobile Screenshots */}
-                {tallImages.length > 0 && (
-                  <div className="flex flex-wrap justify-center gap-4">
-                    {tallImages.map((img, idx) => (
-                      <div
-                        key={idx}
-                        className="relative rounded-lg overflow-hidden border border-foreground/10 bg-background"
-                        style={{
-                          width: '200px',
-                          height: `${(200 * img.height) / img.width}px`,
-                          maxHeight: '450px'
-                        }}
-                      >
-                        <Image
-                          src={img.src}
-                          alt={`${item.title} mobile screenshot ${idx + 1}`}
-                          fill
-                          className="object-contain"
-                          sizes="200px"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              {/* Project Details */}
-              <div className="p-6 space-y-4">
-                <div className="flex items-start justify-between gap-3">
-                  <div>
-                    <h3 className="font-semibold text-xl text-foreground">{item.title}</h3>
-                    <p className="text-sm text-foreground/60 mt-1">{item.type}</p>
-                  </div>
-                </div>
-                <p className="text-foreground/80 leading-relaxed">{item.summary}</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-foreground/70 pt-2">
-                  {item.stack && <p><strong className="text-foreground">Stack:</strong> {item.stack}</p>}
-                  {item.team && <p><strong className="text-foreground">Team:</strong> {item.team}</p>}
-                  {item.duration && <p><strong className="text-foreground">Duration:</strong> {item.duration}</p>}
-                  {item.users && <p><strong className="text-foreground">Users:</strong> {item.users}</p>}
-                  {item.role && <p className="sm:col-span-2"><strong className="text-foreground">Role:</strong> {item.role}</p>}
-                  {(item as { lead?: string }).lead && <p><strong className="text-foreground">Lead:</strong> {(item as { lead?: string }).lead}</p>}
-                  {(item as { tools?: string }).tools && <p><strong className="text-foreground">Tools:</strong> {(item as { tools?: string }).tools}</p>}
-                  {item.features && <p className="sm:col-span-2"><strong className="text-foreground">Features:</strong> {item.features}</p>}
-                  {item.outcome && <p className="sm:col-span-2"><strong className="text-foreground">Outcome:</strong> {item.outcome}</p>}
-                </div>
-              </div>
-            </div>
-          );
-        })}
+        <div className="space-y-16 sm:space-y-24">
+          {items.map((item, i) => (
+            <article
+              key={i}
+              className="card overflow-hidden scroll-mt-24 transition-colors duration-300 hover:border-foreground/20"
+            >
+              <ProjectHeader item={item} index={i} />
+              <ProjectGallery item={item} />
+              <ProjectDetails item={item} />
+            </article>
+          ))}
+        </div>
       </div>
-    </div>
     </Suspense>
   );
 }

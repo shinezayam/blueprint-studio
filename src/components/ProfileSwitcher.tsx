@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import Spline from "@splinetool/react-spline";
+import Icon from "@/components/Icon";
 
 export default function ProfileSwitcher() {
   const t = useTranslations("about.profiles");
@@ -46,7 +47,7 @@ export default function ProfileSwitcher() {
               </div>
             ) : (
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="text-9xl opacity-20">🤖</div>
+                <Icon name="robot-2" size={160} className="opacity-20" />
               </div>
             )}
           </div>
@@ -191,7 +192,7 @@ export default function ProfileSwitcher() {
                   {/* Coursera Certificates */}
                   <div>
                     <h4 className="text-sm font-semibold text-foreground/90 mb-3 uppercase tracking-wide flex items-center gap-2">
-                      <span>📜</span> Coursera Certificates ({(t.raw("chinguun.certificates") as Array<{name: string, file: string}>).length})
+                      <Icon name="diploma" size={16} /> Coursera Certificates ({(t.raw("chinguun.certificates") as Array<{name: string, file: string}>).length})
                     </h4>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {(t.raw("chinguun.certificates") as Array<{name: string, file: string}>).map((cert, idx) => (
@@ -202,7 +203,7 @@ export default function ProfileSwitcher() {
                           rel="noopener noreferrer"
                           className="px-3 py-2 rounded-lg bg-foreground/5 text-foreground text-sm border border-foreground/10 hover:bg-foreground/10 hover:border-foreground/20 transition-all duration-200 flex items-center gap-2"
                         >
-                          <span className="text-xs">🎓</span>
+                          <Icon name="graduation-cap" size={14} className="shrink-0" />
                           <span className="line-clamp-1">{cert.name}</span>
                         </a>
                       ))}
@@ -212,7 +213,7 @@ export default function ProfileSwitcher() {
                   {/* Awards & Achievements */}
                   <div>
                     <h4 className="text-sm font-semibold text-foreground/90 mb-3 uppercase tracking-wide flex items-center gap-2">
-                      <span>🏆</span> Awards & Achievements
+                      <Icon name="trophy" size={16} /> Awards & Achievements
                     </h4>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {(t.raw("chinguun.awards") as Array<{name: string, file: string}>).map((award, idx) => (
@@ -223,7 +224,7 @@ export default function ProfileSwitcher() {
                           rel="noopener noreferrer"
                           className="px-3 py-2 rounded-lg bg-foreground/5 text-foreground text-sm border border-foreground/10 hover:bg-foreground/10 hover:border-foreground/20 transition-all duration-200 flex items-center gap-2"
                         >
-                          <span className="text-xs">🌟</span>
+                          <Icon name="star" size={14} className="shrink-0" />
                           <span className="line-clamp-1">{award.name}</span>
                         </a>
                       ))}
@@ -255,13 +256,11 @@ export default function ProfileSwitcher() {
                 {/* Skills */}
                 <div className="mt-6">
                   <h4 className="text-sm font-semibold text-foreground/90 mb-3 uppercase tracking-wide">Skills & Tools</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {(t.raw("shinezaya.skills") as string[]).map((skill, idx) => (
-                      <span
-                        key={idx}
-                        className="px-4 py-2 rounded-full bg-foreground/10 text-foreground text-sm border border-foreground/20 hover:bg-foreground/20 transition-colors duration-200"
-                      >
+                  <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-foreground/70">
+                    {(t.raw("shinezaya.skills") as string[]).map((skill, idx, arr) => (
+                      <span key={idx} className="inline-flex items-center gap-2">
                         {skill}
+                        {idx < arr.length - 1 && <span className="text-foreground/25">•</span>}
                       </span>
                     ))}
                   </div>

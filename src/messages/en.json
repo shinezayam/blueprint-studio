@@ -4,7 +4,9 @@
     "about": "About",
     "services": "Services",
     "portfolio": "Portfolio",
-    "contact": "Contact"
+    "contact": "Contact",
+    "ctaContact": "Contact us",
+    "ctaWork": "View work"
   },
   "home": {
     "eyebrow": "Blueprint Studio",
@@ -12,6 +14,11 @@
     "desc": "Blueprint Studio is Chinguun (iOS + Web) & Shinezaya (Web + Design + UX). We turn ideas into production-grade mobile and web products — multilingual, accessible, and fast.",
     "ctaWork": "View Work",
     "ctaContact": "Get in Touch",
+    "finale": {
+      "title": "Have a project in mind?",
+      "desc": "Let's turn your idea into a production-grade product — fast, accessible, and built to scale.",
+      "cta": "Start a project"
+    },
     "proofBar": {
       "projects": "6+ production apps",
       "platforms": "iOS • Web • Design",
@@ -26,7 +33,7 @@
   },
   "about": {
     "title": "About Blueprint Studio",
-    "intro": "Mongolia-based husband-and-wife team raising daughter Uulen. We've built apps ranging from national GovTech (Gerege) to fitness & e-commerce. Both self-taught plus university educated. Fluent English (native-like from Ireland childhood).",
+    "intro": "Mongolia-based husband-and-wife team. We've built apps ranging from national GovTech (Gerege) to fitness & e-commerce. Both self-taught plus university educated. Fluent English (native-like from Ireland childhood).",
     "profiles": {
       "chinguun": {
         "name": "Chinguun",

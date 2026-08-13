@@ -66,7 +66,7 @@ export default function ContactForm() {
           onChange={handleChange}
           placeholder={t("form.namePh")}
           required
-          className="w-full rounded-md border border-foreground/20 bg-transparent px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-foreground/20"
+          className="w-full rounded-lg border border-foreground/15 bg-[color:var(--surface-2)] px-3.5 py-2.5 text-sm text-foreground placeholder:text-foreground/40 focus:outline-none focus:border-[color:var(--accent)] focus:ring-2 focus:ring-[color:var(--ring)] transition-colors"
         />
       </div>
       
@@ -82,7 +82,7 @@ export default function ContactForm() {
           onChange={handleChange}
           placeholder={t("form.emailPh")}
           required
-          className="w-full rounded-md border border-foreground/20 bg-transparent px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-foreground/20"
+          className="w-full rounded-lg border border-foreground/15 bg-[color:var(--surface-2)] px-3.5 py-2.5 text-sm text-foreground placeholder:text-foreground/40 focus:outline-none focus:border-[color:var(--accent)] focus:ring-2 focus:ring-[color:var(--ring)] transition-colors"
         />
       </div>
       
@@ -98,14 +98,14 @@ export default function ContactForm() {
           rows={5}
           placeholder={t("form.messagePh")}
           required
-          className="w-full rounded-md border border-foreground/20 bg-transparent px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-foreground/20"
+          className="w-full rounded-lg border border-foreground/15 bg-[color:var(--surface-2)] px-3.5 py-2.5 text-sm text-foreground placeholder:text-foreground/40 focus:outline-none focus:border-[color:var(--accent)] focus:ring-2 focus:ring-[color:var(--ring)] transition-colors"
         />
       </div>
       
       <button
         type="submit"
         disabled={isSubmitting}
-        className="inline-flex rounded-md bg-foreground text-background px-4 py-2 text-sm hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-opacity"
+        className="btn btn-primary disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none"
       >
         {isSubmitting ? "Sending..." : t("form.submit")}
       </button>
