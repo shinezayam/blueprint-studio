@@ -23,9 +23,9 @@
   --accent-b: #1438cc;
   --ring: rgba(20, 56, 204, 0.40);
 
-  /* Card hover fill — a bit darker cyan in light mode for contrast */
-  --card-fill: #2fa8cc;
-  --card-fill-fg: #06131f;
+  /* Card hover fill — accent blue in light mode */
+  --card-fill: #1438cc;
+  --card-fill-fg: #ffffff;
 
   /* CTA button */
   --cta-bg: #1438cc;
@@ -35,8 +35,8 @@
   --shadow-sm: 0 1px 2px rgba(8, 9, 12, 0.06), 0 1px 3px rgba(8, 9, 12, 0.05);
   --shadow-md: 0 10px 30px -12px rgba(8, 9, 12, 0.22);
   --shadow-lg: 0 24px 60px -20px rgba(8, 9, 12, 0.30);
-  --glow: 0 8px 28px -6px rgba(73, 89, 246, 0.40), 0 2px 12px -2px rgba(99, 212, 244, 0.32);
-  --glow-strong: 0 12px 38px -6px rgba(73, 89, 246, 0.60), 0 4px 18px -2px rgba(99, 212, 244, 0.50);
+  --glow: 0 8px 28px -6px rgba(20, 56, 204, 0.28), 0 2px 12px -2px rgba(20, 56, 204, 0.20);
+  --glow-strong: 0 12px 38px -6px rgba(20, 56, 204, 0.42), 0 4px 18px -2px rgba(20, 56, 204, 0.30);
 
   color-scheme: light;
 }
