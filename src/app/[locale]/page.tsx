@@ -13,10 +13,13 @@ export default function Home() {
 
   // Featured projects for the home showcase (indexes into portfolio.items)
   const showcase = [
-    { index: 0, img: "/ai.gerege.mn/image 218.png" },
-    { index: 1, img: "/LaundryZone/image 174.png" },
-    { index: 8, img: "/mongolschool/mongolschool-1.png" },
-    { index: 9, img: "/sayandent/sayandent-1.png" },
+    { index: 7, img: "/GeClub/geclub-1.png" },
+    { index: 10, img: "/chess-federation/chess-1.png" },
+    { index: 11, img: "/simple-kiosk/kiosk-01.png" },
+    { index: 15, img: "/cancer-center/cancer-01.png" },
+    { index: 18, img: "/appointment/appt-01.png" },
+    { index: 4, img: "/dbox/image 157.png" },
+    { index: 3, img: "/BeFit FitnessHelper/image 184.png" },
   ] as const;
 
   const features = [
@@ -101,17 +104,19 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {showcase.map((s) => (
             <Link key={s.index} href={`/${locale}/portfolio`} className="card overflow-hidden group">
-              <div className="relative aspect-[16/10] overflow-hidden bg-foreground/[0.04]">
-                <Image
-                  src={s.img}
-                  alt={tp(`items.${s.index}.title`)}
-                  fill
-                  className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-                  sizes="(max-width: 640px) 100vw, 50vw"
-                />
+              <div className="aspect-[16/10] overflow-hidden bg-foreground/[0.04] p-4">
+                <div className="relative h-full w-full">
+                  <Image
+                    src={s.img}
+                    alt={tp(`items.${s.index}.title`)}
+                    fill
+                    className="object-contain transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                </div>
               </div>
               <div className="flex items-center justify-between gap-3 p-5">
                 <div>
