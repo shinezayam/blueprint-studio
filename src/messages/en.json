@@ -153,6 +153,12 @@
         "title": "Marketing, Branding & Video",
         "desc": "Brand identity and marketing content, AI-enhanced and generated videos, professional video editing, and DJI Mini 3 drone shots. We shoot, edit, and deliver ready-to-post visuals for your brand."
       }
+    },
+    "pricing": {
+      "eyebrow": "Pricing",
+      "title": "From ₮500,000",
+      "desc": "Projects start at ₮500,000 and scale with features and scope. Tell us what you need and we'll come back with a clear, itemized quote — no surprises.",
+      "cta": "Get a quote"
     }
   },
   "portfolio": {
