@@ -42,6 +42,16 @@ export default async function RootLayout(props: { children: React.ReactNode; par
             __html: `(function(){try{var t=localStorage.getItem('theme');if(!t){localStorage.setItem('theme','dark');t='dark';}var m=document.querySelector('meta[name="color-scheme"]');if(t==='dark'){document.documentElement.classList.add('dark');if(m)m.setAttribute('content','dark');}else{document.documentElement.classList.remove('dark');if(m)m.setAttribute('content','light');}}catch(e){}})();`
           }}
         />
+        {/* Swallow benign empty async rejections from @splinetool/react-spline
+            (v4 has no onError; its loader rejects with `undefined`). Registered
+            in the capture phase before Next's runtime so it intercepts first.
+            Real errors (with a message) still surface. */}
+        <script
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{window.addEventListener('unhandledrejection',function(e){var r=e&&e.reason;var t=(typeof r==='string')?r:((r&&r.message)||'');if(r==null||r===''||/spline|splinecode|runtime|wasm/i.test(String(t))){if(e.stopImmediatePropagation)e.stopImmediatePropagation();if(e.preventDefault)e.preventDefault();}},true);}catch(_){}})();`
+          }}
+        />
       </head>
       <body className={`${montserrat.variable} ${geistMono.variable} antialiased`}>
         <Providers locale={locale} messages={messages}>

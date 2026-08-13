@@ -12,7 +12,7 @@ interface ProvidersProps {
 export default function Providers({ children, locale, messages }: ProvidersProps) {
   return (
     <SessionProvider>
-      <NextIntlClientProvider 
+      <NextIntlClientProvider
         locale={locale} 
         messages={messages}
         timeZone="Asia/Ulaanbaatar"
