@@ -322,6 +322,33 @@
         "tools": "Figma",
         "features": "Student dashboards, grades & attendance, class schedules, teacher tools, and parent access",
         "outcome": "A unified, easy-to-navigate education platform that connects students, teachers, and parents"
+      },
+      {
+        "title": "eKids",
+        "type": "App Design",
+        "summary": "Mobile app design for eKids — a parent app for school attendance, health questionnaires, and a built-in wallet",
+        "role": "UI/UX & App Design",
+        "tools": "Figma",
+        "features": "Kids list & profiles, daily attendance, health questionnaires, a digital wallet with QR payments, and contracts",
+        "outcome": "A friendly parent-facing app that brings attendance, health checks, and payments into one place"
+      },
+      {
+        "title": "Hospital Booking",
+        "type": "App Design",
+        "summary": "Mobile app design for booking hospital appointments — browse state & private hospitals, then pick a department, date, and time",
+        "role": "UI/UX & App Design",
+        "tools": "Figma",
+        "features": "State & private hospital directories, department lists, date & time picker, information confirmation, and booking success",
+        "outcome": "A simple, guided flow that makes booking a hospital appointment quick and stress-free"
+      },
+      {
+        "title": "E-zed",
+        "type": "App Design",
+        "summary": "Mobile app design for E-zed — send payments, invoices, and gift vouchers to people and organizations",
+        "role": "UI/UX & App Design",
+        "tools": "Figma",
+        "features": "Select recipient & organization, vouchers and templates, custom amounts, invoices, card linking, and payment",
+        "outcome": "A flexible payments app that makes sending money, invoices, and vouchers effortless"
       }
     ]
   },
