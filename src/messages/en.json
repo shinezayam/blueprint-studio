@@ -28,7 +28,9 @@
     "features": {
       "ios": {"title": "iOS & Android Development", "desc": "Swift • SwiftUI • Kotlin • Jetpack Compose • Firebase • Go APIs"},
       "web": {"title": "Web Development", "desc": "React • Next.js • Vue/Nuxt • Tailwind • Go/Postgres backends"},
-      "ux": {"title": "UX & Design", "desc": "Figma • Design systems • Wireframes • User flows"}
+      "ux": {"title": "UX & Design", "desc": "Figma • Design systems • Wireframes • User flows"},
+      "branding": {"title": "Branding & Design", "desc": "Brand identity • Logos • Guidelines • Social templates"},
+      "marketing": {"title": "Marketing & Video Content", "desc": "Reels • AI-enhanced video • Professional editing • DJI drone shots"}
     }
   },
   "about": {

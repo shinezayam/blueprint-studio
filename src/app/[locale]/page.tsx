@@ -13,6 +13,8 @@ export default function Home() {
     { key: "ios", icon: "iphone" },
     { key: "web", icon: "domain" },
     { key: "ux", icon: "design" },
+    { key: "branding", icon: "paint-palette" },
+    { key: "marketing", icon: "video-editing" },
   ] as const;
 
   const proof = ["projects", "platforms", "techStack", "languages"] as const;

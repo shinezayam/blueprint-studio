@@ -119,21 +119,6 @@ export default function ProfileSwitcher() {
               />
             </div>
           )}
-          {chImages[1] && (
-            <div
-              className="absolute -bottom-2 -right-2 sm:-bottom-3 sm:-right-3 w-12 h-12 sm:w-16 sm:h-16 rounded-full overflow-hidden border-4 border-background shadow-xl ring-2 ring-foreground/10 bg-background cursor-pointer pointer-events-auto"
-              onClick={() => setActiveProfile("chinguun")}
-              aria-label="Show more Chinguun photos"
-            >
-              <Image
-                src={chImages[1]}
-                alt={`${t("chinguun.name")} 2`}
-                fill
-                className="object-cover"
-                sizes="64px"
-              />
-            </div>
-          )}
         </div>
 
         {/* Shinezaya Images (Primary + Overlapped Secondary) */}
@@ -150,21 +135,6 @@ export default function ProfileSwitcher() {
                 className="object-cover"
                 sizes="160px"
                 priority
-              />
-            </div>
-          )}
-          {shImages[1] && (
-            <div
-              className="absolute -bottom-2 -right-2 sm:-bottom-3 sm:-right-3 w-12 h-12 sm:w-16 sm:h-16 rounded-full overflow-hidden border-4 border-background shadow-xl ring-2 ring-foreground/10 bg-background cursor-pointer pointer-events-auto"
-              onClick={() => setActiveProfile("shinezaya")}
-              aria-label="Show more Shinezaya photos"
-            >
-              <Image
-                src={shImages[1]}
-                alt={`${t("shinezaya.name")} 2`}
-                fill
-                className="object-cover"
-                sizes="64px"
               />
             </div>
           )}

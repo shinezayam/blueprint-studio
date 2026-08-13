@@ -28,7 +28,9 @@
     "features": {
       "ios": {"title": "iOS & Android хөгжүүлэлт", "desc": "Swift • SwiftUI • Kotlin • Jetpack Compose • Firebase • Go APIs"},
       "web": {"title": "Вэб хөгжүүлэлт", "desc": "React • Next.js • Vue/Nuxt • Tailwind • Go/Postgres backends"},
-      "ux": {"title": "UX & Дизайн", "desc": "Figma • Дизайн системүүд • Wireframes • User flows"}
+      "ux": {"title": "UX & Дизайн", "desc": "Figma • Дизайн системүүд • Wireframes • User flows"},
+      "branding": {"title": "Брэндинг ба дизайн", "desc": "Брэнд identity • Лого • Гайдлайн • Социал загварууд"},
+      "marketing": {"title": "Маркетинг ба видео контент", "desc": "Reels • AI видео • Мэргэжлийн эвлүүлэг • DJI дрон бичлэг"}
     }
   },
   "about": {
