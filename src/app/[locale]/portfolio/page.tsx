@@ -337,6 +337,20 @@ export default function PortfolioPage() {
       ],
     },
     {
+      title: t("items.10.title"),
+      type: t("items.10.type"),
+      summary: t("items.10.summary"),
+      role: t("items.10.role"),
+      tools: t("items.10.tools"),
+      features: t("items.10.features"),
+      outcome: t("items.10.outcome"),
+      images: [
+        { src: "/chess-federation/chess-1.png", width: 3840, height: 2332 },
+        { src: "/chess-federation/chess-2.png", width: 3840, height: 2330 },
+        { src: "/chess-federation/chess-3.png", width: 3838, height: 2328 },
+      ],
+    },
+    {
       title: t("items.4.title"),
       type: t("items.4.type"),
       summary: t("items.4.summary"),
