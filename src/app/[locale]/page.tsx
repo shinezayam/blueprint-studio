@@ -24,10 +24,18 @@ export default function Home() {
         <div className="hero-glow" aria-hidden />
         <div className="grid-bg" aria-hidden />
         {/* Spline as immersive backdrop, faded into the black */}
-        <div className="pointer-events-none absolute inset-y-0 right-0 hidden md:block w-[62%] opacity-80">
+        <div
+          className="absolute inset-y-0 right-0 hidden md:block w-[62%] opacity-80"
+          ref={(el) => {
+            if (el && !el.dataset.wheelGuard) {
+              el.dataset.wheelGuard = "1";
+              el.addEventListener("wheel", (e) => e.stopPropagation(), { capture: true, passive: true });
+            }
+          }}
+        >
           <SplineHero className="h-full w-full" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/50 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-background via-background/50 to-transparent" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
         </div>
 
         <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
