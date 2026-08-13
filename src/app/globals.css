@@ -58,11 +58,11 @@
 
   --cta-from: #4959f6;
   --cta-to: #63d4f4;
-  --accent: #63d4f4;
-  --accent-soft: rgba(99, 212, 244, 0.12);
-  --accent-a: #4959f6;
-  --accent-b: #63d4f4;
-  --ring: rgba(99, 212, 244, 0.55);
+  --accent: #5475fe;
+  --accent-soft: rgba(84, 117, 254, 0.14);
+  --accent-a: #5475fe;
+  --accent-b: #5475fe;
+  --ring: rgba(84, 117, 254, 0.50);
 
   /* Card hover fill — solid brand cyan in dark mode */
   --card-fill: #63d4f4;
