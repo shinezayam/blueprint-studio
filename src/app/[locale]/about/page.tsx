@@ -28,7 +28,7 @@ export default function AboutPage() {
           <StatCard label="Team" value="2" hint="Husband & Wife duo" />
           <StatCard label="Active Users" value="23,000+" hint="Gerege App nationwide" />
           <StatCard label="Primary Focus" value="iOS + Frontend" hint="Swift, React, Vue" />
-          <StatCard label="Projects Shipped" value="6+" hint="From GovTech to E-commerce" />
+          <StatCard label="Projects Shipped" value="20+" hint="From GovTech to E-commerce" />
         </div>
       </Section>
 

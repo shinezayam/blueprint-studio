@@ -20,7 +20,7 @@
       "cta": "Start a project"
     },
     "proofBar": {
-      "projects": "7+ production apps",
+      "projects": "20+ projects shipped",
       "platforms": "iOS • Android • Web • Backend",
       "techStack": "Swift • React • Go • Redis",
       "languages": "Multilingual (EN / MN / KR)"
@@ -38,7 +38,7 @@
       "chinguun": {
         "name": "Chinguun",
         "role": "iOS + Web Developer",
-        "bio": "From Ireland to Mongolia — a journey of learning, building, and growth. I'm an iOS developer and UX lead passionate about turning ideas into products that make life easier. With experience in national-scale GovTech systems like Gerege Pay, I blend design thinking, engineering precision, and a lifelong commitment to learning. My path has taken me from designing posters after class to leading the front-end of Mongolia's largest digital services platform — always guided by curiosity and craftsmanship.",
+        "bio": "iOS developer and UX lead with national-scale experience at Gerege Pay. I combine design thinking with engineering precision to turn ideas into products people rely on.",
         "images": ["/chinguun/image 187.png", "/chinguun/image 188.png"],
         "certificates": [
           {"name": "Automating Real World Tasks with Python", "file": "/Porfolio Chinguun/Coursera Automating Real World Tasks with Python.pdf"},
@@ -100,22 +100,22 @@
         {
           "period": "2007 – 2010",
           "title": "Ireland",
-          "desc": "Childhood years in Ireland — native-level English and an early connection to technology and global culture."
+          "desc": "Childhood in Ireland — native-level English and an early connection to technology."
         },
         {
           "period": "2019 – 2025",
           "title": "University & Design Work",
-          "desc": "Software Engineering at the Mongolian University of Science and Technology, freelancing in UI/UX and brand design alongside — the foundation of our front-end precision and Figma fluency."
+          "desc": "Software Engineering at MUST, freelancing in UI/UX and brand design alongside."
         },
         {
           "period": "2024",
           "title": "Gerege Pay",
-          "desc": "iOS developer and UX lead on the Gerege App — core front-end flows and design-system alignment for a national platform with 23,000+ active users across 24 provinces."
+          "desc": "iOS developer and UX lead on the Gerege App — 23,000+ active users across 24 provinces."
         },
         {
           "period": "2025",
           "title": "Blueprint Studio",
-          "desc": "Founded Blueprint Studio together — multilingual, production-ready apps combining engineering, design, and AI-driven productivity for clients worldwide."
+          "desc": "Founded Blueprint Studio together — multilingual, production-ready apps for clients worldwide."
         }
       ]
     },
