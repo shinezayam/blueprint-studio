@@ -297,6 +297,12 @@ body {
   opacity: 0.5;
 }
 
+/* Theme-adaptive logo: light wordmark by default, dark wordmark under .dark */
+.logo-dark { display: none; }
+.logo-light { display: block; }
+.dark .logo-dark { display: block; }
+.dark .logo-light { display: none; }
+
 /* Thin gradient hairline divider */
 .gradient-rule {
   height: 1px;

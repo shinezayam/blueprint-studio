@@ -35,7 +35,13 @@ export function Navbar() {
             <img
               src="/logo.svg"
               alt="Blueprint Studio"
-              className="h-5 sm:h-6 w-auto transition-transform group-hover:scale-[1.03]"
+              className="logo-dark h-5 sm:h-6 w-auto transition-transform group-hover:scale-[1.03]"
+            />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/logo-light.svg"
+              alt="Blueprint Studio"
+              className="logo-light h-5 sm:h-6 w-auto transition-transform group-hover:scale-[1.03]"
             />
           </Link>
 
