@@ -30,9 +30,13 @@ export function Navbar() {
     <header className="sticky top-0 z-50 backdrop-blur-md supports-[backdrop-filter]:bg-background/70 border-b border-foreground/10">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex h-16 items-center justify-between">
-          <Link href={`/${locale}`} className="group flex items-center gap-2.5 font-semibold tracking-tight text-foreground">
-            <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg text-white text-sm font-bold transition-transform group-hover:scale-105" style={{ background: "linear-gradient(135deg, var(--cta-from), var(--cta-to))", boxShadow: "0 4px 14px -4px rgba(99,212,244,0.6)" }}>B</span>
-            <span className="text-[15px]">Blueprint Studio</span>
+          <Link href={`/${locale}`} className="group flex items-center" aria-label="Blueprint Studio — home">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/logo.svg"
+              alt="Blueprint Studio"
+              className="h-5 sm:h-6 w-auto transition-transform group-hover:scale-[1.03]"
+            />
           </Link>
 
           <nav className="hidden md:flex items-center gap-1 text-sm">
