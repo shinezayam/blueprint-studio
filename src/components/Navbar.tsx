@@ -61,7 +61,6 @@ export function Navbar() {
           <div className="hidden md:flex items-center gap-2">
             <LangToggle />
             <ThemeToggle />
-            <Link href={`/${locale}/portfolio`} className="btn btn-secondary h-11 !py-0">{t("ctaWork")}</Link>
             <Link href={`/${locale}/contact`} className="btn btn-primary h-11 !py-0">{t("ctaContact")}</Link>
           </div>
 
@@ -100,7 +99,6 @@ export function Navbar() {
                 <LangToggle />
                 <ThemeToggle />
               </div>
-              <Link href={`/${locale}/portfolio`} className="btn btn-secondary w-full" onClick={() => setOpen(false)}>{t("ctaWork")}</Link>
               <Link href={`/${locale}/contact`} className="btn btn-primary w-full" onClick={() => setOpen(false)}>{t("ctaContact")}</Link>
             </div>
           </div>
