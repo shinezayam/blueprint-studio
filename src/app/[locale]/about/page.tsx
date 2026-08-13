@@ -13,7 +13,7 @@ export default function AboutPage() {
   const t = useTranslations("about");
   const locale = useLocale();
   return (
-    <div className="space-y-10 overflow-x-hidden">
+    <div className="space-y-10 overflow-x-clip">
       <PageHeader eyebrow="About" title={t("title")} description={t("intro")} />
 
       {/* Profile Switcher Section */}
