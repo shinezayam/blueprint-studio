@@ -257,6 +257,15 @@
         "summary": "Website for Sayan Dent dental clinic — services, doctor profiles, and online appointment booking",
         "features": "Service catalog from implants to veneers, doctor profiles, online appointment booking, patient sign-in",
         "outcome": "Modern clinic website with a warm brand identity, live in production"
+      },
+      {
+        "title": "Mongolian Chess Federation",
+        "type": "Web Design",
+        "summary": "Website design for the Mongolian Chess Federation — a modern home for news, tournaments, rankings, and players",
+        "role": "Web & UI/UX Design",
+        "tools": "Figma",
+        "features": "Tournament schedules & results, national player rankings, news & announcements, and player/club profiles",
+        "outcome": "A clean, sport-forward identity that makes tournaments, rankings, and federation news easy to follow"
       }
     ]
   },
