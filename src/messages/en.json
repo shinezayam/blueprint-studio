@@ -304,6 +304,24 @@
         "tools": "Figma",
         "features": "Hero & feature highlights, service showcase, download CTAs, and responsive marketing sections",
         "outcome": "A polished landing experience that communicates the Gerege App's scale and services at a glance"
+      },
+      {
+        "title": "National Cancer Center",
+        "type": "Web Design",
+        "summary": "Website & system redesign for the National Cancer Research Center of Mongolia — screening, patient records, and staff management",
+        "role": "Web & UI/UX Design",
+        "tools": "Figma",
+        "features": "Early cancer-detection screening, patient information & records (EMM-92), registration flows, doctor & staff management, and help center",
+        "outcome": "A clearer, modern healthcare system that streamlines screening, patient registration, and clinical staff workflows"
+      },
+      {
+        "title": "e-Bolovsrol",
+        "type": "Web Design",
+        "summary": "Web design for e-Bolovsrol — Mongolia's digital education platform for students, teachers, and parents",
+        "role": "Web & UI/UX Design",
+        "tools": "Figma",
+        "features": "Student dashboards, grades & attendance, class schedules, teacher tools, and parent access",
+        "outcome": "A unified, easy-to-navigate education platform that connects students, teachers, and parents"
       }
     ]
   },
