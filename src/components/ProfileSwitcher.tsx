@@ -69,8 +69,20 @@ export default function ProfileSwitcher() {
 
   return (
     <div className="relative space-y-16 mt-28 sm:mt-32 py-16 sm:py-22 overflow-hidden">
-      {/* Robot Arm Background - Receives mouse events but positioned behind UI elements */}
-      <div className="absolute inset-0  overflow-hidden pointer-events-auto" style={{ zIndex: 1 }}>
+      {/* Robot Arm Background - Receives mouse events but positioned behind UI elements.
+          Wheel events are stopped in the capture phase so the Spline canvas never
+          zooms/moves the scene on scroll — the page scrolls normally instead. */}
+      <div
+        className="absolute inset-0  overflow-hidden pointer-events-auto"
+        style={{ zIndex: 1 }}
+        ref={(el) => {
+          if (el && !el.dataset.wheelGuard) {
+            el.dataset.wheelGuard = "1";
+            el.addEventListener("wheel", (e) => e.stopPropagation(), { capture: true, passive: true });
+            el.addEventListener("touchmove", (e) => e.stopPropagation(), { capture: true, passive: true });
+          }
+        }}
+      >
         <div className="absolute inset-0 flex items-center justify-center opacity-25">
           <div className="w-full max-w-[800px] h-[1200px] relative">
             {hasSpline ? (
