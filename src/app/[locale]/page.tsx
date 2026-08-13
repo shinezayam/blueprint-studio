@@ -1,13 +1,23 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import SplineHero from "@/components/SplineHero";
 import Icon from "@/components/Icon";
 import {useLocale, useTranslations} from "next-intl";
 
 export default function Home() {
   const t = useTranslations("home");
+  const tp = useTranslations("portfolio");
   const locale = useLocale();
+
+  // Featured projects for the home showcase (indexes into portfolio.items)
+  const showcase = [
+    { index: 0, img: "/ai.gerege.mn/image 218.png" },
+    { index: 1, img: "/LaundryZone/image 174.png" },
+    { index: 8, img: "/mongolschool/mongolschool-1.png" },
+    { index: 9, img: "/sayandent/sayandent-1.png" },
+  ] as const;
 
   const features = [
     { key: "ios", icon: "iphone" },
@@ -78,6 +88,48 @@ export default function Home() {
             <p className="text-sm text-foreground/60 leading-relaxed">{t(`features.${f.key}.desc`)}</p>
           </div>
         ))}
+      </div>
+
+      {/* Portfolio showcase */}
+      <div className="space-y-8 fade-in-up" style={{ animationDelay: "240ms" }}>
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <div className="space-y-3 max-w-2xl">
+            <span className="eyebrow">{t("showcase.eyebrow")}</span>
+            <h2 className="text-3xl sm:text-4xl font-semibold tracking-[-0.02em] text-foreground">
+              {t("showcase.title")}
+            </h2>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          {showcase.map((s) => (
+            <Link key={s.index} href={`/${locale}/portfolio`} className="card overflow-hidden group">
+              <div className="relative aspect-[16/10] overflow-hidden bg-foreground/[0.04]">
+                <Image
+                  src={s.img}
+                  alt={tp(`items.${s.index}.title`)}
+                  fill
+                  className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                  sizes="(max-width: 640px) 100vw, 50vw"
+                />
+              </div>
+              <div className="flex items-center justify-between gap-3 p-5">
+                <div>
+                  <h3 className="font-semibold text-foreground">{tp(`items.${s.index}.title`)}</h3>
+                  <p className="text-sm text-foreground/50">{tp(`items.${s.index}.type`)}</p>
+                </div>
+                <span aria-hidden className="text-foreground/35 transition-colors group-hover:text-foreground">→</span>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        <div className="flex justify-center pt-2">
+          <Link href={`/${locale}/portfolio`} className="btn btn-secondary">
+            {t("showcase.cta")}
+            <span aria-hidden>→</span>
+          </Link>
+        </div>
       </div>
 
       {/* Closing CTA band */}

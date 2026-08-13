@@ -19,6 +19,11 @@
       "desc": "Let's turn your idea into a production-grade product — fast, accessible, and built to scale.",
       "cta": "Start a project"
     },
+    "showcase": {
+      "eyebrow": "Selected work",
+      "title": "Products we've brought to life",
+      "cta": "View more"
+    },
     "proofBar": {
       "projects": "20+ products shipped & counting",
       "platforms": "Native — iOS · Android · Web",
