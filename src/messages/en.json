@@ -242,7 +242,7 @@
         "team": "2 (Chinguun & Shinezaya)",
         "role": "Full-stack — iOS app, backend system design with Redis caching, MinIO object storage, and Grafana observability, through to App Store release",
         "features": "LiveKit real-time chat, workout planning, push notifications, Google & Apple login, media storage on MinIO, Grafana monitoring dashboards",
-        "outcome": "Successfully shipped to the iOS App Store — our first fully self-built product with production backend infrastructure"
+        "outcome": "Successfully shipped to the iOS App Store and ranked #1 trending app — our first fully self-built product with production backend infrastructure"
       }
     ]
   },

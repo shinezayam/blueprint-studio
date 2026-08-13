@@ -211,7 +211,13 @@ export default function PortfolioPage() {
       features: t("items.7.features"),
       outcome: t("items.7.outcome"),
       link: "https://geclub.mn",
-      images: [],
+      images: [
+        { src: "/GeClub/geclub-1.png", width: 1242, height: 2688 },
+        { src: "/GeClub/geclub-2.png", width: 1242, height: 2688 },
+        { src: "/GeClub/geclub-3.png", width: 1242, height: 2688 },
+        { src: "/GeClub/geclub-4.png", width: 1242, height: 2688 },
+        { src: "/GeClub/geclub-5.png", width: 1242, height: 2688 },
+      ],
     },
     {
       title: t("items.0.title"),
