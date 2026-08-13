@@ -3,7 +3,7 @@
     "home": "Home",
     "about": "About",
     "services": "Services",
-    "portfolio": "Portfolio",
+    "portfolio": "Products",
     "contact": "Contact",
     "ctaContact": "Contact us",
     "ctaWork": "View work"
@@ -165,8 +165,10 @@
     }
   },
   "portfolio": {
-    "title": "Portfolio",
-    "intro": "Real projects used by thousands of people — from GovTech to e-commerce. Each case study shows Problem → Solution → Tech → Outcome.",
+    "eyebrow": "Built products",
+    "title": "Products & Partners",
+    "intro": "We don't just take briefs — we build and ship real products alongside our partners. From national GovTech platforms serving thousands daily to consumer apps live on the App Store.",
+    "partnersLabel": "Partners we build with",
     "items": [
       {
         "title": "ai.gerege.mn",

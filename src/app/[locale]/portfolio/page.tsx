@@ -1,6 +1,6 @@
 "use client";
 
-import {Suspense} from "react";
+import {Suspense, useEffect, useRef} from "react";
 import {useTranslations} from "next-intl";
 import Image from "next/image";
 import PageHeader from "@/components/PageHeader";
@@ -9,9 +9,6 @@ type ProjectImage = {
   src: string;
   width: number;
   height: number;
-  isWide?: boolean;
-  isSignIn?: boolean;
-  isCentered?: boolean;
 };
 
 type ProjectItem = {
@@ -28,125 +25,81 @@ type ProjectItem = {
   features?: string;
   outcome?: string;
   link?: string;
-  customLayout?: "gerege" | "befit" | "dbox";
   images: ProjectImage[];
 };
 
-const zoomImg = "object-contain transition-transform duration-700 ease-out group-hover:scale-[1.05]";
-const frame = "relative group rounded-xl overflow-hidden border border-foreground/10 bg-background";
+/* Reveal-on-scroll + focus-glow observers, shared by the whole page */
+function useScrollEffects(root: React.RefObject<HTMLDivElement | null>) {
+  useEffect(() => {
+    const el = root.current;
+    if (!el) return;
 
-function ProjectHeader({ item, index }: { item: ProjectItem; index: number }) {
+    const revealed = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            e.target.classList.add("is-visible");
+            revealed.unobserve(e.target);
+          }
+        }
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+    );
+    el.querySelectorAll(".reveal").forEach((n) => revealed.observe(n));
+
+    const focused = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          e.target.classList.toggle("in-focus", e.isIntersecting);
+        }
+      },
+      { threshold: 0.28 }
+    );
+    el.querySelectorAll(".product-card").forEach((n) => focused.observe(n));
+
+    return () => {
+      revealed.disconnect();
+      focused.disconnect();
+    };
+  }, [root]);
+}
+
+function MetaPill({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex items-start gap-4 sm:gap-5 px-6 sm:px-8 pt-7 sm:pt-9">
-      <span className="text-cta text-4xl sm:text-5xl font-semibold tabular-nums leading-none select-none">
-        {String(index + 1).padStart(2, "0")}
-      </span>
-      <div className="space-y-2 pt-0.5">
-        <h3 className="font-semibold text-2xl sm:text-3xl tracking-[-0.02em] text-foreground">{item.title}</h3>
-        <p className="text-sm text-foreground/50">{item.type}</p>
-      </div>
+    <div className="inline-flex max-w-full items-baseline gap-2 rounded-full border border-foreground/10 bg-foreground/[0.03] px-4 py-2">
+      <span className="text-[0.62rem] uppercase tracking-wider text-foreground/40 font-semibold shrink-0">{label}</span>
+      <span className="text-[0.82rem] text-foreground/80 leading-snug">{value}</span>
     </div>
   );
 }
 
-function ProjectGallery({ item }: { item: ProjectItem }) {
-  const shell = "bg-gradient-to-b from-white/[0.04] to-transparent px-4 sm:px-6 pt-6 pb-4 sm:pb-6";
-
+function ProductGallery({ item }: { item: ProjectItem }) {
   if (item.images.length === 0) return null;
-
-  if (item.customLayout === "gerege") {
-    const wide = item.images.filter((img) => img.isWide);
-    const signIn = item.images.find((img) => img.isSignIn);
-    const mobile = item.images.filter((img) => !img.isWide && !img.isSignIn);
-    return (
-      <div className={`${shell} space-y-4`}>
-        {wide.length > 0 && (
-          <div className="space-y-4">
-            {wide.map((img, idx) => (
-              <div key={idx} className={`w-full ${frame}`} style={{ aspectRatio: `${img.width}/${img.height}` }}>
-                <Image src={img.src} alt={`${item.title} screenshot ${idx + 1}`} fill className={zoomImg} sizes="100vw" />
-              </div>
-            ))}
-          </div>
-        )}
-        <div className="flex flex-wrap justify-center gap-4">
-          {signIn && (
-            <div className={frame} style={{ width: "240px", height: `${(240 * signIn.height) / signIn.width}px`, maxHeight: "400px" }}>
-              <Image src={signIn.src} alt={`${item.title} sign in`} fill className={zoomImg} sizes="240px" />
-            </div>
-          )}
-          {mobile.map((img, idx) => (
-            <div key={idx} className={frame} style={{ width: "180px", height: `${(180 * img.height) / img.width}px`, maxHeight: "400px" }}>
-              <Image src={img.src} alt={`${item.title} mobile screenshot ${idx + 1}`} fill className={zoomImg} sizes="180px" />
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  }
-
-  if (item.customLayout === "befit" || item.customLayout === "dbox") {
-    const centered = item.images.find((img) => img.isCentered);
-    const mobile = item.images.filter((img) => !img.isCentered);
-    return (
-      <div className={`${shell} space-y-4`}>
-        {centered && (
-          <div className="flex justify-center">
-            <div className={frame} style={{ width: "100%", maxWidth: "800px", aspectRatio: `${centered.width}/${centered.height}` }}>
-              <Image src={centered.src} alt={`${item.title} preview`} fill className={zoomImg} sizes="(max-width: 800px) 100vw, 800px" />
-            </div>
-          </div>
-        )}
-        {mobile.length > 0 && (
-          <div className="flex flex-wrap justify-center gap-4">
-            {mobile.map((img, idx) => (
-              <div key={idx} className={frame} style={{ width: "180px", height: `${(180 * img.height) / img.width}px`, maxHeight: "400px" }}>
-                <Image src={img.src} alt={`${item.title} mobile screenshot ${idx + 1}`} fill className={zoomImg} sizes="180px" />
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-    );
-  }
-
-  // Default: split by aspect ratio
-  const wide = item.images.filter((img) => img.width / img.height > 1.2);
-  const tall = item.images.filter((img) => img.width / img.height <= 1.2);
   return (
-    <div className={shell}>
-      {wide.length > 0 && (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-          {wide.map((img, idx) => (
-            <div key={idx} className={`w-full ${frame}`} style={{ aspectRatio: `${img.width}/${img.height}` }}>
-              <Image src={img.src} alt={`${item.title} screenshot ${idx + 1}`} fill className={zoomImg} sizes="(max-width: 768px) 100vw, 50vw" />
-            </div>
-          ))}
-        </div>
-      )}
-      {tall.length > 0 && (
-        <div className="flex flex-wrap justify-center gap-4">
-          {tall.map((img, idx) => (
-            <div key={idx} className={frame} style={{ width: "200px", height: `${(200 * img.height) / img.width}px`, maxHeight: "450px" }}>
-              <Image src={img.src} alt={`${item.title} mobile screenshot ${idx + 1}`} fill className={zoomImg} sizes="200px" />
-            </div>
-          ))}
-        </div>
-      )}
+    <div className="snap-strip">
+      {item.images.map((img, idx) => {
+        const wide = img.width / img.height > 1.2;
+        return (
+          <div
+            key={idx}
+            className="gallery-frame h-[340px] sm:h-[430px]"
+            style={{ aspectRatio: `${img.width} / ${img.height}`, maxWidth: wide ? "82vw" : "70vw" }}
+          >
+            <Image
+              src={img.src}
+              alt={`${item.title} preview ${idx + 1}`}
+              fill
+              className="object-cover"
+              sizes={wide ? "(max-width: 768px) 82vw, 700px" : "(max-width: 768px) 55vw, 200px"}
+            />
+          </div>
+        );
+      })}
     </div>
   );
 }
 
-function MetaRow({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="pl-4 border-l border-foreground/15">
-      <div className="text-[0.68rem] uppercase tracking-wider text-foreground/45 font-medium">{label}</div>
-      <div className="text-sm text-foreground/85 mt-1 leading-snug">{value}</div>
-    </div>
-  );
-}
-
-function ProjectDetails({ item }: { item: ProjectItem }) {
+function ProductCard({ item, index }: { item: ProjectItem; index: number }) {
   const meta = ([
     ["Stack", item.stack],
     ["Team", item.team],
@@ -158,47 +111,97 @@ function ProjectDetails({ item }: { item: ProjectItem }) {
   ] as [string, string | undefined][]).filter((e): e is [string, string] => Boolean(e[1]));
 
   return (
-    <div className="border-t border-foreground/10 p-6 sm:p-8 space-y-6">
-      <p className="text-foreground/70 leading-relaxed text-base sm:text-lg max-w-3xl">{item.summary}</p>
+    <article className="product-card reveal" style={{ "--reveal-delay": "80ms" } as React.CSSProperties}>
+      {/* Header — big title left, summary right, spaceship-style split */}
+      <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-5 lg:gap-10 px-6 sm:px-10 pt-8 sm:pt-12 pb-6 sm:pb-8">
+        <div className="space-y-3">
+          <div className="flex items-center gap-3">
+            <span className="chip"><span className="dot" />{item.type}</span>
+            <span className="text-xs tabular-nums text-foreground/30 font-semibold tracking-widest">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+          </div>
+          <h3 className="font-semibold text-3xl sm:text-5xl tracking-[-0.03em] text-foreground leading-[1.05]">
+            {item.title}
+          </h3>
+        </div>
+        <div className="flex flex-col justify-end gap-3">
+          <p className="text-foreground/60 leading-relaxed text-base sm:text-lg">{item.summary}</p>
+          {item.link && (
+            <a
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-cta hover:opacity-80 transition-opacity"
+            >
+              {item.link.replace(/^https?:\/\//, "")} ↗
+            </a>
+          )}
+        </div>
+      </div>
 
-      {item.link && (
-        <a
-          href={item.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 text-sm font-medium text-cta hover:underline"
-        >
-          {item.link.replace(/^https?:\/\//, "")} ↗
-        </a>
-      )}
+      <ProductGallery item={item} />
 
-      {meta.length > 0 && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-5">
-          {meta.map(([label, value]) => (
-            <MetaRow key={label} label={label} value={value} />
+      {/* Details */}
+      <div className="px-6 sm:px-10 pb-8 sm:pb-12 pt-4 space-y-6">
+        {meta.length > 0 && (
+          <div className="flex flex-wrap gap-2.5">
+            {meta.map(([label, value]) => (
+              <MetaPill key={label} label={label} value={value} />
+            ))}
+          </div>
+        )}
+
+        {item.features && (
+          <p className="text-sm sm:text-[0.95rem] text-foreground/60 leading-relaxed max-w-3xl">{item.features}</p>
+        )}
+
+        {item.outcome && (
+          <div className="rounded-2xl border border-foreground/10 bg-gradient-to-br from-[color-mix(in_srgb,var(--accent)_10%,transparent)] to-transparent p-5 sm:p-6">
+            <div className="mb-1.5 text-[0.65rem] uppercase tracking-[0.18em] font-semibold text-cta">Outcome</div>
+            <p className="text-sm sm:text-base text-foreground/85 leading-relaxed">{item.outcome}</p>
+          </div>
+        )}
+      </div>
+    </article>
+  );
+}
+
+function PartnerMarquee({ label, partners }: { label: string; partners: string[] }) {
+  const track = [...partners, ...partners];
+  return (
+    <div className="reveal space-y-5" style={{ "--reveal-delay": "120ms" } as React.CSSProperties}>
+      <p className="text-center text-[0.7rem] uppercase tracking-[0.22em] font-semibold text-foreground/35">{label}</p>
+      <div className="marquee py-2">
+        <div className="marquee-track">
+          {track.map((name, i) => (
+            <span
+              key={i}
+              className="text-xl sm:text-2xl font-semibold tracking-tight text-foreground/25 whitespace-nowrap select-none"
+            >
+              {name}
+            </span>
           ))}
         </div>
-      )}
-
-      {item.features && (
-        <div>
-          <div className="text-[0.68rem] uppercase tracking-wider text-foreground/45 font-medium mb-2">Key features</div>
-          <p className="text-sm text-foreground/75 leading-relaxed max-w-3xl">{item.features}</p>
-        </div>
-      )}
-
-      {item.outcome && (
-        <div className="rounded-2xl border border-cyan-400/25 bg-gradient-to-br from-indigo-500/10 to-cyan-400/10 p-5 sm:p-6">
-          <div className="mb-1.5 text-[0.68rem] uppercase tracking-wider font-semibold text-cta">Outcome</div>
-          <p className="text-sm sm:text-base text-foreground/90 leading-relaxed">{item.outcome}</p>
-        </div>
-      )}
+      </div>
     </div>
   );
 }
 
 export default function PortfolioPage() {
   const t = useTranslations("portfolio");
+  const rootRef = useRef<HTMLDivElement>(null);
+  useScrollEffects(rootRef);
+
+  const partners = [
+    "Gerege Systems",
+    "Gerege Pay",
+    "GeClub",
+    "LaundryZone",
+    "Dream Box MN",
+    "ai.gerege.mn",
+    "Women's Federation of Darkhan",
+  ];
 
   const items: ProjectItem[] = [
     {
@@ -241,6 +244,23 @@ export default function PortfolioPage() {
       ],
     },
     {
+      title: t("items.2.title"),
+      type: t("items.2.type"),
+      summary: t("items.2.summary"),
+      users: t("items.2.users"),
+      team: t("items.2.team"),
+      role: t("items.2.role"),
+      features: t("items.2.features"),
+      outcome: t("items.2.outcome"),
+      images: [
+        { src: "/Gerege app/gerege-preview-1.png", width: 1242, height: 2688 },
+        { src: "/Gerege app/gerege-preview-2.png", width: 1242, height: 2688 },
+        { src: "/Gerege app/gerege-preview-3.png", width: 1242, height: 2688 },
+        { src: "/Gerege app/gerege-preview-4.png", width: 1242, height: 2688 },
+        { src: "/Gerege app/gerege-preview-5.png", width: 1242, height: 2688 },
+      ],
+    },
+    {
       title: t("items.1.title"),
       type: t("items.1.type"),
       summary: t("items.1.summary"),
@@ -260,32 +280,14 @@ export default function PortfolioPage() {
       ],
     },
     {
-      title: t("items.2.title"),
-      type: t("items.2.type"),
-      summary: t("items.2.summary"),
-      users: t("items.2.users"),
-      team: t("items.2.team"),
-      role: t("items.2.role"),
-      features: t("items.2.features"),
-      outcome: t("items.2.outcome"),
-      images: [
-        { src: "/Gerege app/gerege-preview-1.png", width: 1242, height: 2688 },
-        { src: "/Gerege app/gerege-preview-2.png", width: 1242, height: 2688 },
-        { src: "/Gerege app/gerege-preview-3.png", width: 1242, height: 2688 },
-        { src: "/Gerege app/gerege-preview-4.png", width: 1242, height: 2688 },
-        { src: "/Gerege app/gerege-preview-5.png", width: 1242, height: 2688 },
-      ],
-    },
-    {
       title: t("items.3.title"),
       type: t("items.3.type"),
       summary: t("items.3.summary"),
       stack: t("items.3.stack"),
       features: t("items.3.features"),
       outcome: t("items.3.outcome"),
-      customLayout: "befit",
       images: [
-        { src: "/BeFit FitnessHelper/image 184.png", width: 1800, height: 1080, isCentered: true },
+        { src: "/BeFit FitnessHelper/image 184.png", width: 1800, height: 1080 },
         { src: "/BeFit FitnessHelper/IMG_2289.png", width: 393, height: 852 },
         { src: "/BeFit FitnessHelper/IMG_2290.png", width: 393, height: 852 },
         { src: "/BeFit FitnessHelper/IMG_2291.png", width: 393, height: 852 },
@@ -301,9 +303,8 @@ export default function PortfolioPage() {
       duration: t("items.4.duration"),
       features: t("items.4.features"),
       outcome: t("items.4.outcome"),
-      customLayout: "dbox",
       images: [
-        { src: "/dbox/image 157.png", width: 2013, height: 1278, isCentered: true },
+        { src: "/dbox/image 157.png", width: 2013, height: 1278 },
         { src: "/dbox/IMG_2275.png", width: 590, height: 1278 },
         { src: "/dbox/IMG_2276.png", width: 590, height: 1278 },
         { src: "/dbox/IMG_2277.png", width: 590, height: 1278 },
@@ -335,19 +336,16 @@ export default function PortfolioPage() {
 
   return (
     <Suspense fallback={null}>
-      <div className="space-y-16">
-        <PageHeader eyebrow="Portfolio" title={t("title")} description={t("intro")} />
+      <div ref={rootRef} className="space-y-14 sm:space-y-20">
+        <div className="reveal">
+          <PageHeader eyebrow={t("eyebrow")} title={t("title")} description={t("intro")} />
+        </div>
 
-        <div className="space-y-16 sm:space-y-24">
+        <PartnerMarquee label={t("partnersLabel")} partners={partners} />
+
+        <div className="space-y-14 sm:space-y-24">
           {items.map((item, i) => (
-            <article
-              key={i}
-              className="card overflow-hidden scroll-mt-24 transition-colors duration-300 hover:border-foreground/20"
-            >
-              <ProjectHeader item={item} index={i} />
-              <ProjectGallery item={item} />
-              <ProjectDetails item={item} />
-            </article>
+            <ProductCard key={item.title} item={item} index={i} />
           ))}
         </div>
       </div>
