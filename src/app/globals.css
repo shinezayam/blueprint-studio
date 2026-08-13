@@ -124,8 +124,8 @@ body {
 
 /* Gradient CTA */
 .btn-primary {
-  background: linear-gradient(135deg, var(--cta-from) 0%, var(--cta-to) 100%);
-  color: #ffffff;
+  background: #63d4f4;
+  color: #06131f;
   box-shadow: var(--glow);
 }
 .btn-primary:hover {
