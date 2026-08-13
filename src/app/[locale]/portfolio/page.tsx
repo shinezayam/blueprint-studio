@@ -27,6 +27,7 @@ type ProjectItem = {
   tools?: string;
   features?: string;
   outcome?: string;
+  link?: string;
   customLayout?: "gerege" | "befit" | "dbox";
   images: ProjectImage[];
 };
@@ -160,6 +161,17 @@ function ProjectDetails({ item }: { item: ProjectItem }) {
     <div className="border-t border-foreground/10 p-6 sm:p-8 space-y-6">
       <p className="text-foreground/70 leading-relaxed text-base sm:text-lg max-w-3xl">{item.summary}</p>
 
+      {item.link && (
+        <a
+          href={item.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 text-sm font-medium text-cta hover:underline"
+        >
+          {item.link.replace(/^https?:\/\//, "")} ↗
+        </a>
+      )}
+
       {meta.length > 0 && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-5">
           {meta.map(([label, value]) => (
@@ -198,6 +210,7 @@ export default function PortfolioPage() {
       role: t("items.7.role"),
       features: t("items.7.features"),
       outcome: t("items.7.outcome"),
+      link: "https://geclub.mn",
       images: [],
     },
     {
