@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import {useLocale, useTranslations} from "next-intl";
 import ThemeToggle from "@/components/ThemeToggle";
@@ -20,6 +20,31 @@ export function Navbar() {
   const t = useTranslations("nav");
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  /* App-style header: hide on scroll down, reveal on scroll up,
+     transparent while at the very top of the page. */
+  useEffect(() => {
+    let lastY = window.scrollY;
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        setScrolled(y > 8);
+        const delta = y - lastY;
+        if (Math.abs(delta) > 6) {
+          setHidden(delta > 0 && y > 90);
+          lastY = y;
+        }
+        ticking = false;
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const isActive = (href: string) => {
     const full = `/${locale}${href === "/" ? "" : href}`;
@@ -27,7 +52,15 @@ export function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-md supports-[backdrop-filter]:bg-background/70 border-b border-foreground/10">
+    <header
+      className={`sticky top-0 z-50 transition-[transform,background-color,border-color,box-shadow] duration-300 ease-out ${
+        hidden && !open ? "max-md:-translate-y-full" : "translate-y-0"
+      } ${
+        scrolled || open
+          ? "backdrop-blur-md supports-[backdrop-filter]:bg-background/70 border-b border-foreground/10 shadow-[0_8px_30px_-18px_rgba(0,0,0,0.35)]"
+          : "bg-transparent border-b border-transparent"
+      }`}
+    >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex h-16 items-center justify-between">
           <Link href={`/${locale}`} className="group flex items-center" aria-label="Blueprint Studio — home">
