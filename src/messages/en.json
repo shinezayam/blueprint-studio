@@ -268,6 +268,42 @@
         "tools": "Figma",
         "features": "Tournament schedules & results, national player rankings, news & announcements, and player/club profiles",
         "outcome": "A clean, sport-forward identity that makes tournaments, rankings, and federation news easy to follow"
+      },
+      {
+        "title": "Simple — Loan Kiosk",
+        "type": "Kiosk Design",
+        "summary": "Self-service kiosk design for instant loan applications — from eligibility check to approval in a few taps",
+        "role": "UI/UX & Kiosk Design",
+        "tools": "Figma",
+        "features": "Guided loan flow: eligibility check, real-time credit calculation, registration, account details, and success/decline states",
+        "outcome": "A large-format, touch-friendly interface that makes applying for a loan simple and self-guided"
+      },
+      {
+        "title": "E-property.mn",
+        "type": "Web Design",
+        "summary": "Web design for E-property.mn — a real-estate marketplace for browsing, listing, and comparing properties",
+        "role": "Web & UI/UX Design",
+        "tools": "Figma",
+        "features": "Property listings with rich media, search & filters, map view, listing details, and agent contact",
+        "outcome": "A clean, trustworthy marketplace design that makes finding and listing property effortless"
+      },
+      {
+        "title": "Airalo eSIM",
+        "type": "App Design",
+        "summary": "Mobile app design for Airalo — buy and install eSIM data plans for travel in a few taps",
+        "role": "UI/UX & App Design",
+        "tools": "Figma",
+        "features": "Browse plans by region & country, plan details, free eSIM promo, and a step-by-step eSIM install guide",
+        "outcome": "A focused, travel-friendly flow that turns buying an eSIM into a few simple steps"
+      },
+      {
+        "title": "Gerege App — Web",
+        "type": "Web Design",
+        "summary": "Marketing website design for the Gerege App — introducing the nationwide digital-services super-app",
+        "role": "Web & UI/UX Design",
+        "tools": "Figma",
+        "features": "Hero & feature highlights, service showcase, download CTAs, and responsive marketing sections",
+        "outcome": "A polished landing experience that communicates the Gerege App's scale and services at a glance"
       }
     ]
   },
