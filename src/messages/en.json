@@ -170,6 +170,7 @@
     "title": "Products & Partners",
     "intro": "We don't just take briefs — we build and ship real products alongside our partners. From national GovTech platforms serving thousands daily to consumer apps live on the App Store.",
     "partnersLabel": "Partners we build with",
+    "dragHint": "Drag to see more",
     "items": [
       {
         "title": "ai.gerege.mn",

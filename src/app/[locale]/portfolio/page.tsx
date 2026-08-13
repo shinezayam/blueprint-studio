@@ -1,6 +1,6 @@
 "use client";
 
-import {Suspense, useEffect, useRef} from "react";
+import {Suspense, useEffect, useRef, useState} from "react";
 import {useTranslations} from "next-intl";
 import Image from "next/image";
 import PageHeader from "@/components/PageHeader";
@@ -73,33 +73,54 @@ function MetaPill({ label, value }: { label: string; value: string }) {
   );
 }
 
-function ProductGallery({ item }: { item: ProjectItem }) {
+function ProductGallery({ item, dragLabel }: { item: ProjectItem; dragLabel: string }) {
+  const [hintHidden, setHintHidden] = useState(false);
   if (item.images.length === 0) return null;
   return (
-    <div className="snap-strip">
-      {item.images.map((img, idx) => {
-        const wide = img.width / img.height > 1.2;
-        return (
-          <div
-            key={idx}
-            className="gallery-frame h-[340px] sm:h-[430px]"
-            style={{ aspectRatio: `${img.width} / ${img.height}`, maxWidth: wide ? "82vw" : "70vw" }}
-          >
-            <Image
-              src={img.src}
-              alt={`${item.title} preview ${idx + 1}`}
-              fill
-              className="object-cover"
-              sizes={wide ? "(max-width: 768px) 82vw, 700px" : "(max-width: 768px) 55vw, 200px"}
-            />
+    <div className="relative">
+      <div
+        className="snap-strip"
+        onScroll={(e) => {
+          if (!hintHidden && e.currentTarget.scrollLeft > 24) setHintHidden(true);
+        }}
+      >
+        {item.images.map((img, idx) => {
+          const wide = img.width / img.height > 1.2;
+          return (
+            <div
+              key={idx}
+              className="gallery-frame h-[340px] sm:h-[430px]"
+              style={{ aspectRatio: `${img.width} / ${img.height}`, maxWidth: wide ? "82vw" : "70vw" }}
+            >
+              <Image
+                src={img.src}
+                alt={`${item.title} preview ${idx + 1}`}
+                fill
+                className="object-cover"
+                sizes={wide ? "(max-width: 768px) 82vw, 700px" : "(max-width: 768px) 55vw, 200px"}
+              />
+            </div>
+          );
+        })}
+      </div>
+      {item.images.length > 1 && (
+        <>
+          <div className={`drag-hint ${hintHidden ? "hint-hidden" : ""}`} aria-hidden>
+            <span className="drag-arrows">⟷</span>
+            {dragLabel}
           </div>
-        );
-      })}
+          <div className={`edge-arrow ${hintHidden ? "hint-hidden" : ""}`} aria-hidden>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </div>
+        </>
+      )}
     </div>
   );
 }
 
-function ProductCard({ item, index }: { item: ProjectItem; index: number }) {
+function ProductCard({ item, index, dragLabel }: { item: ProjectItem; index: number; dragLabel: string }) {
   const meta = ([
     ["Stack", item.stack],
     ["Team", item.team],
@@ -140,7 +161,7 @@ function ProductCard({ item, index }: { item: ProjectItem; index: number }) {
         </div>
       </div>
 
-      <ProductGallery item={item} />
+      <ProductGallery item={item} dragLabel={dragLabel} />
 
       {/* Details */}
       <div className="px-6 sm:px-10 pb-8 sm:pb-12 pt-4 space-y-6">
@@ -223,27 +244,6 @@ export default function PortfolioPage() {
       ],
     },
     {
-      title: t("items.0.title"),
-      type: t("items.0.type"),
-      summary: t("items.0.summary"),
-      stack: t("items.0.stack"),
-      team: t("items.0.team"),
-      duration: t("items.0.duration"),
-      role: t("items.0.role"),
-      features: t("items.0.features"),
-      outcome: t("items.0.outcome"),
-      images: [
-        { src: "/ai.gerege.mn/image 218.png", width: 1819, height: 1282 },
-        { src: "/ai.gerege.mn/image 219.png", width: 1820, height: 1282 },
-        { src: "/ai.gerege.mn/image 221.png", width: 2042, height: 1282 },
-        { src: "/ai.gerege.mn/image 222.png", width: 2055, height: 1282 },
-        { src: "/ai.gerege.mn/Screenshot 2025-11-07 at 13.55.02 1.png", width: 591, height: 1282 },
-        { src: "/ai.gerege.mn/image 216.png", width: 589, height: 1282 },
-        { src: "/ai.gerege.mn/image 217.png", width: 591, height: 1282 },
-        { src: "/ai.gerege.mn/image 220.png", width: 591, height: 1282 },
-      ],
-    },
-    {
       title: t("items.2.title"),
       type: t("items.2.type"),
       summary: t("items.2.summary"),
@@ -269,6 +269,7 @@ export default function PortfolioPage() {
       duration: t("items.1.duration"),
       features: t("items.1.features"),
       outcome: t("items.1.outcome"),
+      link: "https://laundryzone.mn",
       images: [
         { src: "/LaundryZone/image 174.png", width: 1795, height: 1044 },
         { src: "/LaundryZone/image 175.png", width: 1800, height: 1037 },
@@ -280,18 +281,22 @@ export default function PortfolioPage() {
       ],
     },
     {
-      title: t("items.3.title"),
-      type: t("items.3.type"),
-      summary: t("items.3.summary"),
-      stack: t("items.3.stack"),
-      features: t("items.3.features"),
-      outcome: t("items.3.outcome"),
+      title: t("items.5.title"),
+      type: t("items.5.type"),
+      summary: t("items.5.summary"),
+      stack: t("items.5.stack"),
+      team: t("items.5.team"),
+      role: t("items.5.role"),
+      outcome: t("items.5.outcome"),
+      link: "https://shop.gerege.mn",
       images: [
-        { src: "/BeFit FitnessHelper/image 184.png", width: 1800, height: 1080 },
-        { src: "/BeFit FitnessHelper/IMG_2289.png", width: 393, height: 852 },
-        { src: "/BeFit FitnessHelper/IMG_2290.png", width: 393, height: 852 },
-        { src: "/BeFit FitnessHelper/IMG_2291.png", width: 393, height: 852 },
-        { src: "/BeFit FitnessHelper/IMG_2292.png", width: 393, height: 852 },
+        { src: "/Gerege shop/image 160.png", width: 1800, height: 1034 },
+        { src: "/Gerege shop/image 162.png", width: 1800, height: 1034 },
+        { src: "/Gerege shop/image 163.png", width: 1793, height: 1029 },
+        { src: "/Gerege shop/image 164.png", width: 1800, height: 1034 },
+        { src: "/Gerege shop/image 165.png", width: 476, height: 1034 },
+        { src: "/Gerege shop/image 166.png", width: 475, height: 1034 },
+        { src: "/Gerege shop/image 167.png", width: 476, height: 1034 },
       ],
     },
     {
@@ -315,21 +320,40 @@ export default function PortfolioPage() {
       ],
     },
     {
-      title: t("items.5.title"),
-      type: t("items.5.type"),
-      summary: t("items.5.summary"),
-      stack: t("items.5.stack"),
-      team: t("items.5.team"),
-      role: t("items.5.role"),
-      outcome: t("items.5.outcome"),
+      title: t("items.0.title"),
+      type: t("items.0.type"),
+      summary: t("items.0.summary"),
+      stack: t("items.0.stack"),
+      team: t("items.0.team"),
+      duration: t("items.0.duration"),
+      role: t("items.0.role"),
+      features: t("items.0.features"),
+      outcome: t("items.0.outcome"),
+      link: "https://ai.gerege.mn",
       images: [
-        { src: "/Gerege shop/image 160.png", width: 1800, height: 1034 },
-        { src: "/Gerege shop/image 162.png", width: 1800, height: 1034 },
-        { src: "/Gerege shop/image 163.png", width: 1793, height: 1029 },
-        { src: "/Gerege shop/image 164.png", width: 1800, height: 1034 },
-        { src: "/Gerege shop/image 165.png", width: 476, height: 1034 },
-        { src: "/Gerege shop/image 166.png", width: 475, height: 1034 },
-        { src: "/Gerege shop/image 167.png", width: 476, height: 1034 },
+        { src: "/ai.gerege.mn/image 218.png", width: 1819, height: 1282 },
+        { src: "/ai.gerege.mn/image 219.png", width: 1820, height: 1282 },
+        { src: "/ai.gerege.mn/image 221.png", width: 2042, height: 1282 },
+        { src: "/ai.gerege.mn/image 222.png", width: 2055, height: 1282 },
+        { src: "/ai.gerege.mn/Screenshot 2025-11-07 at 13.55.02 1.png", width: 591, height: 1282 },
+        { src: "/ai.gerege.mn/image 216.png", width: 589, height: 1282 },
+        { src: "/ai.gerege.mn/image 217.png", width: 591, height: 1282 },
+        { src: "/ai.gerege.mn/image 220.png", width: 591, height: 1282 },
+      ],
+    },
+    {
+      title: t("items.3.title"),
+      type: t("items.3.type"),
+      summary: t("items.3.summary"),
+      stack: t("items.3.stack"),
+      features: t("items.3.features"),
+      outcome: t("items.3.outcome"),
+      images: [
+        { src: "/BeFit FitnessHelper/image 184.png", width: 1800, height: 1080 },
+        { src: "/BeFit FitnessHelper/IMG_2289.png", width: 393, height: 852 },
+        { src: "/BeFit FitnessHelper/IMG_2290.png", width: 393, height: 852 },
+        { src: "/BeFit FitnessHelper/IMG_2291.png", width: 393, height: 852 },
+        { src: "/BeFit FitnessHelper/IMG_2292.png", width: 393, height: 852 },
       ],
     },
   ];
@@ -345,7 +369,7 @@ export default function PortfolioPage() {
 
         <div className="space-y-14 sm:space-y-24">
           {items.map((item, i) => (
-            <ProductCard key={item.title} item={item} index={i} />
+            <ProductCard key={item.title} item={item} index={i} dragLabel={t("dragHint")} />
           ))}
         </div>
       </div>
