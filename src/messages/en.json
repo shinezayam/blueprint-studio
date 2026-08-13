@@ -21,7 +21,7 @@
     },
     "proofBar": {
       "projects": "7+ production apps",
-      "platforms": "iOS • Web • Backend • Design",
+      "platforms": "iOS • Android • Web • Backend",
       "techStack": "Swift • React • Go • Redis",
       "languages": "Multilingual (EN / MN / KR)"
     },
@@ -136,7 +136,7 @@
   },
   "services": {
     "title": "Services",
-    "intro": "We help startups and teams design, build, and ship polished products end to end — full-stack development from concept to production, plus drone footage and marketing content.",
+    "intro": "We help startups and teams design, build, and ship polished products end to end — full-stack development for iOS, Android, and web, plus video editing, drone footage, and marketing content.",
     "cards": {
       "ios": {
         "title": "iOS App Development",
@@ -150,13 +150,17 @@
         "title": "Product Design & UX",
         "desc": "Figma design systems, user flows, prototyping, handoff perfection. We ensure pixel-perfect implementation and exceptional user experience."
       },
+      "android": {
+        "title": "Android App Development",
+        "desc": "Native Android apps with Kotlin and Jetpack Compose, Google Play releases, and the same Go/Firebase backends as our iOS work — one team for both platforms."
+      },
       "backend": {
         "title": "Backend & System Design",
         "desc": "Go APIs, PostgreSQL, Redis caching, MinIO object storage, Grafana monitoring. Production-grade infrastructure — real-time chat, notifications, and auth (Google & Apple sign-in) included."
       },
       "content": {
-        "title": "Drone & Marketing Content",
-        "desc": "DJI Mini 3 aerial footage, marketing reels, and social-media content. We shoot, edit, and deliver ready-to-post visuals for your brand."
+        "title": "Video, Drone & Marketing Content",
+        "desc": "Professional video editing, DJI Mini 3 aerial footage, marketing reels, and social-media content. We shoot, edit, and deliver ready-to-post visuals for your brand."
       }
     }
   },

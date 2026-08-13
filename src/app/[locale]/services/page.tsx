@@ -8,6 +8,7 @@ export default function ServicesPage() {
   const t = useTranslations("services");
   const cards = [
     { key: "ios", icon: "iphone" },
+    { key: "android", icon: "android-os" },
     { key: "web", icon: "domain" },
     { key: "ux", icon: "design" },
     { key: "backend", icon: "server" },
