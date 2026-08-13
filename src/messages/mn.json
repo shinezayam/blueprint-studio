@@ -26,7 +26,7 @@
       "languages": "Олон хэлтэй (EN / MN / KR)"
     },
     "features": {
-      "ios": {"title": "iOS хөгжүүлэлт", "desc": "Swift • SwiftUI • UIKit • Firebase • Go APIs"},
+      "ios": {"title": "iOS & Android хөгжүүлэлт", "desc": "Swift • SwiftUI • Kotlin • Jetpack Compose • Firebase • Go APIs"},
       "web": {"title": "Вэб хөгжүүлэлт", "desc": "React • Next.js • Vue/Nuxt • Tailwind • Go/Postgres backends"},
       "ux": {"title": "UX & Дизайн", "desc": "Figma • Дизайн системүүд • Wireframes • User flows"}
     }
@@ -73,8 +73,8 @@
       "desc": "Ирландаас Монгол руу — суралцах, бүтээх, өсөх аяллын түүх."
     },
     "glance": {"title": "Хурдан статистик", "desc": "Өнөөдрийн бидний байдал."},
-    "whatWeDo": {"title": "Бид юу хийдэг вэ", "desc": "iOS, Вэб, Дизайн — төгсгөлөөс төгсгөл хүртэлх бүтээгдэхүүн хөгжүүлэлт.", "cards": {
-      "ios": {"title": "iOS хөгжүүлэлт", "desc": "Swift • SwiftUI • UIKit • Firebase • Go APIs"},
+    "whatWeDo": {"title": "Бид юу хийдэг вэ", "desc": "iOS, Android, Вэб, Дизайн — төгсгөлөөс төгсгөл хүртэлх бүтээгдэхүүн хөгжүүлэлт.", "cards": {
+      "ios": {"title": "iOS & Android хөгжүүлэлт", "desc": "Swift • SwiftUI • Kotlin • Jetpack Compose • Firebase • Go APIs"},
       "web": {"title": "Вэб хөгжүүлэлт", "desc": "React • Next.js • Vue/Nuxt • Tailwind • Go/Postgres backends"},
       "ux": {"title": "UX & Дизайн", "desc": "Figma • Дизайн системүүд • Wireframes • User flows"}
     }},
