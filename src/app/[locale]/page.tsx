@@ -104,7 +104,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {showcase.map((s) => (
             <Link key={s.index} href={`/${locale}/portfolio`} className="card overflow-hidden group">
               <div className="aspect-[16/10] overflow-hidden bg-foreground/[0.04] p-4">
@@ -114,7 +114,7 @@ export default function Home() {
                     alt={tp(`items.${s.index}.title`)}
                     fill
                     className="object-contain transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    sizes="(max-width: 640px) 100vw, 50vw"
                   />
                 </div>
               </div>
