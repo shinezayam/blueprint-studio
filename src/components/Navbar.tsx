@@ -33,13 +33,13 @@ export function Navbar() {
           <Link href={`/${locale}`} className="group flex items-center" aria-label="Blueprint Studio — home">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/logo.svg"
+              src="/logo.svg?v=2"
               alt="Blueprint Studio"
               className="logo-dark h-5 sm:h-6 w-auto transition-transform group-hover:scale-[1.03]"
             />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/logo-light.svg"
+              src="/logo-light.svg?v=2"
               alt="Blueprint Studio"
               className="logo-light h-5 sm:h-6 w-auto transition-transform group-hover:scale-[1.03]"
             />
