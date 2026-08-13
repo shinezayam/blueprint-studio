@@ -79,6 +79,9 @@ export default function AboutPage() {
             <h3 className="text-sm font-semibold text-foreground/70 uppercase tracking-wide">Programs & Certifications</h3>
             <ul className="space-y-3 text-sm text-foreground/80">
               <li className="card p-5">
+                <strong className="text-foreground">Teen Research Program (2026)</strong> — {t("achievements.items.teenMentor")}
+              </li>
+              <li className="card p-5">
                 <strong className="text-foreground">Grow with Google Mongolia (2025)</strong> — {t("achievements.items.google")}
               </li>
               <li className="card p-5">

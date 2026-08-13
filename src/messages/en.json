@@ -86,6 +86,7 @@
         "chinguunGerege": "Full-time Software Developer at Gerege Pay — Since March 2024, iOS & frontend lead for national GovTech platform",
         "shinezayaMedical": "Traditional Medical Doctor — Graduated 2024, combining healthcare knowledge with digital product design",
         "shinezayaGerege": "Full-time UX/UI Designer at Gerege Systems — Since August 2024, crafting user experiences for nationwide services",
+        "teenMentor": "Chinguun mentors in the Teen Research Program — currently active, guiding teen research in IT and AI",
         "google": "Grow with Google Mongolia (2025) — Top 300 / 5,000; Python track A 94%; team lead; 4th place Smart Meal Planner",
         "coursera": "Coursera Certificates (×7) — Python, Git, Automation, Cloud, Swift, Debugging, System Operations",
         "uxAcademy": "User Experience Academy: UI/UX Design Fundamentals Certificate (2022) — Foundation in user-centered design principles",
@@ -136,7 +137,7 @@
   },
   "services": {
     "title": "Services",
-    "intro": "We help startups and teams design, build, and ship polished products end to end — full-stack development for iOS, Android, and web, plus video editing, drone footage, and marketing content.",
+    "intro": "We help startups and teams design, build, and ship polished products end to end — full-stack development for iOS, Android, and web, plus branding, marketing content, AI-enhanced video, and drone production.",
     "cards": {
       "ios": {
         "title": "iOS App Development",
@@ -159,8 +160,8 @@
         "desc": "Go APIs, PostgreSQL, Redis caching, MinIO object storage, Grafana monitoring. Production-grade infrastructure — real-time chat, notifications, and auth (Google & Apple sign-in) included."
       },
       "content": {
-        "title": "Video, Drone & Marketing Content",
-        "desc": "Professional video editing, DJI Mini 3 aerial footage, marketing reels, and social-media content. We shoot, edit, and deliver ready-to-post visuals for your brand."
+        "title": "Marketing, Branding & Video",
+        "desc": "Brand identity and marketing content, AI-enhanced and generated videos, professional video editing, and DJI Mini 3 drone shots. We shoot, edit, and deliver ready-to-post visuals for your brand."
       }
     }
   },
