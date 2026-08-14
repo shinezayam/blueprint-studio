@@ -118,12 +118,15 @@ function Lightbox({ images, index, title, onClose, onNavigate }: {
         </button>
       )}
 
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         src={img.src}
         alt={`${title} preview ${index + 1}`}
+        width={img.width}
+        height={img.height}
+        sizes="92vw"
         onClick={(e) => e.stopPropagation()}
-        className="max-h-[86vh] max-w-[92vw] h-auto w-auto rounded-xl object-contain shadow-2xl"
+        className="rounded-xl object-contain shadow-2xl"
+        style={{ width: "auto", height: "auto", maxHeight: "86vh", maxWidth: "92vw" }}
       />
 
       {count > 1 && (
