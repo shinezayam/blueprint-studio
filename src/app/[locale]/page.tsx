@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+import {useRef} from "react";
 import SplineHero from "@/components/SplineHero";
 import Icon from "@/components/Icon";
+import ProductCard, {useScrollEffects, type ProjectItem} from "@/components/ProductCard";
 import {useLocale, useTranslations} from "next-intl";
 
 export default function Home() {
@@ -11,16 +12,96 @@ export default function Home() {
   const tp = useTranslations("portfolio");
   const locale = useLocale();
 
-  // Featured projects for the home showcase (indexes into portfolio.items)
-  const showcase = [
-    { index: 7, img: "/GeClub/geclub-1.png" },
-    { index: 10, img: "/chess-federation/chess-1.png" },
-    { index: 11, img: "/simple-kiosk/kiosk-01.png" },
-    { index: 15, img: "/cancer-center/cancer-01.png" },
-    { index: 18, img: "/appointment/appt-01.png" },
-    { index: 4, img: "/dbox/image 157.png" },
-    { index: 3, img: "/BeFit FitnessHelper/image 184.png" },
-  ] as const;
+  const showcaseRef = useRef<HTMLDivElement>(null);
+  useScrollEffects(showcaseRef);
+
+  // Featured works shown in full on the home page (like the portfolio page)
+  const showcaseItems: ProjectItem[] = [
+    {
+      title: tp("items.7.title"),
+      type: tp("items.7.type"),
+      summary: tp("items.7.summary"),
+      stack: tp("items.7.stack"),
+      team: tp("items.7.team"),
+      role: tp("items.7.role"),
+      features: tp("items.7.features"),
+      outcome: tp("items.7.outcome"),
+      links: [{ href: "https://geclub.mn", label: "geclub.mn" }],
+      images: [
+        { src: "/GeClub/geclub-1.png", width: 1242, height: 2688 },
+        { src: "/GeClub/geclub-2.png", width: 1242, height: 2688 },
+        { src: "/GeClub/geclub-3.png", width: 1242, height: 2688 },
+        { src: "/GeClub/geclub-4.png", width: 1242, height: 2688 },
+        { src: "/GeClub/geclub-5.png", width: 1242, height: 2688 },
+      ],
+    },
+    {
+      title: tp("items.10.title"),
+      type: tp("items.10.type"),
+      summary: tp("items.10.summary"),
+      role: tp("items.10.role"),
+      tools: tp("items.10.tools"),
+      features: tp("items.10.features"),
+      outcome: tp("items.10.outcome"),
+      images: [
+        { src: "/chess-federation/chess-1.png", width: 3840, height: 2332 },
+        { src: "/chess-federation/chess-2.png", width: 3840, height: 2330 },
+        { src: "/chess-federation/chess-3.png", width: 3838, height: 2328 },
+      ],
+    },
+    {
+      title: tp("items.11.title"),
+      type: tp("items.11.type"),
+      summary: tp("items.11.summary"),
+      role: tp("items.11.role"),
+      tools: tp("items.11.tools"),
+      features: tp("items.11.features"),
+      outcome: tp("items.11.outcome"),
+      images: [
+        { src: "/simple-kiosk/kiosk-01.png", width: 1280, height: 1024 },
+        { src: "/simple-kiosk/kiosk-02.png", width: 1280, height: 1024 },
+        { src: "/simple-kiosk/kiosk-03.png", width: 1280, height: 1024 },
+        { src: "/simple-kiosk/kiosk-04.png", width: 1280, height: 1024 },
+        { src: "/simple-kiosk/kiosk-05.png", width: 1280, height: 1024 },
+        { src: "/simple-kiosk/kiosk-06.png", width: 1280, height: 1024 },
+      ],
+    },
+    {
+      title: tp("items.15.title"),
+      type: tp("items.15.type"),
+      summary: tp("items.15.summary"),
+      role: tp("items.15.role"),
+      tools: tp("items.15.tools"),
+      features: tp("items.15.features"),
+      outcome: tp("items.15.outcome"),
+      images: [
+        { src: "/cancer-center/cancer-01.png", width: 1440, height: 1024 },
+        { src: "/cancer-center/cancer-02.png", width: 1440, height: 1024 },
+        { src: "/cancer-center/cancer-03.png", width: 1440, height: 1024 },
+        { src: "/cancer-center/cancer-04.png", width: 1440, height: 1024 },
+        { src: "/cancer-center/cancer-05.png", width: 1440, height: 1024 },
+        { src: "/cancer-center/cancer-06.png", width: 1440, height: 1024 },
+      ],
+    },
+    {
+      title: tp("items.18.title"),
+      type: tp("items.18.type"),
+      summary: tp("items.18.summary"),
+      role: tp("items.18.role"),
+      tools: tp("items.18.tools"),
+      features: tp("items.18.features"),
+      outcome: tp("items.18.outcome"),
+      images: [
+        { src: "/appointment/appt-01.png", width: 750, height: 1624 },
+        { src: "/appointment/appt-02.png", width: 750, height: 1624 },
+        { src: "/appointment/appt-03.png", width: 750, height: 1624 },
+        { src: "/appointment/appt-04.png", width: 750, height: 1624 },
+        { src: "/appointment/appt-05.png", width: 750, height: 1624 },
+        { src: "/appointment/appt-06.png", width: 750, height: 1624 },
+        { src: "/appointment/appt-07.png", width: 750, height: 1624 },
+      ],
+    },
+  ];
 
   const features = [
     { key: "ios", icon: "iphone" },
@@ -93,44 +174,23 @@ export default function Home() {
         ))}
       </div>
 
-      {/* Portfolio showcase */}
-      <div className="space-y-8 fade-in-up" style={{ animationDelay: "240ms" }}>
-        <div className="flex flex-wrap items-end justify-between gap-4">
-          <div className="space-y-3 max-w-2xl">
-            <span className="eyebrow">{t("showcase.eyebrow")}</span>
-            <h2 className="text-3xl sm:text-4xl font-semibold tracking-[-0.02em] text-foreground">
-              {t("showcase.title")}
-            </h2>
-          </div>
+      {/* Portfolio showcase — full works like the portfolio page */}
+      <div ref={showcaseRef} className="space-y-8 sm:space-y-12">
+        <div className="space-y-3 max-w-2xl fade-in-up">
+          <span className="eyebrow">{t("showcase.eyebrow")}</span>
+          <h2 className="text-3xl sm:text-4xl font-semibold tracking-[-0.02em] text-foreground">
+            {t("showcase.title")}
+          </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          {showcase.map((s) => (
-            <Link key={s.index} href={`/${locale}/portfolio`} className="card overflow-hidden group">
-              <div className="aspect-[16/10] overflow-hidden bg-foreground/[0.04] p-4">
-                <div className="relative h-full w-full">
-                  <Image
-                    src={s.img}
-                    alt={tp(`items.${s.index}.title`)}
-                    fill
-                    className="object-contain transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-                    sizes="(max-width: 640px) 100vw, 50vw"
-                  />
-                </div>
-              </div>
-              <div className="flex items-center justify-between gap-3 p-5">
-                <div>
-                  <h3 className="font-semibold text-foreground">{tp(`items.${s.index}.title`)}</h3>
-                  <p className="text-sm text-foreground/50">{tp(`items.${s.index}.type`)}</p>
-                </div>
-                <span aria-hidden className="text-foreground/35 transition-colors group-hover:text-foreground">→</span>
-              </div>
-            </Link>
+        <div className="space-y-14 sm:space-y-24">
+          {showcaseItems.map((item, i) => (
+            <ProductCard key={item.title} item={item} index={i} dragLabel={tp("dragHint")} />
           ))}
         </div>
 
         <div className="flex justify-center pt-2">
-          <Link href={`/${locale}/portfolio`} className="btn btn-secondary">
+          <Link href={`/${locale}/portfolio`} className="btn btn-primary">
             {t("showcase.cta")}
             <span aria-hidden>→</span>
           </Link>
