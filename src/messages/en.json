@@ -354,6 +354,15 @@
         "tools": "Figma",
         "features": "Select recipient & organization, vouchers and templates, custom amounts, invoices, card linking, and payment",
         "outcome": "A flexible payments app that makes sending money, invoices, and vouchers effortless"
+      },
+      {
+        "title": "Gerege POS — Sunmi",
+        "type": "App Design",
+        "summary": "Point-of-sale app design for Sunmi terminals — payments, orders, and merchant tools for the Gerege ecosystem",
+        "role": "UI/UX & App Design",
+        "tools": "Figma",
+        "features": "Sales & checkout, multiple payment methods, order management, receipts, and merchant reporting — built for Sunmi hardware",
+        "outcome": "A fast, glanceable POS interface designed for the landscape Sunmi terminal and everyday merchant use"
       }
     ]
   },
