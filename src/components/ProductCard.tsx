@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 
 export type ProjectImage = {
@@ -71,8 +72,79 @@ function MetaPill({ label, value }: { label: string; value: string }) {
   );
 }
 
+function Lightbox({ images, index, title, onClose, onNavigate }: {
+  images: ProjectImage[];
+  index: number;
+  title: string;
+  onClose: () => void;
+  onNavigate: (i: number) => void;
+}) {
+  const count = images.length;
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+      else if (e.key === "ArrowLeft") onNavigate((index - 1 + count) % count);
+      else if (e.key === "ArrowRight") onNavigate((index + 1) % count);
+    };
+    window.addEventListener("keydown", onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [index, count, onClose, onNavigate]);
+
+  const img = images[index];
+  const btn = "inline-flex items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md transition-colors hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60";
+
+  return createPortal(
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 sm:p-10 fade-in-up"
+      style={{ animationDuration: "160ms" }}
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label={`${title} images`}
+    >
+      <button type="button" onClick={onClose} aria-label="Close" className={`${btn} absolute top-4 right-4 h-11 w-11`}>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M18 6 6 18M6 6l12 12" /></svg>
+      </button>
+
+      {count > 1 && (
+        <button type="button" aria-label="Previous" onClick={(e) => { e.stopPropagation(); onNavigate((index - 1 + count) % count); }} className={`${btn} absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 h-12 w-12`}>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
+        </button>
+      )}
+
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={img.src}
+        alt={`${title} preview ${index + 1}`}
+        onClick={(e) => e.stopPropagation()}
+        className="max-h-[86vh] max-w-[92vw] h-auto w-auto rounded-xl object-contain shadow-2xl"
+      />
+
+      {count > 1 && (
+        <button type="button" aria-label="Next" onClick={(e) => { e.stopPropagation(); onNavigate((index + 1) % count); }} className={`${btn} absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 h-12 w-12`}>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6" /></svg>
+        </button>
+      )}
+
+      {count > 1 && (
+        <div className="absolute bottom-5 left-1/2 -translate-x-1/2 rounded-full bg-white/10 px-3 py-1 text-sm font-medium text-white backdrop-blur-md tabular-nums">
+          {index + 1} / {count}
+        </div>
+      )}
+    </div>,
+    document.body
+  );
+}
+
 function ProductGallery({ item, dragLabel }: { item: ProjectItem; dragLabel: string }) {
   const [hintHidden, setHintHidden] = useState(false);
+  const [active, setActive] = useState<number | null>(null);
   if (item.images.length === 0) return null;
   return (
     <div className="relative">
@@ -87,7 +159,14 @@ function ProductGallery({ item, dragLabel }: { item: ProjectItem; dragLabel: str
           return (
             <div
               key={idx}
-              className={wide ? "gallery-frame w-[min(88vw,780px)]" : "gallery-frame h-[340px] sm:h-[430px]"}
+              role="button"
+              tabIndex={0}
+              onClick={() => setActive(idx)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setActive(idx); }
+              }}
+              aria-label={`Open ${item.title} preview ${idx + 1}`}
+              className={`${wide ? "gallery-frame w-[min(88vw,780px)]" : "gallery-frame h-[340px] sm:h-[430px]"} cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]`}
               style={{ aspectRatio: `${img.width} / ${img.height}` }}
             >
               <Image
@@ -113,6 +192,15 @@ function ProductGallery({ item, dragLabel }: { item: ProjectItem; dragLabel: str
             </svg>
           </div>
         </>
+      )}
+      {active !== null && (
+        <Lightbox
+          images={item.images}
+          index={active}
+          title={item.title}
+          onClose={() => setActive(null)}
+          onNavigate={setActive}
+        />
       )}
     </div>
   );
