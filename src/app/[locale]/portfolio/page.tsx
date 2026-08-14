@@ -202,7 +202,11 @@ export default function PortfolioPage() {
         { src: "/cancer-center/cancer-06.png", width: 1440, height: 1024 },
         { src: "/cancer-center/cancer-07.png", width: 1440, height: 1024 },
         { src: "/cancer-center/cancer-08.png", width: 1440, height: 1024 },
-        { src: "/cancer-center/cancer-09.png", width: 2878, height: 2036 },
+        { src: "/cancer-center/cancer-09.png", width: 1440, height: 1024 },
+        { src: "/cancer-center/cancer-10.png", width: 1440, height: 1024 },
+        { src: "/cancer-center/cancer-11.png", width: 1440, height: 1024 },
+        { src: "/cancer-center/cancer-12.png", width: 1440, height: 1024 },
+        { src: "/cancer-center/cancer-13.png", width: 1440, height: 1024 },
       ],
     },
     {
