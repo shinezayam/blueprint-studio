@@ -327,6 +327,32 @@ export default function PortfolioPage() {
         { src: "/gerege-pos/pos-11.png", width: 3650, height: 1946 },
       ],
     },
+    {
+      title: t("items.21.title"),
+      type: t("items.21.type"),
+      summary: t("items.21.summary"),
+      role: t("items.21.role"),
+      tools: t("items.21.tools"),
+      features: t("items.21.features"),
+      outcome: t("items.21.outcome"),
+      images: [
+        { src: "/jur-ur/jurur-01.png", width: 1080, height: 1920 },
+        { src: "/jur-ur/jurur-02.png", width: 1080, height: 1920 },
+        { src: "/jur-ur/jurur-03.png", width: 1080, height: 1920 },
+        { src: "/jur-ur/jurur-04.png", width: 1080, height: 1920 },
+        { src: "/jur-ur/jurur-05.png", width: 1080, height: 1920 },
+        { src: "/jur-ur/jurur-06.png", width: 1080, height: 1920 },
+        { src: "/jur-ur/jurur-07.png", width: 1080, height: 1920 },
+        { src: "/jur-ur/jurur-08.png", width: 1080, height: 1920 },
+        { src: "/jur-ur/jurur-09.png", width: 1080, height: 1920 },
+        { src: "/jur-ur/jurur-10.png", width: 1080, height: 1920 },
+        { src: "/jur-ur/jurur-11.png", width: 1080, height: 1920 },
+        { src: "/jur-ur/jurur-12.png", width: 1080, height: 1920 },
+        { src: "/jur-ur/jurur-13.png", width: 1080, height: 1920 },
+        { src: "/jur-ur/jurur-14.png", width: 1080, height: 1920 },
+        { src: "/jur-ur/jurur-15.png", width: 1080, height: 1920 },
+      ],
+    },
   ];
 
   return (

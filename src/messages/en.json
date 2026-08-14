@@ -363,6 +363,15 @@
         "tools": "Figma",
         "features": "Sales & checkout, multiple payment methods, order management, receipts, and merchant reporting — built for Sunmi hardware",
         "outcome": "A fast, glanceable POS interface designed for the landscape Sunmi terminal and everyday merchant use"
+      },
+      {
+        "title": "Jur Ur — Kiosk",
+        "type": "Kiosk Design",
+        "summary": "Self-service kiosk UI for Jur Ur — a portrait touchscreen experience with clear, tap-friendly flows",
+        "role": "UI/UX & Kiosk Design",
+        "tools": "Figma",
+        "features": "Home screen, category browsing, selection and detail views, and guided on-screen steps for a vertical touchscreen kiosk",
+        "outcome": "A bold, touch-first interface designed for a portrait self-service terminal"
       }
     ]
   },
