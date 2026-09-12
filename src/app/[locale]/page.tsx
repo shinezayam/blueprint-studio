@@ -18,87 +18,68 @@ export default function Home() {
   // Featured works shown in full on the home page (like the portfolio page)
   const showcaseItems: ProjectItem[] = [
     {
-      title: tp("items.7.title"),
-      type: tp("items.7.type"),
-      summary: tp("items.7.summary"),
-      stack: tp("items.7.stack"),
-      team: tp("items.7.team"),
-      role: tp("items.7.role"),
-      features: tp("items.7.features"),
-      outcome: tp("items.7.outcome"),
-      links: [{ href: "https://geclub.mn", label: "geclub.mn" }],
+      title: tp("items.0.title"),
+      type: tp("items.0.type"),
+      summary: tp("items.0.summary"),
+      stack: tp("items.0.stack"),
+      team: tp("items.0.team"),
+      duration: tp("items.0.duration"),
+      features: tp("items.0.features"),
+      outcome: tp("items.0.outcome"),
+      links: [{ href: "https://laundryzone.mn", label: "laundryzone.mn" }],
       images: [
-        { src: "/GeClub/geclub-1.png", width: 1242, height: 2688 },
-        { src: "/GeClub/geclub-2.png", width: 1242, height: 2688 },
-        { src: "/GeClub/geclub-3.png", width: 1242, height: 2688 },
-        { src: "/GeClub/geclub-4.png", width: 1242, height: 2688 },
-        { src: "/GeClub/geclub-5.png", width: 1242, height: 2688 },
+        { src: "/LaundryZone/image 174.png", width: 1795, height: 1044 },
+        { src: "/LaundryZone/image 175.png", width: 1800, height: 1037 },
+        { src: "/LaundryZone/image 176.png", width: 1789, height: 1038 },
+        { src: "/LaundryZone/image 183.png", width: 1798, height: 1038 },
       ],
     },
     {
-      title: tp("items.10.title"),
-      type: tp("items.10.type"),
-      summary: tp("items.10.summary"),
-      role: tp("items.10.role"),
-      tools: tp("items.10.tools"),
-      features: tp("items.10.features"),
-      outcome: tp("items.10.outcome"),
+      title: tp("items.1.title"),
+      type: tp("items.1.type"),
+      summary: tp("items.1.summary"),
+      stack: tp("items.1.stack"),
+      team: tp("items.1.team"),
+      duration: tp("items.1.duration"),
+      features: tp("items.1.features"),
+      outcome: tp("items.1.outcome"),
       images: [
-        { src: "/chess-federation/chess-1.png", width: 3840, height: 2332 },
-        { src: "/chess-federation/chess-2.png", width: 3840, height: 2330 },
-        { src: "/chess-federation/chess-3.png", width: 3838, height: 2328 },
+        { src: "/dbox/image 157.png", width: 2013, height: 1278 },
+        { src: "/dbox/IMG_2275.png", width: 590, height: 1278 },
+        { src: "/dbox/IMG_2276.png", width: 590, height: 1278 },
+        { src: "/dbox/IMG_2277.png", width: 590, height: 1278 },
+        { src: "/dbox/IMG_2278.png", width: 590, height: 1278 },
       ],
     },
     {
-      title: tp("items.11.title"),
-      type: tp("items.11.type"),
-      summary: tp("items.11.summary"),
-      role: tp("items.11.role"),
-      tools: tp("items.11.tools"),
-      features: tp("items.11.features"),
-      outcome: tp("items.11.outcome"),
+      title: tp("items.4.title"),
+      type: tp("items.4.type"),
+      summary: tp("items.4.summary"),
+      stack: tp("items.4.stack"),
+      features: tp("items.4.features"),
+      outcome: tp("items.4.outcome"),
+      links: [{ href: "https://sayandent.vercel.app", label: "sayandent.vercel.app" }],
       images: [
-        { src: "/simple-kiosk/kiosk-01.png", width: 1280, height: 1024 },
-        { src: "/simple-kiosk/kiosk-02.png", width: 1280, height: 1024 },
-        { src: "/simple-kiosk/kiosk-03.png", width: 1280, height: 1024 },
-        { src: "/simple-kiosk/kiosk-04.png", width: 1280, height: 1024 },
-        { src: "/simple-kiosk/kiosk-05.png", width: 1280, height: 1024 },
-        { src: "/simple-kiosk/kiosk-06.png", width: 1280, height: 1024 },
+        { src: "/sayandent/sayandent-1.png", width: 2400, height: 1500 },
+        { src: "/sayandent/sayandent-2.png", width: 2400, height: 1500 },
+        { src: "/sayandent/sayandent-3.png", width: 2400, height: 1500 },
+        { src: "/sayandent/sayandent-mobile.png", width: 780, height: 1688 },
       ],
     },
     {
-      title: tp("items.15.title"),
-      type: tp("items.15.type"),
-      summary: tp("items.15.summary"),
-      role: tp("items.15.role"),
-      tools: tp("items.15.tools"),
-      features: tp("items.15.features"),
-      outcome: tp("items.15.outcome"),
+      title: tp("items.5.title"),
+      type: tp("items.5.type"),
+      summary: tp("items.5.summary"),
+      role: tp("items.5.role"),
+      tools: tp("items.5.tools"),
+      features: tp("items.5.features"),
+      outcome: tp("items.5.outcome"),
+      links: [{ href: "/downloads/ahilt-brand-guide.pdf", label: "Download PDF" }],
       images: [
-        { src: "/cancer-center/cancer-01.png", width: 1440, height: 1024 },
-        { src: "/cancer-center/cancer-02.png", width: 1440, height: 1024 },
-        { src: "/cancer-center/cancer-03.png", width: 1440, height: 1024 },
-        { src: "/cancer-center/cancer-04.png", width: 1440, height: 1024 },
-        { src: "/cancer-center/cancer-05.png", width: 1440, height: 1024 },
-        { src: "/cancer-center/cancer-06.png", width: 1440, height: 1024 },
-      ],
-    },
-    {
-      title: tp("items.18.title"),
-      type: tp("items.18.type"),
-      summary: tp("items.18.summary"),
-      role: tp("items.18.role"),
-      tools: tp("items.18.tools"),
-      features: tp("items.18.features"),
-      outcome: tp("items.18.outcome"),
-      images: [
-        { src: "/appointment/appt-01.png", width: 750, height: 1624 },
-        { src: "/appointment/appt-02.png", width: 750, height: 1624 },
-        { src: "/appointment/appt-03.png", width: 750, height: 1624 },
-        { src: "/appointment/appt-04.png", width: 750, height: 1624 },
-        { src: "/appointment/appt-05.png", width: 750, height: 1624 },
-        { src: "/appointment/appt-06.png", width: 750, height: 1624 },
-        { src: "/appointment/appt-07.png", width: 750, height: 1624 },
+        { src: "/ahilt/ahilt-01.png", width: 2400, height: 1350 },
+        { src: "/ahilt/ahilt-02.png", width: 2400, height: 1350 },
+        { src: "/ahilt/ahilt-03.png", width: 2400, height: 1350 },
+        { src: "/ahilt/ahilt-04.png", width: 2400, height: 1350 },
       ],
     },
   ];
@@ -134,16 +115,19 @@ export default function Home() {
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
         </div>
 
-        <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="max-w-2xl py-24 sm:py-36 space-y-8 text-center md:text-left fade-in-up" style={{ animationDelay: "100ms" }}>
-            <span className="eyebrow">{t("eyebrow")}</span>
-            <h1 className="text-5xl sm:text-6xl lg:text-[4.75rem] font-semibold tracking-[-0.035em] leading-[0.95]">
+        {/* The copy column sits above the Spline backdrop, so it must not swallow
+            the pointer — otherwise the scene stops tracking the cursor across most
+            of its width. Only the text and buttons themselves take events. */}
+        <div className="pointer-events-none relative mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="pointer-events-none max-w-2xl py-24 sm:py-36 space-y-8 text-center md:text-left fade-in-up" style={{ animationDelay: "100ms" }}>
+            <span className="eyebrow pointer-events-auto">{t("eyebrow")}</span>
+            <h1 className="pointer-events-auto text-5xl sm:text-6xl lg:text-[4.75rem] font-semibold tracking-[-0.035em] leading-[0.95]">
               <span className="text-gradient">{t("title")}</span>
             </h1>
-            <p className="max-w-xl mx-auto md:mx-0 text-lg sm:text-xl text-foreground/60 leading-relaxed">
+            <p className="pointer-events-auto max-w-xl mx-auto md:mx-0 text-lg sm:text-xl text-foreground/60 leading-relaxed">
               {t("desc")}
             </p>
-            <div className="flex flex-wrap items-center gap-3 justify-center md:justify-start pt-2">
+            <div className="pointer-events-auto flex flex-wrap items-center gap-3 justify-center md:justify-start pt-2">
               <Link href={`/${locale}/contact`} className="btn btn-primary">
                 {t("ctaContact")}
                 <span aria-hidden>→</span>
@@ -159,17 +143,6 @@ export default function Home() {
         {proof.map((k) => (
           <div key={k} className="px-5 py-6 text-center">
             <p className="text-sm font-medium text-foreground/85">{t(`proofBar.${k}`)}</p>
-          </div>
-        ))}
-      </div>
-
-      {/* Features */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 fade-in-up" style={{ animationDelay: "200ms" }}>
-        {features.map((f) => (
-          <div key={f.key} className="card card-hover p-7">
-            <div className="icon-tile mb-5" aria-hidden><Icon name={f.icon} size={26} /></div>
-            <h3 className="font-semibold text-lg mb-2 text-foreground">{t(`features.${f.key}.title`)}</h3>
-            <p className="text-sm text-foreground/60 leading-relaxed">{t(`features.${f.key}.desc`)}</p>
           </div>
         ))}
       </div>
@@ -195,6 +168,17 @@ export default function Home() {
             <span aria-hidden>→</span>
           </Link>
         </div>
+      </div>
+
+      {/* Features */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 fade-in-up" style={{ animationDelay: "200ms" }}>
+        {features.map((f) => (
+          <div key={f.key} className="card card-hover p-7">
+            <div className="icon-tile mb-5" aria-hidden><Icon name={f.icon} size={26} /></div>
+            <h3 className="font-semibold text-lg mb-2 text-foreground">{t(`features.${f.key}.title`)}</h3>
+            <p className="text-sm text-foreground/60 leading-relaxed">{t(`features.${f.key}.desc`)}</p>
+          </div>
+        ))}
       </div>
 
       {/* Closing CTA band */}

@@ -25,17 +25,32 @@
       "cta": "Цааш үзэх"
     },
     "proofBar": {
-      "projects": "20+ бүтээгдэхүүн, цааш нэмэгдсээр",
+      "projects": "20+ бүтээгдэхүүн хийсэн · сонгосон ажлууд доор",
       "platforms": "Нэйтив — iOS · Android · Вэб",
       "techStack": "Онцгойрон харагдах брэнд",
       "languages": "Гүйлгээг зогсоох контент"
     },
     "features": {
-      "ios": {"title": "iOS & Android хөгжүүлэлт", "desc": "Swift • SwiftUI • Kotlin • Jetpack Compose • Firebase • Go APIs"},
-      "web": {"title": "Вэб хөгжүүлэлт", "desc": "React • Next.js • Vue/Nuxt • Tailwind • Go/Postgres backends"},
-      "ux": {"title": "UX & Дизайн", "desc": "Figma • Дизайн системүүд • Wireframes • User flows"},
-      "branding": {"title": "Брэндинг ба дизайн", "desc": "Брэнд identity • Лого • Гайдлайн • Социал загварууд"},
-      "marketing": {"title": "Маркетинг ба видео контент", "desc": "Reels • AI видео • Мэргэжлийн эвлүүлэг • DJI дрон бичлэг"}
+      "ios": {
+        "title": "iOS & Android хөгжүүлэлт",
+        "desc": "Swift • SwiftUI • Kotlin • Jetpack Compose • Firebase • Go APIs"
+      },
+      "web": {
+        "title": "Вэб хөгжүүлэлт",
+        "desc": "React • Next.js • Vue/Nuxt • Tailwind • Go/Postgres backends"
+      },
+      "ux": {
+        "title": "UX & Дизайн",
+        "desc": "Figma • Дизайн системүүд • Wireframes • User flows"
+      },
+      "branding": {
+        "title": "Брэндинг ба дизайн",
+        "desc": "Брэнд identity • Лого • Гайдлайн • Социал загварууд"
+      },
+      "marketing": {
+        "title": "Маркетинг ба видео контент",
+        "desc": "Reels • AI видео • Мэргэжлийн эвлүүлэг • DJI дрон бичлэг"
+      }
     }
   },
   "about": {
@@ -46,24 +61,69 @@
         "name": "Чингүүн",
         "role": "iOS + Вэб хөгжүүлэгч",
         "bio": "iOS хөгжүүлэгч, UX удирдагч. Гэрэгэ Pay зэрэг үндэсний хэмжээний системүүдэд туршлагатай — дизайны сэтгэлгээ, инженерийн нарийвчлалыг хослуулж, санааг бодит бүтээгдэхүүн болгодог.",
-        "images": ["/chinguun/image 187.png", "/chinguun/image 188.png"],
+        "images": [
+          "/chinguun/image 187.png",
+          "/chinguun/image 188.png"
+        ],
         "certificates": [
-          {"name": "Automating Real World Tasks with Python", "file": "/Porfolio Chinguun/Coursera Automating Real World Tasks with Python.pdf"},
-          {"name": "Configuration Management and the Cloud", "file": "/Porfolio Chinguun/Coursera Configuration Management and the Cloud.pdf"},
-          {"name": "Crash Course on Python", "file": "/Porfolio Chinguun/Coursera Crash Course on Python.pdf"},
-          {"name": "Introduction to Git and Github", "file": "/Porfolio Chinguun/Coursera Introduction to Git and Github.pdf"},
-          {"name": "Programming Fundamentals in Swift", "file": "/Porfolio Chinguun/Coursera Programming Fundamentals in Swift.pdf"},
-          {"name": "Troubleshooting and Debugging Techniques", "file": "/Porfolio Chinguun/Coursera Troubleshooting and Debugging Techniques.pdf"},
-          {"name": "Using Python to Interact with the Operating System", "file": "/Porfolio Chinguun/Coursera Using Python to Interact with the Operating System.pdf"}
+          {
+            "name": "Automating Real World Tasks with Python",
+            "file": "/Porfolio Chinguun/Coursera Automating Real World Tasks with Python.pdf"
+          },
+          {
+            "name": "Configuration Management and the Cloud",
+            "file": "/Porfolio Chinguun/Coursera Configuration Management and the Cloud.pdf"
+          },
+          {
+            "name": "Crash Course on Python",
+            "file": "/Porfolio Chinguun/Coursera Crash Course on Python.pdf"
+          },
+          {
+            "name": "Introduction to Git and Github",
+            "file": "/Porfolio Chinguun/Coursera Introduction to Git and Github.pdf"
+          },
+          {
+            "name": "Programming Fundamentals in Swift",
+            "file": "/Porfolio Chinguun/Coursera Programming Fundamentals in Swift.pdf"
+          },
+          {
+            "name": "Troubleshooting and Debugging Techniques",
+            "file": "/Porfolio Chinguun/Coursera Troubleshooting and Debugging Techniques.pdf"
+          },
+          {
+            "name": "Using Python to Interact with the Operating System",
+            "file": "/Porfolio Chinguun/Coursera Using Python to Interact with the Operating System.pdf"
+          }
         ],
         "awards": [
-          {"name": "SAT оноо (2019)", "file": "/Porfolio Chinguun/SOME AWARDS/SAT 2019.JPG"},
-          {"name": "Дүүргийн 3-р байр (200 мянган сурагч)", "file": "/Porfolio Chinguun/SOME AWARDS/3rd Place in District of 200k kids.jpg"},
-          {"name": "Англи хэлний олимпиад - 1-р байр (Дархан хот)", "file": "/Porfolio Chinguun/SOME AWARDS/English Olympiad 1st Place in Darkhan City.jpg"},
-          {"name": "Англи Турк сургуулийн олимпиад - 3-р байр", "file": "/Porfolio Chinguun/SOME AWARDS/English Turkish School Olympiad 3rd Place.jpg"},
-          {"name": "First Class сертификат (Ирланд)", "file": "/Porfolio Chinguun/SOME AWARDS/First Class.jpg"},
-          {"name": "Second Class сертификат (Ирланд)", "file": "/Porfolio Chinguun/SOME AWARDS/Second Class.jpg"},
-          {"name": "Үнэлгээний хуудас - 3-р анги", "file": "/Porfolio Chinguun/SOME AWARDS/Repord 3rd grade.jpg"}
+          {
+            "name": "SAT оноо (2019)",
+            "file": "/Porfolio Chinguun/SOME AWARDS/SAT 2019.JPG"
+          },
+          {
+            "name": "Дүүргийн 3-р байр (200 мянган сурагч)",
+            "file": "/Porfolio Chinguun/SOME AWARDS/3rd Place in District of 200k kids.jpg"
+          },
+          {
+            "name": "Англи хэлний олимпиад - 1-р байр (Дархан хот)",
+            "file": "/Porfolio Chinguun/SOME AWARDS/English Olympiad 1st Place in Darkhan City.jpg"
+          },
+          {
+            "name": "Англи Турк сургуулийн олимпиад - 3-р байр",
+            "file": "/Porfolio Chinguun/SOME AWARDS/English Turkish School Olympiad 3rd Place.jpg"
+          },
+          {
+            "name": "First Class сертификат (Ирланд)",
+            "file": "/Porfolio Chinguun/SOME AWARDS/First Class.jpg"
+          },
+          {
+            "name": "Second Class сертификат (Ирланд)",
+            "file": "/Porfolio Chinguun/SOME AWARDS/Second Class.jpg"
+          },
+          {
+            "name": "Үнэлгээний хуудас - 3-р анги",
+            "file": "/Porfolio Chinguun/SOME AWARDS/Repord 3rd grade.jpg"
+          }
         ]
       },
       "shinezaya": {
@@ -71,20 +131,50 @@
         "role": "UI/UX Дизайнер + Вэб хөгжүүлэгч",
         "bio": "Сайн уу, би Шинэзаяа. Дижитал ертөнц бол зөвхөн код, пиксел, товчлуур биш — энэ бол хүмүүс болон технологийн хоорондох түүх гэдэгт би итгэдэг. Тэр түүхийг илүү тодорхой, таатай болгох нь миний ажил бас хүсэл тэмүүлэл.",
         "fullBio": "Сүүлийн 3+ жил UI/UX дизайнераар ажиллахдаа би санаж болохуйц, ойлгоход хялбар утга учиртай туршлагуудыг бүтээж байна. Надад гайхалтай дизайн бол 'үл үзэгдэх' байдаг — энэ нь хэрэглэгчдийг аяллаар нь чимээгүйхэн удирдаж, бодит асуудлыг шийддэг. Төсөл бүр шинэ сорилт, шинэ ойлголт, шинэ боломж авчирдаг. Дизайн хийхгүй байхдаа би чиг хандлага судалж, шинэ хэрэгслүүдийг туршиж, эсвэл дизайны нийгэмлэгтэй сургамжаа хуваалцдаг.",
-        "skills": ["Figma", "Adobe XD", "Sketch", "Прототип", "Визуал дизайн", "Хэрэглэгчийн судалгаа", "Next.js", "TypeScript", "React", "Vibe Coding"],
-        "images": ["/shinezaya/image 189.png", "/shinezaya/shinezaya.jpg"]
+        "skills": [
+          "Figma",
+          "Adobe XD",
+          "Sketch",
+          "Прототип",
+          "Визуал дизайн",
+          "Хэрэглэгчийн судалгаа",
+          "Next.js",
+          "TypeScript",
+          "React",
+          "Vibe Coding"
+        ],
+        "images": [
+          "/shinezaya/image 189.png",
+          "/shinezaya/shinezaya.jpg"
+        ]
       }
     },
     "story": {
       "title": "Бидний түүх",
       "desc": "Ирландаас Монгол руу — суралцах, бүтээх, өсөх аяллын түүх."
     },
-    "glance": {"title": "Хурдан статистик", "desc": "Өнөөдрийн бидний байдал."},
-    "whatWeDo": {"title": "Бид юу хийдэг вэ", "desc": "iOS, Android, Вэб, Дизайн — төгсгөлөөс төгсгөл хүртэлх бүтээгдэхүүн хөгжүүлэлт.", "cards": {
-      "ios": {"title": "iOS & Android хөгжүүлэлт", "desc": "Swift • SwiftUI • Kotlin • Jetpack Compose • Firebase • Go APIs"},
-      "web": {"title": "Вэб хөгжүүлэлт", "desc": "React • Next.js • Vue/Nuxt • Tailwind • Go/Postgres backends"},
-      "ux": {"title": "UX & Дизайн", "desc": "Figma • Дизайн системүүд • Wireframes • User flows"}
-    }},
+    "glance": {
+      "title": "Хурдан статистик",
+      "desc": "Өнөөдрийн бидний байдал."
+    },
+    "whatWeDo": {
+      "title": "Бид юу хийдэг вэ",
+      "desc": "iOS, Android, Вэб, Дизайн — төгсгөлөөс төгсгөл хүртэлх бүтээгдэхүүн хөгжүүлэлт.",
+      "cards": {
+        "ios": {
+          "title": "iOS & Android хөгжүүлэлт",
+          "desc": "Swift • SwiftUI • Kotlin • Jetpack Compose • Firebase • Go APIs"
+        },
+        "web": {
+          "title": "Вэб хөгжүүлэлт",
+          "desc": "React • Next.js • Vue/Nuxt • Tailwind • Go/Postgres backends"
+        },
+        "ux": {
+          "title": "UX & Дизайн",
+          "desc": "Figma • Дизайн системүүд • Wireframes • User flows"
+        }
+      }
+    },
     "achievements": {
       "title": "Амжилт ба боловсрол",
       "desc": "Үргэлж суралцаж, үргэлж бүтээж.",
@@ -117,7 +207,7 @@
         {
           "period": "2024",
           "title": "Гэрэгэ Pay",
-          "desc": "Гэрэгэ Апп-ын iOS хөгжүүлэгч, UX удирдагч — 24 аймагт 23,000+ идэвхтэй хэрэглэгч."
+          "desc": "Үндэсний GovTech платформын iOS хөгжүүлэгч, UX удирдагч."
         },
         {
           "period": "2025",
@@ -126,9 +216,18 @@
         }
       ]
     },
-    "milestones": {"title": "Ирээдүйн чухал үе шатууд", "desc": "10 жилийн аяллын гол зорилтууд."},
-    "principles": {"title": "Бидний зарчмууд", "desc": "Бидний шийдвэр гаргалт, ажиллах арга барил."},
-    "next": {"title": "Дараагийн алхам", "desc": "Хамтдаа гайхалтайг бүтээцгээе."},
+    "milestones": {
+      "title": "Ирээдүйн чухал үе шатууд",
+      "desc": "10 жилийн аяллын гол зорилтууд."
+    },
+    "principles": {
+      "title": "Бидний зарчмууд",
+      "desc": "Бидний шийдвэр гаргалт, ажиллах арга барил."
+    },
+    "next": {
+      "title": "Дараагийн алхам",
+      "desc": "Хамтдаа гайхалтайг бүтээцгээе."
+    },
     "ctaText": "Танд төсөл байна уу? Бид туслахад баяртай.",
     "cta": "Холбоо барих"
   },
@@ -161,11 +260,10 @@
         "desc": "Брэнд identity, маркетингийн контент, AI-аар сайжруулсан болон үүсгэсэн видео, мэргэжлийн видео эвлүүлэг, DJI Mini 3 дрон бичлэг. Бид таны брэндэд зориулж зураг авалт, эвлүүлэг, бэлэн контентыг хүргэнэ."
       }
     },
-    "pricing": {
-      "eyebrow": "Үнийн мэдээлэл",
-      "title": "₮500,000-аас эхэлнэ",
-      "desc": "Төслийн үнэ ₮500,000-аас эхэлж, хийгдэх ажлын цар хүрээ, функцээс хамаарна. Хэрэгцээгээ хэлээрэй — бид тодорхой, задаргаатай үнийн санал өгнө.",
-      "cta": "Үнийн санал авах"
+    "cta": {
+      "title": "Юу бүтээхээ бидэнд хэлээрэй",
+      "desc": "Төслийнхөө хүрээг илгээгээрэй — бид төлөвлөгөө, хугацаа, багийн хэн ажиллахыг тодорхой хариулж өгнө.",
+      "cta": "Төсөл эхлүүлэх"
     }
   },
   "portfolio": {
@@ -176,43 +274,14 @@
     "dragHint": "Чирж илүүг үзэх",
     "items": [
       {
-        "title": "ai.gerege.mn",
-        "type": "Вэб",
-        "summary": "Гэрэгэ системийн автомат дуу хүлээн авах технологитой AI чатбот",
-        "stack": "Next.js, React, Tailwind CSS, AI/ML интеграци, Дуу таних технологи",
-        "team": "2 (Чингүүн & Худэрчулуун)",
-        "duration": "2 сар",
-        "role": "Бүрэн вэб хөгжүүлэлт болон UX дизайн — автомат дуу танилт болон хэл боловсруулалттай AI-д суурилсан чатбот платформ бүтээсэн",
-        "features": "AI чатбот, автомат дуу таних, дуунаас текст рүү хөрвүүлэх, олон хэлтэй интерфэйс, админ хяналтын самбар, шинжилгээ",
-        "outcome": "Гэрэгэ системийн харилцагчдад дуу танилттай үйлдвэрлэлийн чатбот платформ"
-      },
-      {
         "title": "LaundryZone",
-        "type": "Вэб",
-        "summary": "Олон хэлтэй угаалгын газар хайгч (EN/MN/KR)",
-        "stack": "React, Next.js, Tailwind, EmailJS, i18n",
+        "type": "Вэб · iOS · Backend",
+        "summary": "40 салбартай угаалгын сүлжээний үйл ажиллагааны платформ — гурван хэлтэй нийтийн сайт, ажилтны хяналтын самбар, Go API, SwiftUI ажилтны апп",
+        "stack": "Next.js 15, Go, PostgreSQL, Redis, MinIO, SwiftUI, Docker",
         "team": "2 (Чингүүн & Шинэзаяа)",
-        "duration": "1 сар",
-        "features": "40 салбарын газрын зураг, холбоо барих форм, SEO, хариу үйлдэл",
-        "outcome": "Студиогийн анхны вэб бүтээл; хүчтэй UI/UX ба локализацийн гүйцэтгэл"
-      },
-      {
-        "title": "Гэрэгэ апп",
-        "type": "iOS",
-        "summary": "Засгийн газрын үйлчилгээний гар утасны апп",
-        "users": "23,000 идэвхтэй хэрэглэгч Монгол даяар",
-        "team": "4 хөгжүүлэгч + дизайнерууд",
-        "role": "iOS фронтенд удирдагч болон UX удирдагч — SwiftUI, Combine, REST APIs, Figma handoff, хэрэглээний үнэлгээ",
-        "features": "Машины төлбөр, зогсоол, автобус/галт тэрэгний тасалбар, 126 засгийн төлбөр, киоск дэмжлэг",
-        "outcome": "Үндэсний хэмжээний GovTech платформ; 2026 онд бүрэн шинэчилсэн UI гаргаж, тодорхой байдал, гүйцэтгэлийг сайжруулсан"
-      },
-      {
-        "title": "Fitness Helper",
-        "type": "iOS",
-        "summary": "Их сургуулийн төгсөлтийн төсөл → App Store дээр гарсан",
-        "stack": "SwiftUI, Firebase, HealthKit",
-        "features": "Макро тооцоолох, явцын график, AI зөвлөмж (ирээдүйд)",
-        "outcome": "Ганцаараа дизайнаас deploy хүртэл хийсэн апп, төгсгөл хүртэлх чадварыг харуулсан"
+        "duration": "Үргэлжилж байгаа",
+        "features": "Гурван хэлтэй салбар хайгч (MN/EN/KR), ажилтны хяналтын самбар, цагийн бүртгэл, агуулах болон барааны бүртгэл, тусдаа VPS дээрх Go API, GitHub Actions CI",
+        "outcome": "Vercel дээрх маркетингийн сайт, өөрийн сервер дээрх API, салбарын багууд ашиглаж буй SwiftUI апп"
       },
       {
         "title": "Dream Box MN",
@@ -225,31 +294,12 @@
         "outcome": "App Store апп пиксел-төгс UI-тай богино хугацаанд хүргэсэн"
       },
       {
-        "title": "E-Commerce платформ",
-        "type": "Вэб",
-        "summary": "Бүрэн вэб дэлгүүр",
-        "stack": "Vue 3, Nuxt 3, Go (backend API), PostgreSQL, Tailwind CSS",
-        "team": "3–4 хөгжүүлэгч",
-        "role": "Фронтенд инженер (UX урсгал, төлбөр, хариу үйлдэлтэй загвар); Go API spec дизайнд оролцсон",
-        "outcome": "Тогтвортой, өргөжүүлэх боломжтой дэлгүүр орчин үеийн stack, жигд хэрэглэгчийн аялалтай"
-      },
-      {
         "title": "Дархан хотын эмэгтэйчүүдийн холбоо",
         "type": "Вэб",
         "summary": "Freelance төсөл (явагдаж байгаа)",
         "lead": "Шинэзаяа",
         "tools": "LLM-д тулгуурласан Next.js + Figma ажлын урсгал",
         "outcome": "AI-д туслуулсан бүтээмж, төрийн бус байгууллагын нөлөөллийн жишээ"
-      },
-      {
-        "title": "GeClub",
-        "type": "iOS",
-        "summary": "Фитнес клубын апп — бодит цагийн чат, дасгалын төлөвлөгөө, мэдэгдэлтэй, iOS App Store дээр гарсан",
-        "stack": "SwiftUI, Go, Redis, MinIO, Grafana, LiveKit, Google & Apple нэвтрэлт",
-        "team": "2 (Чингүүн & Шинэзаяа)",
-        "role": "Fullstack — iOS апп, Redis кэш, MinIO файл хадгалалт, Grafana хяналт бүхий backend системийн дизайн, App Store хүртэл",
-        "features": "LiveKit бодит цагийн чат, дасгалын төлөвлөгөө, push мэдэгдэл, Google & Apple нэвтрэлт, MinIO медиа хадгалалт, Grafana хяналтын самбар",
-        "outcome": "iOS App Store дээр амжилттай гарч, тренд апп-уудын 1-т жагссан — бүтээгдэхүүний түвшний backend дэд бүтэцтэй, бүрэн өөрсдөө бүтээсэн анхны бүтээгдэхүүн"
       },
       {
         "title": "Монгол Сургууль",
@@ -260,118 +310,11 @@
       },
       {
         "title": "Саян Дент",
-        "type": "Вэб",
-        "summary": "Саян Дент шүдний эмнэлгийн вэбсайт — үйлчилгээ, эмч нарын танилцуулга, цаг захиалга",
-        "features": "Имплантаас винир хүртэлх үйлчилгээний каталог, эмч нарын профайл, онлайн цаг захиалга, хэрэглэгчийн нэвтрэлт",
-        "outcome": "Дулаан брэнд identity бүхий орчин үеийн эмнэлгийн вэбсайт, ашиглалтад орсон"
-      },
-      {
-        "title": "Монголын Шатрын Холбоо",
-        "type": "Вэб дизайн",
-        "summary": "Монголын Шатрын Холбооны вебдизайн — мэдээ, тэмцээн, чансаа болон тамирчдын мэдээллийн орчин үеийн вэбсайт",
-        "role": "Вэб ба UI/UX дизайн",
-        "tools": "Figma",
-        "features": "Тэмцээний хуваарь ба үр дүн, үндэсний чансаа, мэдээ мэдээлэл, тамирчин/клубын профайл",
-        "outcome": "Тэмцээн, чансаа, холбооны мэдээллийг хялбар дагах боломжтой цэвэрхэн, спорт хэв маягийн загвар"
-      },
-      {
-        "title": "Simple — Зээлийн Киоск",
-        "type": "Киоск дизайн",
-        "summary": "Шуурхай зээлийн өргөдлийн өөртөө үйлчлэх киоскийн дизайн — эрх шалгахаас баталгаажуулалт хүртэл хэдхэн товшилтоор",
-        "role": "UI/UX ба киоск дизайн",
-        "tools": "Figma",
-        "features": "Удирдамжтай зээлийн процесс: эрх шалгах, зээлийн эрхийг бодит цагт тооцоолох, бүртгэл, дансны мэдээлэл, амжилттай/татгалзсан төлөвүүд",
-        "outcome": "Зээл авахыг хялбар, өөрөө удирдах боломжтой болгосон том форматтай, хүрэлцэхэд ээлтэй интерфэйс"
-      },
-      {
-        "title": "E-property.mn",
-        "type": "Вэб дизайн",
-        "summary": "E-property.mn-ий вебдизайн — үл хөдлөх хөрөнгө хайх, зарлах, харьцуулах маркетплейс",
-        "role": "Вэб ба UI/UX дизайн",
-        "tools": "Figma",
-        "features": "Баялаг зурагтай зарууд, хайлт ба шүүлтүүр, газрын зураг, зарын дэлгэрэнгүй, агенттай холбогдох",
-        "outcome": "Үл хөдлөх хөрөнгө олох, зарлахыг хялбар болгосон цэвэрхэн, найдвартай маркетплейсийн загвар"
-      },
-      {
-        "title": "Airalo eSIM",
-        "type": "Апп дизайн",
-        "summary": "Airalo-гийн гар утасны апп дизайн — аялалд зориулсан eSIM дата багцыг хэдхэн товшилтоор худалдан авч суулгах",
-        "role": "UI/UX ба апп дизайн",
-        "tools": "Figma",
-        "features": "Бүс, улсаар багц үзэх, багцын дэлгэрэнгүй, үнэгүй eSIM урамшуулал, алхам алхмаар eSIM суулгах заавар",
-        "outcome": "eSIM худалдан авахыг хэдхэн энгийн алхам болгосон аялалд ээлтэй урсгал"
-      },
-      {
-        "title": "Gerege App — Вэб",
-        "type": "Вэб дизайн",
-        "summary": "Gerege App-ын танилцуулга вэбсайтын дизайн — үндэсний хэмжээний дижитал үйлчилгээний супер-аппыг танилцуулна",
-        "role": "Вэб ба UI/UX дизайн",
-        "tools": "Figma",
-        "features": "Гол давуу тал ба онцлогууд, үйлчилгээний танилцуулга, татах CTA, responsive маркетингийн хэсгүүд",
-        "outcome": "Gerege App-ын хэмжээ, үйлчилгээг нэг дор харуулсан гоёмсог лэндинг туршлага"
-      },
-      {
-        "title": "Хавдар Судлалын Үндэсний Төв",
-        "type": "Вэб дизайн",
-        "summary": "Хавдар Судлалын Үндэсний Төвийн вебсайт ба системийн шинэчлэлт — эрт илрүүлэг, өвчтөний бүртгэл, ажилтны удирдлага",
-        "role": "Вэб ба UI/UX дизайн",
-        "tools": "Figma",
-        "features": "Хавдрын эрт илрүүлэг, өвчтөний мэдээлэл ба бүртгэл (EMM-92), бүртгэлийн процесс, эмч, ажилтны удирдлага, тусламжийн төв",
-        "outcome": "Эрт илрүүлэг, өвчтөний бүртгэл, эмнэлгийн ажилтны ажлын урсгалыг хялбарчилсан цэвэрхэн, орчин үеийн систем"
-      },
-      {
-        "title": "e-Боловсрол",
-        "type": "Вэб дизайн",
-        "summary": "e-Боловсролын вебдизайн — сурагч, багш, эцэг эхэд зориулсан дижитал боловсролын платформ",
-        "role": "Вэб ба UI/UX дизайн",
-        "tools": "Figma",
-        "features": "Сурагчийн самбар, дүн ба ирц, хичээлийн хуваарь, багшийн хэрэгслүүд, эцэг эхийн хандалт",
-        "outcome": "Сурагч, багш, эцэг эхийг холбосон нэгдсэн, хялбар навигацитай боловсролын платформ"
-      },
-      {
-        "title": "eKids",
-        "type": "Апп дизайн",
-        "summary": "eKids-ийн гар утасны апп дизайн — сургуулийн ирц, эрүүл мэндийн асуумж, дотоод хэтэвчтэй эцэг эхийн апп",
-        "role": "UI/UX ба апп дизайн",
-        "tools": "Figma",
-        "features": "Хүүхдийн жагсаалт ба профайл, өдөр тутмын ирц, эрүүл мэндийн асуумж, QR төлбөртэй дижитал хэтэвч, гэрээ",
-        "outcome": "Ирц, эрүүл мэндийн үзлэг, төлбөрийг нэг дор цуглуулсан эцэг эхэд ээлтэй апп"
-      },
-      {
-        "title": "Эмнэлгийн цаг захиалга",
-        "type": "Апп дизайн",
-        "summary": "Эмнэлгийн цаг захиалгын гар утасны апп дизайн — улс, хувийн эмнэлэг сонгож, тасаг, огноо, цагаа захиалах",
-        "role": "UI/UX ба апп дизайн",
-        "tools": "Figma",
-        "features": "Улсын ба хувийн эмнэлгийн жагсаалт, тасгийн жагсаалт, огноо, цаг сонголт, мэдээлэл баталгаажуулах, амжилттай захиалга",
-        "outcome": "Эмнэлгийн цаг захиалахыг хурдан, төвөггүй болгосон энгийн, удирдамжтай урсгал"
-      },
-      {
-        "title": "E-zed",
-        "type": "Апп дизайн",
-        "summary": "E-zed-ийн гар утасны апп дизайн — хүн, байгууллагад төлбөр, нэхэмжлэх, бэлгийн эрхийн бичиг илгээх",
-        "role": "UI/UX ба апп дизайн",
-        "tools": "Figma",
-        "features": "Хүлээн авагч, байгууллага сонгох, эрхийн бичиг ба загвар, дурын дүн, нэхэмжлэх, карт холбох, төлбөр төлөх",
-        "outcome": "Мөнгө, нэхэмжлэх, эрхийн бичиг илгээхийг хялбар болгосон уян хатан төлбөрийн апп"
-      },
-      {
-        "title": "Gerege POS — Sunmi",
-        "type": "Апп дизайн",
-        "summary": "Sunmi терминалд зориулсан борлуулалтын цэгийн (POS) апп дизайн — Гэрэгэ экосистемийн төлбөр, захиалга, худалдаачдын хэрэгслүүд",
-        "role": "UI/UX ба апп дизайн",
-        "tools": "Figma",
-        "features": "Борлуулалт ба төлбөр тооцоо, төлбөрийн олон хэрэгсэл, захиалгын удирдлага, баримт, худалдаачийн тайлан — Sunmi төхөөрөмжид зориулсан",
-        "outcome": "Sunmi терминалын хэвтээ дэлгэц болон өдөр тутмын худалдаанд зориулсан хурдан, ойлгомжтой POS интерфэйс"
-      },
-      {
-        "title": "Jur Ur — Киоск",
-        "type": "Киоск дизайн",
-        "summary": "Jur Ur-ын өөртөө үйлчлэх киоскийн UI — босоо мэдрэгчит дэлгэцэд зориулсан ойлгомжтой, хүрэлцэхэд ээлтэй урсгал",
-        "role": "UI/UX ба киоск дизайн",
-        "tools": "Figma",
-        "features": "Нүүр дэлгэц, ангилалаар нэвтрэх, сонголт ба дэлгэрэнгүй, босоо мэдрэгчит киоскийн удирдамжтай алхмууд",
-        "outcome": "Босоо өөртөө үйлчлэх терминалд зориулсан хүрэлцэхэд ээлтэй, тод дизайн"
+        "type": "Вэб · iOS · Эмнэлгийн систем",
+        "summary": "Шүдний эмнэлгийн платформ — хоёр хэлтэй нийтийн сайт, өвчтөн, цаг захиалга, эмчилгээ, төлбөрийн удирдлагын систем",
+        "features": "Хоёр хэлтэй маркетингийн сайт (MN/EN), нэвтрэлтээр хамгаалсан админ — өвчтөн, цаг захиалгын календарь, эмчилгээ, ажилтан, төлбөр; өөрийн PostgreSQL + Redis, SwiftUI хамтын апп",
+        "outcome": "Өөрийн VPS дээр ажиллах эмнэлгийн удирдлагын систем, өдөр тутмын хэрэглээнд зориулсан SwiftUI апп",
+        "stack": "Next.js 16, React 19, PostgreSQL 16, Redis, SwiftUI, Docker"
       },
       {
         "title": "Ahilt House Construction",
@@ -398,5 +341,3 @@
     }
   }
 }
-
-

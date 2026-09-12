@@ -25,17 +25,32 @@
       "cta": "View more"
     },
     "proofBar": {
-      "projects": "20+ products shipped & counting",
+      "projects": "20+ products shipped · selected work below",
       "platforms": "Native — iOS · Android · Web",
       "techStack": "Brands that stand out",
       "languages": "Content that stops the scroll"
     },
     "features": {
-      "ios": {"title": "iOS & Android Development", "desc": "Swift • SwiftUI • Kotlin • Jetpack Compose • Firebase • Go APIs"},
-      "web": {"title": "Web Development", "desc": "React • Next.js • Vue/Nuxt • Tailwind • Go/Postgres backends"},
-      "ux": {"title": "UX & Design", "desc": "Figma • Design systems • Wireframes • User flows"},
-      "branding": {"title": "Branding & Design", "desc": "Brand identity • Logos • Guidelines • Social templates"},
-      "marketing": {"title": "Marketing & Video Content", "desc": "Reels • AI-enhanced video • Professional editing • DJI drone shots"}
+      "ios": {
+        "title": "iOS & Android Development",
+        "desc": "Swift • SwiftUI • Kotlin • Jetpack Compose • Firebase • Go APIs"
+      },
+      "web": {
+        "title": "Web Development",
+        "desc": "React • Next.js • Vue/Nuxt • Tailwind • Go/Postgres backends"
+      },
+      "ux": {
+        "title": "UX & Design",
+        "desc": "Figma • Design systems • Wireframes • User flows"
+      },
+      "branding": {
+        "title": "Branding & Design",
+        "desc": "Brand identity • Logos • Guidelines • Social templates"
+      },
+      "marketing": {
+        "title": "Marketing & Video Content",
+        "desc": "Reels • AI-enhanced video • Professional editing • DJI drone shots"
+      }
     }
   },
   "about": {
@@ -46,24 +61,69 @@
         "name": "Chinguun",
         "role": "iOS + Web Developer",
         "bio": "iOS developer and UX lead with national-scale experience at Gerege Pay. I combine design thinking with engineering precision to turn ideas into products people rely on.",
-        "images": ["/chinguun/image 187.png", "/chinguun/image 188.png"],
+        "images": [
+          "/chinguun/image 187.png",
+          "/chinguun/image 188.png"
+        ],
         "certificates": [
-          {"name": "Automating Real World Tasks with Python", "file": "/Porfolio Chinguun/Coursera Automating Real World Tasks with Python.pdf"},
-          {"name": "Configuration Management and the Cloud", "file": "/Porfolio Chinguun/Coursera Configuration Management and the Cloud.pdf"},
-          {"name": "Crash Course on Python", "file": "/Porfolio Chinguun/Coursera Crash Course on Python.pdf"},
-          {"name": "Introduction to Git and Github", "file": "/Porfolio Chinguun/Coursera Introduction to Git and Github.pdf"},
-          {"name": "Programming Fundamentals in Swift", "file": "/Porfolio Chinguun/Coursera Programming Fundamentals in Swift.pdf"},
-          {"name": "Troubleshooting and Debugging Techniques", "file": "/Porfolio Chinguun/Coursera Troubleshooting and Debugging Techniques.pdf"},
-          {"name": "Using Python to Interact with the Operating System", "file": "/Porfolio Chinguun/Coursera Using Python to Interact with the Operating System.pdf"}
+          {
+            "name": "Automating Real World Tasks with Python",
+            "file": "/Porfolio Chinguun/Coursera Automating Real World Tasks with Python.pdf"
+          },
+          {
+            "name": "Configuration Management and the Cloud",
+            "file": "/Porfolio Chinguun/Coursera Configuration Management and the Cloud.pdf"
+          },
+          {
+            "name": "Crash Course on Python",
+            "file": "/Porfolio Chinguun/Coursera Crash Course on Python.pdf"
+          },
+          {
+            "name": "Introduction to Git and Github",
+            "file": "/Porfolio Chinguun/Coursera Introduction to Git and Github.pdf"
+          },
+          {
+            "name": "Programming Fundamentals in Swift",
+            "file": "/Porfolio Chinguun/Coursera Programming Fundamentals in Swift.pdf"
+          },
+          {
+            "name": "Troubleshooting and Debugging Techniques",
+            "file": "/Porfolio Chinguun/Coursera Troubleshooting and Debugging Techniques.pdf"
+          },
+          {
+            "name": "Using Python to Interact with the Operating System",
+            "file": "/Porfolio Chinguun/Coursera Using Python to Interact with the Operating System.pdf"
+          }
         ],
         "awards": [
-          {"name": "SAT Score (2019)", "file": "/Porfolio Chinguun/SOME AWARDS/SAT 2019.JPG"},
-          {"name": "3rd Place in District (200k students)", "file": "/Porfolio Chinguun/SOME AWARDS/3rd Place in District of 200k kids.jpg"},
-          {"name": "English Olympiad - 1st Place (Darkhan City)", "file": "/Porfolio Chinguun/SOME AWARDS/English Olympiad 1st Place in Darkhan City.jpg"},
-          {"name": "English Turkish School Olympiad - 3rd Place", "file": "/Porfolio Chinguun/SOME AWARDS/English Turkish School Olympiad 3rd Place.jpg"},
-          {"name": "First Class Certificate (Ireland)", "file": "/Porfolio Chinguun/SOME AWARDS/First Class.jpg"},
-          {"name": "Second Class Certificate (Ireland)", "file": "/Porfolio Chinguun/SOME AWARDS/Second Class.jpg"},
-          {"name": "Report Card - 3rd Grade", "file": "/Porfolio Chinguun/SOME AWARDS/Repord 3rd grade.jpg"}
+          {
+            "name": "SAT Score (2019)",
+            "file": "/Porfolio Chinguun/SOME AWARDS/SAT 2019.JPG"
+          },
+          {
+            "name": "3rd Place in District (200k students)",
+            "file": "/Porfolio Chinguun/SOME AWARDS/3rd Place in District of 200k kids.jpg"
+          },
+          {
+            "name": "English Olympiad - 1st Place (Darkhan City)",
+            "file": "/Porfolio Chinguun/SOME AWARDS/English Olympiad 1st Place in Darkhan City.jpg"
+          },
+          {
+            "name": "English Turkish School Olympiad - 3rd Place",
+            "file": "/Porfolio Chinguun/SOME AWARDS/English Turkish School Olympiad 3rd Place.jpg"
+          },
+          {
+            "name": "First Class Certificate (Ireland)",
+            "file": "/Porfolio Chinguun/SOME AWARDS/First Class.jpg"
+          },
+          {
+            "name": "Second Class Certificate (Ireland)",
+            "file": "/Porfolio Chinguun/SOME AWARDS/Second Class.jpg"
+          },
+          {
+            "name": "Report Card - 3rd Grade",
+            "file": "/Porfolio Chinguun/SOME AWARDS/Repord 3rd grade.jpg"
+          }
         ]
       },
       "shinezaya": {
@@ -71,20 +131,50 @@
         "role": "UI/UX Designer + Web Developer",
         "bio": "Hi, I'm Shinezaya. I believe the digital world is not just code, pixels, and buttons — it's the story between people and technology. Making that story clearer and more delightful is both my work and my passion.",
         "fullBio": "For the past 3+ years as a UI/UX designer, I've been crafting meaningful experiences that are memorable and easy to understand. To me, great design is 'invisible'—it quietly guides users through their journey while solving real problems. Every project brings a new challenge, a new insight, and a new opportunity. When I'm not designing, I love exploring trends, trying new tools, or sharing learnings with the design community.",
-        "skills": ["Figma", "Adobe XD", "Sketch", "Prototyping", "Visual Design", "User Research", "Next.js", "TypeScript", "React", "Vibe Coding"],
-        "images": ["/shinezaya/image 189.png", "/shinezaya/shinezaya.jpg"]
+        "skills": [
+          "Figma",
+          "Adobe XD",
+          "Sketch",
+          "Prototyping",
+          "Visual Design",
+          "User Research",
+          "Next.js",
+          "TypeScript",
+          "React",
+          "Vibe Coding"
+        ],
+        "images": [
+          "/shinezaya/image 189.png",
+          "/shinezaya/shinezaya.jpg"
+        ]
       }
     },
     "story": {
       "title": "Our Story",
       "desc": "From Ireland to Mongolia — a journey of learning, building, and growth."
     },
-    "glance": {"title": "Fast Stats", "desc": "Where we are today."},
-    "whatWeDo": {"title": "What we do", "desc": "iOS, Android, Web, and Design — end-to-end product development.", "cards": {
-      "ios": {"title": "iOS & Android Development", "desc": "Swift • SwiftUI • Kotlin • Jetpack Compose • Firebase • Go APIs"},
-      "web": {"title": "Web Development", "desc": "React • Next.js • Vue/Nuxt • Tailwind • Go/Postgres backends"},
-      "ux": {"title": "UX & Design", "desc": "Figma • Design systems • Wireframes • User flows"}
-    }},
+    "glance": {
+      "title": "Fast Stats",
+      "desc": "Where we are today."
+    },
+    "whatWeDo": {
+      "title": "What we do",
+      "desc": "iOS, Android, Web, and Design — end-to-end product development.",
+      "cards": {
+        "ios": {
+          "title": "iOS & Android Development",
+          "desc": "Swift • SwiftUI • Kotlin • Jetpack Compose • Firebase • Go APIs"
+        },
+        "web": {
+          "title": "Web Development",
+          "desc": "React • Next.js • Vue/Nuxt • Tailwind • Go/Postgres backends"
+        },
+        "ux": {
+          "title": "UX & Design",
+          "desc": "Figma • Design systems • Wireframes • User flows"
+        }
+      }
+    },
     "achievements": {
       "title": "Achievements & Education",
       "desc": "Always learning, always building.",
@@ -117,7 +207,7 @@
         {
           "period": "2024",
           "title": "Gerege Pay",
-          "desc": "iOS developer and UX lead on the Gerege App — 23,000+ active users across 24 provinces."
+          "desc": "iOS developer and UX lead on national GovTech platform work."
         },
         {
           "period": "2025",
@@ -126,9 +216,18 @@
         }
       ]
     },
-    "milestones": {"title": "Future Milestones", "desc": "Key targets on our 10-year journey."},
-    "principles": {"title": "Our Principles", "desc": "How we operate and make decisions."},
-    "next": {"title": "What's next", "desc": "Let's build something great together."},
+    "milestones": {
+      "title": "Future Milestones",
+      "desc": "Key targets on our 10-year journey."
+    },
+    "principles": {
+      "title": "Our Principles",
+      "desc": "How we operate and make decisions."
+    },
+    "next": {
+      "title": "What's next",
+      "desc": "Let's build something great together."
+    },
     "ctaText": "Have a project in mind? We'd love to help.",
     "cta": "Get in touch"
   },
@@ -161,11 +260,10 @@
         "desc": "Brand identity and marketing content, AI-enhanced and generated videos, professional video editing, and DJI Mini 3 drone shots. We shoot, edit, and deliver ready-to-post visuals for your brand."
       }
     },
-    "pricing": {
-      "eyebrow": "Pricing",
-      "title": "From ₮500,000",
-      "desc": "Projects start at ₮500,000 and scale with features and scope. Tell us what you need and we'll come back with a clear, itemized quote — no surprises.",
-      "cta": "Get a quote"
+    "cta": {
+      "title": "Tell us what you're building",
+      "desc": "Send us the scope and we'll come back with a plan, a timeline, and exactly who from the team would work on it.",
+      "cta": "Start a project"
     }
   },
   "portfolio": {
@@ -176,43 +274,14 @@
     "dragHint": "Drag to see more",
     "items": [
       {
-        "title": "ai.gerege.mn",
-        "type": "Web",
-        "summary": "AI chatbot with automatic speech recognition for Gerege Systems",
-        "stack": "Next.js, React, Tailwind CSS, AI/ML integration, Speech Recognition",
-        "team": "2 (Chinguun & Khuderchuluun)",
-        "duration": "2 months",
-        "role": "Full-stack development and UX design — built AI-powered chatbot platform with automatic speech recognition and natural language processing",
-        "features": "AI chatbot, automatic speech recognition, voice-to-text, multilingual interface, admin dashboard, analytics",
-        "outcome": "Production chatbot platform with speech recognition serving Gerege Systems customers"
-      },
-      {
         "title": "LaundryZone",
-        "type": "Web",
-        "summary": "Multilingual laundry locator (EN/MN/KR)",
-        "stack": "React, Next.js, Tailwind, EmailJS, i18n",
+        "type": "Web · iOS · Backend",
+        "summary": "Operations platform for a 40-branch laundry chain — trilingual public site, staff dashboard, Go API, and a SwiftUI staff app",
+        "stack": "Next.js 15, Go, PostgreSQL, Redis, MinIO, SwiftUI, Docker",
         "team": "2 (Chinguun & Shinezaya)",
-        "duration": "1 month",
-        "features": "40 branch map, contact form, SEO, responsive",
-        "outcome": "First studio web build; strong UI/UX and localization execution"
-      },
-      {
-        "title": "Gerege App",
-        "type": "iOS",
-        "summary": "Government services mobile app",
-        "users": "23,000 active Mongolia-wide",
-        "team": "Up to 6 devs",
-        "role": "iOS frontend lead and UX lead — SwiftUI, Combine, REST APIs, Figma handoff, usability reviews",
-        "features": "Vehicle toll, parking, bus/train tickets, 126 gov payments, kiosk support",
-        "outcome": "National-scale GovTech platform; shipped a fully refreshed UI in 2026 with improved clarity and performance"
-      },
-      {
-        "title": "Fitness Helper",
-        "type": "iOS",
-        "summary": "University graduation project → App Store release",
-        "stack": "SwiftUI, Firebase, HealthKit",
-        "features": "Macro tracking, progress charts, AI tips (optional future)",
-        "outcome": "Solo design-to-deploy app showing end-to-end ability"
+        "duration": "Ongoing",
+        "features": "Trilingual branch locator (MN/EN/KR), staff dashboard, time clock, inventory and stock ledger, self-hosted Go API on a dedicated VPS, GitHub Actions CI",
+        "outcome": "Marketing site on Vercel, API on its own server, and a SwiftUI staff app used by branch teams"
       },
       {
         "title": "Dream Box MN",
@@ -225,31 +294,12 @@
         "outcome": "Delivered App Store app with pixel-perfect UI in record time"
       },
       {
-        "title": "E-Commerce Platform",
-        "type": "Web",
-        "summary": "Full-stack web store",
-        "stack": "Vue 3, Nuxt 3, Go (backend API), PostgreSQL, Tailwind CSS",
-        "team": "3–4 developers",
-        "role": "Frontend engineer (UX flows, checkout, responsive layouts); contributed to Go API spec design",
-        "outcome": "Stable and scalable storefront with modern stack and smooth user journey"
-      },
-      {
         "title": "Women's Federation of Darkhan",
         "type": "Web",
         "summary": "Freelance project (in progress)",
         "lead": "Shinezaya",
         "tools": "LLM-assisted Next.js + Figma workflow",
         "outcome": "Showcase of AI-aided productivity and non-profit impact"
-      },
-      {
-        "title": "GeClub",
-        "type": "iOS",
-        "summary": "Fitness club app with real-time chat, workout planning, and notifications — live on the iOS App Store",
-        "stack": "SwiftUI, Go, Redis, MinIO, Grafana, LiveKit, Google & Apple Sign-In",
-        "team": "2 (Chinguun & Shinezaya)",
-        "role": "Full-stack — iOS app, backend system design with Redis caching, MinIO object storage, and Grafana observability, through to App Store release",
-        "features": "LiveKit real-time chat, workout planning, push notifications, Google & Apple login, media storage on MinIO, Grafana monitoring dashboards",
-        "outcome": "Successfully shipped to the iOS App Store and ranked #1 trending app — our first fully self-built product with production backend infrastructure"
       },
       {
         "title": "Mongol School",
@@ -260,118 +310,11 @@
       },
       {
         "title": "Sayan Dent",
-        "type": "Web",
-        "summary": "Website for Sayan Dent dental clinic — services, doctor profiles, and online appointment booking",
-        "features": "Service catalog from implants to veneers, doctor profiles, online appointment booking, patient sign-in",
-        "outcome": "Modern clinic website with a warm brand identity, live in production"
-      },
-      {
-        "title": "Mongolian Chess Federation",
-        "type": "Web Design",
-        "summary": "Website design for the Mongolian Chess Federation — a modern home for news, tournaments, rankings, and players",
-        "role": "Web & UI/UX Design",
-        "tools": "Figma",
-        "features": "Tournament schedules & results, national player rankings, news & announcements, and player/club profiles",
-        "outcome": "A clean, sport-forward identity that makes tournaments, rankings, and federation news easy to follow"
-      },
-      {
-        "title": "Simple — Loan Kiosk",
-        "type": "Kiosk Design",
-        "summary": "Self-service kiosk design for instant loan applications — from eligibility check to approval in a few taps",
-        "role": "UI/UX & Kiosk Design",
-        "tools": "Figma",
-        "features": "Guided loan flow: eligibility check, real-time credit calculation, registration, account details, and success/decline states",
-        "outcome": "A large-format, touch-friendly interface that makes applying for a loan simple and self-guided"
-      },
-      {
-        "title": "E-property.mn",
-        "type": "Web Design",
-        "summary": "Web design for E-property.mn — a real-estate marketplace for browsing, listing, and comparing properties",
-        "role": "Web & UI/UX Design",
-        "tools": "Figma",
-        "features": "Property listings with rich media, search & filters, map view, listing details, and agent contact",
-        "outcome": "A clean, trustworthy marketplace design that makes finding and listing property effortless"
-      },
-      {
-        "title": "Airalo eSIM",
-        "type": "App Design",
-        "summary": "Mobile app design for Airalo — buy and install eSIM data plans for travel in a few taps",
-        "role": "UI/UX & App Design",
-        "tools": "Figma",
-        "features": "Browse plans by region & country, plan details, free eSIM promo, and a step-by-step eSIM install guide",
-        "outcome": "A focused, travel-friendly flow that turns buying an eSIM into a few simple steps"
-      },
-      {
-        "title": "Gerege App — Web",
-        "type": "Web Design",
-        "summary": "Marketing website design for the Gerege App — introducing the nationwide digital-services super-app",
-        "role": "Web & UI/UX Design",
-        "tools": "Figma",
-        "features": "Hero & feature highlights, service showcase, download CTAs, and responsive marketing sections",
-        "outcome": "A polished landing experience that communicates the Gerege App's scale and services at a glance"
-      },
-      {
-        "title": "National Cancer Center",
-        "type": "Web Design",
-        "summary": "Website & system redesign for the National Cancer Research Center of Mongolia — screening, patient records, and staff management",
-        "role": "Web & UI/UX Design",
-        "tools": "Figma",
-        "features": "Early cancer-detection screening, patient information & records (EMM-92), registration flows, doctor & staff management, and help center",
-        "outcome": "A clearer, modern healthcare system that streamlines screening, patient registration, and clinical staff workflows"
-      },
-      {
-        "title": "e-Bolovsrol",
-        "type": "Web Design",
-        "summary": "Web design for e-Bolovsrol — Mongolia's digital education platform for students, teachers, and parents",
-        "role": "Web & UI/UX Design",
-        "tools": "Figma",
-        "features": "Student dashboards, grades & attendance, class schedules, teacher tools, and parent access",
-        "outcome": "A unified, easy-to-navigate education platform that connects students, teachers, and parents"
-      },
-      {
-        "title": "eKids",
-        "type": "App Design",
-        "summary": "Mobile app design for eKids — a parent app for school attendance, health questionnaires, and a built-in wallet",
-        "role": "UI/UX & App Design",
-        "tools": "Figma",
-        "features": "Kids list & profiles, daily attendance, health questionnaires, a digital wallet with QR payments, and contracts",
-        "outcome": "A friendly parent-facing app that brings attendance, health checks, and payments into one place"
-      },
-      {
-        "title": "Hospital Booking",
-        "type": "App Design",
-        "summary": "Mobile app design for booking hospital appointments — browse state & private hospitals, then pick a department, date, and time",
-        "role": "UI/UX & App Design",
-        "tools": "Figma",
-        "features": "State & private hospital directories, department lists, date & time picker, information confirmation, and booking success",
-        "outcome": "A simple, guided flow that makes booking a hospital appointment quick and stress-free"
-      },
-      {
-        "title": "E-zed",
-        "type": "App Design",
-        "summary": "Mobile app design for E-zed — send payments, invoices, and gift vouchers to people and organizations",
-        "role": "UI/UX & App Design",
-        "tools": "Figma",
-        "features": "Select recipient & organization, vouchers and templates, custom amounts, invoices, card linking, and payment",
-        "outcome": "A flexible payments app that makes sending money, invoices, and vouchers effortless"
-      },
-      {
-        "title": "Gerege POS — Sunmi",
-        "type": "App Design",
-        "summary": "Point-of-sale app design for Sunmi terminals — payments, orders, and merchant tools for the Gerege ecosystem",
-        "role": "UI/UX & App Design",
-        "tools": "Figma",
-        "features": "Sales & checkout, multiple payment methods, order management, receipts, and merchant reporting — built for Sunmi hardware",
-        "outcome": "A fast, glanceable POS interface designed for the landscape Sunmi terminal and everyday merchant use"
-      },
-      {
-        "title": "Jur Ur — Kiosk",
-        "type": "Kiosk Design",
-        "summary": "Self-service kiosk UI for Jur Ur — a portrait touchscreen experience with clear, tap-friendly flows",
-        "role": "UI/UX & Kiosk Design",
-        "tools": "Figma",
-        "features": "Home screen, category browsing, selection and detail views, and guided on-screen steps for a vertical touchscreen kiosk",
-        "outcome": "A bold, touch-first interface designed for a portrait self-service terminal"
+        "type": "Web · iOS · Clinic system",
+        "summary": "Dental clinic platform — bilingual public site plus a clinic-management system for patients, appointments, treatments, and payments",
+        "features": "Bilingual marketing site (MN/EN), auth-gated admin for patients, appointment calendar, treatments, employees and payments, self-hosted Postgres + Redis, SwiftUI companion app",
+        "outcome": "Clinic-management system running on its own VPS, with a SwiftUI app for day-to-day staff use",
+        "stack": "Next.js 16, React 19, PostgreSQL 16, Redis, SwiftUI, Docker"
       },
       {
         "title": "Ahilt House Construction",
@@ -398,5 +341,3 @@
     }
   }
 }
-
-

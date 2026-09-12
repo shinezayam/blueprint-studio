@@ -9,9 +9,38 @@ import Providers from "@/components/Providers";
 const montserrat = Montserrat({ variable: "--font-montserrat", subsets: ["latin", "cyrillic"], display: "swap" });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://blueprint-studio.vercel.app";
+const TITLE = "Blueprint Studio — Product studio for iOS, Android & web";
+const DESCRIPTION =
+  "Chinguun & Shinezaya — a two-person product studio in Ulaanbaatar shipping iOS, Android, and web products end to end, from design system to production release.";
+
 export const metadata: Metadata = {
-  title: { default: "Blueprint Studio — Portfolio of Chinguun & Shinezaya", template: "%s • Blueprint Studio" },
-  description: "Blueprint Studio is the personal portfolio of Chinguun & Shinezaya — showcasing iOS, React, and Vue work.",
+  metadataBase: new URL(SITE_URL),
+  title: { default: TITLE, template: "%s • Blueprint Studio" },
+  description: DESCRIPTION,
+  keywords: [
+    "product studio",
+    "iOS development",
+    "Android development",
+    "Next.js",
+    "UI UX design",
+    "Mongolia",
+    "Ulaanbaatar",
+  ],
+  authors: [{ name: "Chinguun" }, { name: "Shinezaya" }],
+  openGraph: {
+    type: "website",
+    siteName: "Blueprint Studio",
+    title: TITLE,
+    description: DESCRIPTION,
+    url: SITE_URL,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+  robots: { index: true, follow: true },
 };
 
 export function generateStaticParams() {

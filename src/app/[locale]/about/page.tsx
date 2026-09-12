@@ -24,7 +24,7 @@ export default function AboutPage() {
       <Section title={t("glance.title")} description={t("glance.desc")}>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <StatCard label="Team" value="2" hint="Husband & Wife duo" />
-          <StatCard label="Active Users" value="23,000+" hint="Gerege App nationwide" />
+          <StatCard label="Languages" value="EN · MN" hint="Bilingual delivery" />
           <StatCard label="Primary Focus" value="iOS + Frontend" hint="Swift, React, Vue" />
           <StatCard label="Projects Shipped" value="20+" hint="From GovTech to E-commerce" />
         </div>
