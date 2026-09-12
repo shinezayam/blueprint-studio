@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import emailjs from "@emailjs/browser";
 
 export default function ContactForm() {
   const t = useTranslations("contact");
@@ -13,6 +12,12 @@ export default function ContactForm() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  /* "the message didn't send" is not enough to act on. A provider rejection
+     (expired Gmail grant, bad template) is our problem and the visitor should
+     email us instead; a network failure is worth retrying. */
+  const [errorKind, setErrorKind] = useState<"provider" | "network" | "generic">("generic");
+
+  const contactEmail = t("email");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -28,24 +33,24 @@ export default function ContactForm() {
     setSubmitStatus("idle");
 
     try {
-      // EmailJS configuration - you'll need to replace these with your actual values
-      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "your_service_id";
-      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "your_template_id";
-      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "your_public_key";
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) {
+        // Any HTTP response means we reached our server; the failure is ours.
+        setErrorKind("provider");
+        setSubmitStatus("error");
+        return;
+      }
 
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        message: formData.message,
-        to_name: "Blueprint Studio",
-      };
-
-      await emailjs.send(serviceId, templateId, templateParams, publicKey);
-      
       setSubmitStatus("success");
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
-      console.error("EmailJS error:", error);
+      console.error("Contact form error:", error);
+      // fetch only throws when the request never completed.
+      setErrorKind(error instanceof TypeError ? "network" : "generic");
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
@@ -107,19 +112,29 @@ export default function ContactForm() {
         disabled={isSubmitting}
         className="btn btn-primary disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none"
       >
-        {isSubmitting ? "Sending..." : t("form.submit")}
+        {isSubmitting ? t("form.sending") : t("form.submit")}
       </button>
 
-      {/* Status Messages */}
+      {/* Status. role=status/alert so screen readers announce the outcome
+          rather than leaving it to a visual-only colour change. */}
       {submitStatus === "success" && (
-        <div className="p-3 rounded-md bg-green-100 text-green-800 border border-green-200">
-          <p className="text-sm">Thank you! Your message has been sent successfully. We&apos;ll get back to you within 1 business day.</p>
+        <div role="status" className="p-3 rounded-md border border-emerald-500/30 bg-emerald-500/10 text-emerald-900 dark:text-emerald-200">
+          <p className="text-sm">{t("form.ok")}</p>
         </div>
       )}
-      
+
       {submitStatus === "error" && (
-        <div className="p-3 rounded-md bg-red-100 text-red-800 border border-red-200">
-          <p className="text-sm">Sorry, there was an error sending your message. Please try again or contact us directly.</p>
+        <div role="alert" className="p-3 rounded-md border border-red-500/30 bg-red-500/10 text-red-900 dark:text-red-200 space-y-1">
+          <p className="text-sm">
+            {errorKind === "provider"
+              ? t("form.errProvider")
+              : errorKind === "network"
+                ? t("form.errNetwork")
+                : t("form.errGeneric")}
+          </p>
+          <a href={`mailto:${contactEmail}`} className="text-sm font-semibold underline underline-offset-2 break-all">
+            {contactEmail}
+          </a>
         </div>
       )}
     </form>

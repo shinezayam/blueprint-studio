@@ -86,14 +86,14 @@ NextAuth configured with Google OAuth:
 - SessionProvider wraps app in Providers component
 - [AuthButton](src/components/AuthButton.tsx) shows sign-in/out UI
 
-### EmailJS Integration
+### Contact Email (Resend)
 
-Contact form sends emails via EmailJS. Requires environment variables:
-- `NEXT_PUBLIC_EMAILJS_SERVICE_ID`
-- `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID`
-- `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY`
+[ContactForm](src/components/ContactForm.tsx) POSTs to [src/app/api/contact/route.ts](src/app/api/contact/route.ts), which sends via Resend (same provider as our other sites). Server-only env vars:
+- `RESEND_API_KEY`
+- `RESEND_TO_EMAIL` — inbox receiving submissions
+- `RESEND_FROM_EMAIL` — verified sender; the default `onboarding@resend.dev` only delivers to the Resend account owner's address
 
-If not set, form will fail silently with fallback values. Update [ContactForm.tsx:32-34](src/components/ContactForm.tsx#L32-L34).
+If unset, the route returns 503 and the form shows the direct-email fallback.
 
 ### Styling & Animation
 
@@ -160,9 +160,9 @@ Create `.env.local` (not in git):
 GOOGLE_CLIENT_ID=...
 GOOGLE_CLIENT_SECRET=...
 NEXTAUTH_SECRET=...
-NEXT_PUBLIC_EMAILJS_SERVICE_ID=...
-NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=...
-NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=...
+RESEND_API_KEY=...
+RESEND_TO_EMAIL=...
+RESEND_FROM_EMAIL=...
 ```
 
 Public vars must start with `NEXT_PUBLIC_` to be available in browser.

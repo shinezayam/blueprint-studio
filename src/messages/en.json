@@ -342,7 +342,13 @@
       "emailPh": "you@example.com",
       "message": "Message",
       "messagePh": "What can we help with?",
-      "submit": "Send"
-    }
+      "submit": "Send",
+      "sending": "Sending…",
+      "ok": "Thank you — your message is on its way. We reply within 1 business day.",
+      "errProvider": "Our mail provider rejected the message, so it did not reach us. This is on our side, not yours — please email us directly:",
+      "errNetwork": "We could not reach our mail service. Check your connection and try again, or email us directly:",
+      "errGeneric": "Something went wrong sending your message. Please email us directly:"
+    },
+    "email": "sharshuwuu@gmail.com"
   }
 }
