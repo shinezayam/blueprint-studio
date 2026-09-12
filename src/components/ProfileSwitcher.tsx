@@ -47,7 +47,6 @@ function FileChip({ name, file, icon }: { name: string; file: string; icon: stri
 export default function ProfileSwitcher() {
   const t = useTranslations("about.profiles");
   const [activeProfile, setActiveProfile] = useState<"chinguun" | "shinezaya">("chinguun");
-  const [hasSpline, setHasSpline] = useState<boolean | null>(null);
   const [isHoveringCenter, setIsHoveringCenter] = useState(false);
   /* This scene is ~844KB plus a 495KB wasm runtime, and it sits below the fold.
      Loading it on mount made the landing page pay for it before anything was
@@ -83,19 +82,9 @@ export default function ProfileSwitcher() {
   const chImages = (t.raw("chinguun.images") as string[]) || [];
   const shImages = (t.raw("shinezaya.images") as string[]) || [];
 
-  useEffect(() => {
-    if (!inView) return;
-    let isMounted = true;
-    fetch(ROBOT_SCENE_PATH, { method: "HEAD" })
-      .then((res) => {
-        if (!isMounted) return;
-        setHasSpline(res.ok);
-      })
-      .catch(() => isMounted && setHasSpline(false));
-    return () => {
-      isMounted = false;
-    };
-  }, [inView]);
+  /* No HEAD probe: it only serialised an extra round-trip in front of the
+     scene download. The icon below stays as the fallback if it never loads. */
+  const showScene = inView;
 
   return (
     <div ref={rootRef} className="relative space-y-16 py-10 sm:py-14 overflow-hidden">
@@ -115,7 +104,7 @@ export default function ProfileSwitcher() {
       >
         <div className="absolute inset-0 flex items-center justify-center opacity-25">
           <div className="w-full max-w-[800px] h-[1200px] relative">
-            {hasSpline ? (
+            {showScene ? (
               <div className="w-full h-full">
                 <Spline 
                   scene={ROBOT_SCENE_PATH}

@@ -11,7 +11,12 @@ export default function Footer() {
             © {new Date().getFullYear()} Blueprint Studio — Crafted by Chinguun &amp; Shinezaya
           </p>
         </div>
-        <nav className="flex items-center gap-5 text-foreground/60">
+        <nav aria-label="Footer" className="flex flex-wrap items-center justify-center gap-5 text-foreground/60">
+          {/* A reachable address that does not depend on the contact form's
+              mail provider being healthy. */}
+          <a href="mailto:sharshuwuu@gmail.com" className="hover:text-foreground transition-colors">
+            sharshuwuu@gmail.com
+          </a>
           <Link href={`/${locale}/privacy`} className="hover:text-foreground transition-colors">Privacy</Link>
           <Link href={`/${locale}/terms`} className="hover:text-foreground transition-colors">Terms</Link>
         </nav>
