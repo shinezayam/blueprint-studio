@@ -1,9 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import Spline from "@splinetool/react-spline";
+import dynamic from "next/dynamic";
+
+/* Code-split: the Spline runtime is large and purely decorative, so it
+   must not sit in the page bundle. */
+const Spline = dynamic(() => import("@splinetool/react-spline"), { ssr: false });
 import Icon from "@/components/Icon";
 
 /* Chip that previews its certificate/award file in a hover popup instead of
@@ -45,6 +49,31 @@ export default function ProfileSwitcher() {
   const [activeProfile, setActiveProfile] = useState<"chinguun" | "shinezaya">("chinguun");
   const [hasSpline, setHasSpline] = useState<boolean | null>(null);
   const [isHoveringCenter, setIsHoveringCenter] = useState(false);
+  /* This scene is ~844KB plus a 495KB wasm runtime, and it sits below the fold.
+     Loading it on mount made the landing page pay for it before anything was
+     visible, so it is deferred until the section nears the viewport. */
+  const [inView, setInView] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = rootRef.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === "undefined") {
+      setInView(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setInView(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "300px 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   const isChinguun = activeProfile === "chinguun";
   const isShinezaya = activeProfile === "shinezaya";
@@ -55,6 +84,7 @@ export default function ProfileSwitcher() {
   const shImages = (t.raw("shinezaya.images") as string[]) || [];
 
   useEffect(() => {
+    if (!inView) return;
     let isMounted = true;
     fetch(ROBOT_SCENE_PATH, { method: "HEAD" })
       .then((res) => {
@@ -65,10 +95,10 @@ export default function ProfileSwitcher() {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [inView]);
 
   return (
-    <div className="relative space-y-16 py-10 sm:py-14 overflow-hidden">
+    <div ref={rootRef} className="relative space-y-16 py-10 sm:py-14 overflow-hidden">
       {/* Robot Arm Background - Receives mouse events but positioned behind UI elements.
           Wheel events are stopped in the capture phase so the Spline canvas never
           zooms/moves the scene on scroll — the page scrolls normally instead. */}

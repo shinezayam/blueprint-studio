@@ -1,7 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Spline from "@splinetool/react-spline";
+import dynamic from "next/dynamic";
+
+/* Code-split: the Spline runtime is large and purely decorative, so it
+   must not sit in the page bundle. */
+const Spline = dynamic(() => import("@splinetool/react-spline"), { ssr: false });
 
 type Props = { className?: string };
 

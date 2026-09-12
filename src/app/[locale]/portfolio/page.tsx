@@ -65,6 +65,7 @@ export default function PortfolioPage() {
       title: t("items.3.title"),
       type: t("items.3.type"),
       summary: t("items.3.summary"),
+      tools: t("items.3.tools"),
       features: t("items.3.features"),
       outcome: t("items.3.outcome"),
       links: [{ href: "https://mongolschool.mn", label: "mongolschool.mn" }],

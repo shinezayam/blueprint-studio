@@ -1,106 +1,43 @@
 "use client";
 
 import Link from "next/link";
-import {useRef} from "react";
+import Image from "next/image";
+import Section from "@/components/Section";
+import StatCard from "@/components/StatCard";
+import Timeline from "@/components/Timeline";
+import ProfileSwitcher from "@/components/ProfileSwitcher";
 import SplineHero from "@/components/SplineHero";
 import Icon from "@/components/Icon";
-import ProductCard, {useScrollEffects, type ProjectItem} from "@/components/ProductCard";
-import {useLocale, useTranslations} from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
-export default function Home() {
-  const t = useTranslations("home");
+/* The landing page. This is the former About page: the studio and the people
+   are the pitch, so the generic feature grid and showcase that used to live
+   here are gone. The cursor-tracking Spline hero carries over from it. */
+export default function LandingPage() {
+  const t = useTranslations("about");
+  const th = useTranslations("home");
   const tp = useTranslations("portfolio");
   const locale = useLocale();
 
-  const showcaseRef = useRef<HTMLDivElement>(null);
-  useScrollEffects(showcaseRef);
-
-  // Featured works shown in full on the home page (like the portfolio page)
-  const showcaseItems: ProjectItem[] = [
-    {
-      title: tp("items.0.title"),
-      type: tp("items.0.type"),
-      summary: tp("items.0.summary"),
-      stack: tp("items.0.stack"),
-      team: tp("items.0.team"),
-      duration: tp("items.0.duration"),
-      features: tp("items.0.features"),
-      outcome: tp("items.0.outcome"),
-      links: [{ href: "https://laundryzone.mn", label: "laundryzone.mn" }],
-      images: [
-        { src: "/LaundryZone/image 174.png", width: 1795, height: 1044 },
-        { src: "/LaundryZone/image 175.png", width: 1800, height: 1037 },
-        { src: "/LaundryZone/image 176.png", width: 1789, height: 1038 },
-        { src: "/LaundryZone/image 183.png", width: 1798, height: 1038 },
-      ],
-    },
-    {
-      title: tp("items.1.title"),
-      type: tp("items.1.type"),
-      summary: tp("items.1.summary"),
-      stack: tp("items.1.stack"),
-      team: tp("items.1.team"),
-      duration: tp("items.1.duration"),
-      features: tp("items.1.features"),
-      outcome: tp("items.1.outcome"),
-      images: [
-        { src: "/dbox/image 157.png", width: 2013, height: 1278 },
-        { src: "/dbox/IMG_2275.png", width: 590, height: 1278 },
-        { src: "/dbox/IMG_2276.png", width: 590, height: 1278 },
-        { src: "/dbox/IMG_2277.png", width: 590, height: 1278 },
-        { src: "/dbox/IMG_2278.png", width: 590, height: 1278 },
-      ],
-    },
-    {
-      title: tp("items.4.title"),
-      type: tp("items.4.type"),
-      summary: tp("items.4.summary"),
-      stack: tp("items.4.stack"),
-      features: tp("items.4.features"),
-      outcome: tp("items.4.outcome"),
-      links: [{ href: "https://sayandent.vercel.app", label: "sayandent.vercel.app" }],
-      images: [
-        { src: "/sayandent/sayandent-1.png", width: 2400, height: 1500 },
-        { src: "/sayandent/sayandent-2.png", width: 2400, height: 1500 },
-        { src: "/sayandent/sayandent-3.png", width: 2400, height: 1500 },
-        { src: "/sayandent/sayandent-mobile.png", width: 780, height: 1688 },
-      ],
-    },
-    {
-      title: tp("items.5.title"),
-      type: tp("items.5.type"),
-      summary: tp("items.5.summary"),
-      role: tp("items.5.role"),
-      tools: tp("items.5.tools"),
-      features: tp("items.5.features"),
-      outcome: tp("items.5.outcome"),
-      links: [{ href: "/downloads/ahilt-brand-guide.pdf", label: "Download PDF" }],
-      images: [
-        { src: "/ahilt/ahilt-01.png", width: 2400, height: 1350 },
-        { src: "/ahilt/ahilt-02.png", width: 2400, height: 1350 },
-        { src: "/ahilt/ahilt-03.png", width: 2400, height: 1350 },
-        { src: "/ahilt/ahilt-04.png", width: 2400, height: 1350 },
-      ],
-    },
+  /* A visitor should see proof of work without scrolling the whole studio
+     story first. One image per project keeps this cheap — the full galleries
+     live on the portfolio page. */
+  const work = [
+    { i: 0, src: "/LaundryZone/image 174.png", w: 1795, h: 1044 },
+    { i: 3, src: "/mongolschool/mongolschool-1.png", w: 2400, h: 1500 },
+    { i: 4, src: "/sayandent/sayandent-1.png", w: 2400, h: 1500 },
+    { i: 1, src: "/dbox/image 157.png", w: 2013, h: 1278 },
+    { i: 5, src: "/ahilt/ahilt-01.png", w: 2400, h: 1350 },
   ];
 
-  const features = [
-    { key: "ios", icon: "iphone" },
-    { key: "web", icon: "domain" },
-    { key: "ux", icon: "design" },
-    { key: "branding", icon: "paint-palette" },
-    { key: "marketing", icon: "video-editing" },
-  ] as const;
-
-  const proof = ["projects", "platforms", "techStack", "languages"] as const;
-
   return (
-    <section className="space-y-24 sm:space-y-32">
-      {/* Full-bleed cinematic hero */}
+    <div className="space-y-10">
+      {/* Full-bleed cinematic hero. Deliberately NOT wrapped in an
+          overflow-clip container: the glow band below spans the viewport with
+          w-screen, and an ancestor clip would cut it to the page gutter. */}
       <div className="relative left-1/2 right-1/2 -mx-[50vw] -mt-10 w-screen overflow-hidden">
         <div className="hero-glow" aria-hidden />
         <div className="grid-bg" aria-hidden />
-        {/* Spline as immersive backdrop, faded into the black */}
         <div
           className="absolute inset-y-0 right-0 hidden md:block w-[62%] opacity-80"
           ref={(el) => {
@@ -120,83 +57,163 @@ export default function Home() {
             of its width. Only the text and buttons themselves take events. */}
         <div className="pointer-events-none relative mx-auto max-w-6xl px-4 sm:px-6">
           <div className="pointer-events-none max-w-2xl py-24 sm:py-36 space-y-8 text-center md:text-left fade-in-up" style={{ animationDelay: "100ms" }}>
-            <span className="eyebrow pointer-events-auto">{t("eyebrow")}</span>
+            <span className="eyebrow pointer-events-auto">{th("eyebrow")}</span>
             <h1 className="pointer-events-auto text-5xl sm:text-6xl lg:text-[4.75rem] font-semibold tracking-[-0.035em] leading-[0.95]">
-              <span className="text-gradient">{t("title")}</span>
+              <span className="text-gradient">{th("title")}</span>
             </h1>
             <p className="pointer-events-auto max-w-xl mx-auto md:mx-0 text-lg sm:text-xl text-foreground/60 leading-relaxed">
-              {t("desc")}
+              {t("intro")}
             </p>
             <div className="pointer-events-auto flex flex-wrap items-center gap-3 justify-center md:justify-start pt-2">
               <Link href={`/${locale}/contact`} className="btn btn-primary">
-                {t("ctaContact")}
+                {th("ctaContact")}
                 <span aria-hidden>→</span>
               </Link>
-              <Link href={`/${locale}/portfolio`} className="btn btn-secondary">{t("ctaWork")}</Link>
+              <Link href={`/${locale}/portfolio`} className="btn btn-secondary">{th("ctaWork")}</Link>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Proof bar */}
-      <div className="card grid grid-cols-2 sm:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x fade-in-up" style={{ animationDelay: "160ms" }}>
-        {proof.map((k) => (
-          <div key={k} className="px-5 py-6 text-center">
-            <p className="text-sm font-medium text-foreground/85">{t(`proofBar.${k}`)}</p>
+      {/* Selected work, above the studio story: proof before biography. */}
+      <section aria-labelledby="work-heading" className="space-y-6">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <div className="space-y-2">
+            <span className="eyebrow">{th("showcase.eyebrow")}</span>
+            <h2 id="work-heading" className="text-3xl sm:text-4xl font-semibold tracking-[-0.02em] text-foreground">
+              {th("showcase.title")}
+            </h2>
           </div>
-        ))}
-      </div>
-
-      {/* Portfolio showcase — full works like the portfolio page */}
-      <div ref={showcaseRef} className="space-y-8 sm:space-y-12">
-        <div className="space-y-3 max-w-2xl fade-in-up">
-          <span className="eyebrow">{t("showcase.eyebrow")}</span>
-          <h2 className="text-3xl sm:text-4xl font-semibold tracking-[-0.02em] text-foreground">
-            {t("showcase.title")}
-          </h2>
-        </div>
-
-        <div className="space-y-14 sm:space-y-24">
-          {showcaseItems.map((item, i) => (
-            <ProductCard key={item.title} item={item} index={i} dragLabel={tp("dragHint")} />
-          ))}
-        </div>
-
-        <div className="flex justify-center pt-2">
-          <Link href={`/${locale}/portfolio`} className="btn btn-primary">
-            {t("showcase.cta")}
+          <Link href={`/${locale}/portfolio`} className="btn btn-secondary shrink-0">
+            {th("showcase.cta")}
             <span aria-hidden>→</span>
           </Link>
         </div>
-      </div>
 
-      {/* Features */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 fade-in-up" style={{ animationDelay: "200ms" }}>
-        {features.map((f) => (
-          <div key={f.key} className="card card-hover p-7">
-            <div className="icon-tile mb-5" aria-hidden><Icon name={f.icon} size={26} /></div>
-            <h3 className="font-semibold text-lg mb-2 text-foreground">{t(`features.${f.key}.title`)}</h3>
-            <p className="text-sm text-foreground/60 leading-relaxed">{t(`features.${f.key}.desc`)}</p>
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 list-none p-0 m-0">
+          {work.map(({ i, src, w, h }, n) => (
+            <li key={src} className={n === 0 ? "lg:col-span-2" : undefined}>
+              <Link
+                href={`/${locale}/portfolio`}
+                className="group block h-full card card-hover overflow-hidden focus-visible:outline-none"
+              >
+                <div className="relative aspect-[16/10] overflow-hidden bg-foreground/5">
+                  <Image
+                    src={src}
+                    alt={`${tp(`items.${i}.title`)} — ${tp(`items.${i}.type`)}`}
+                    width={w}
+                    height={h}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
+                  />
+                </div>
+                <div className="flex items-baseline justify-between gap-3 p-4">
+                  <h3 className="font-medium text-foreground">{tp(`items.${i}.title`)}</h3>
+                  <span className="text-xs uppercase tracking-wide text-foreground/45 shrink-0">
+                    {tp(`items.${i}.type`)}
+                  </span>
+                </div>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <Section title="Meet the Team" description="Get to know the people behind Blueprint Studio.">
+        <ProfileSwitcher />
+      </Section>
+
+      <Section title={t("glance.title")} description={t("glance.desc")}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <StatCard label="Team" value="2" hint="Husband & Wife duo" />
+          <StatCard label="Languages" value="EN · MN" hint="Bilingual delivery" />
+          <StatCard label="Primary Focus" value="iOS + Frontend" hint="Swift, React, Vue" />
+          <StatCard label="Projects Shipped" value="20+" hint="From GovTech to E-commerce" />
+        </div>
+      </Section>
+
+      <Section title={t("whatWeDo.title")} description={t("whatWeDo.desc")}>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="card p-5">
+            <h3 className="font-medium mb-1 text-foreground">{t("whatWeDo.cards.ios.title")}</h3>
+            <p className="text-sm text-foreground/70">{t("whatWeDo.cards.ios.desc")}</p>
           </div>
-        ))}
-      </div>
-
-      {/* Closing CTA band */}
-      <div className="relative overflow-hidden card p-10 sm:p-16 text-center">
-        <div className="hero-glow" aria-hidden />
-        <div className="relative space-y-6 max-w-2xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] text-gradient">
-            {t("finale.title")}
-          </h2>
-          <p className="text-foreground/60 text-lg leading-relaxed">{t("finale.desc")}</p>
-          <div className="flex justify-center pt-1">
-            <Link href={`/${locale}/contact`} className="btn btn-primary">
-              {t("finale.cta")}
-              <span aria-hidden>→</span>
-            </Link>
+          <div className="card p-5">
+            <h3 className="font-medium mb-1 text-foreground">{t("whatWeDo.cards.web.title")}</h3>
+            <p className="text-sm text-foreground/70">{t("whatWeDo.cards.web.desc")}</p>
+          </div>
+          <div className="card p-5">
+            <h3 className="font-medium mb-1 text-foreground">{t("whatWeDo.cards.ux.title")}</h3>
+            <p className="text-sm text-foreground/70">{t("whatWeDo.cards.ux.desc")}</p>
           </div>
         </div>
-      </div>
-    </section>
+      </Section>
+
+      <Section title={t("achievements.title")} description={t("achievements.desc")}>
+        <div className="space-y-6">
+          {/* Education & Career */}
+          <div className="space-y-3">
+            <h3 className="text-sm font-semibold text-foreground/70 uppercase tracking-wide">Education &amp; Career</h3>
+            <ul className="space-y-3 text-sm text-foreground/80">
+              <li className="card p-5 flex items-start gap-3">
+                <Icon name="graduation-cap" size={20} className="mt-0.5 shrink-0" />
+                <span><strong className="text-foreground">Chinguun</strong> — {t("achievements.items.chinguunBachelor")}</span>
+              </li>
+              <li className="card p-5 flex items-start gap-3">
+                <Icon name="briefcase" size={20} className="mt-0.5 shrink-0" />
+                <span><strong className="text-foreground">Chinguun</strong> — {t("achievements.items.chinguunGerege")}</span>
+              </li>
+              <li className="card p-5 flex items-start gap-3">
+                <Icon name="stethoscope" size={20} className="mt-0.5 shrink-0" />
+                <span><strong className="text-foreground">Shinezaya</strong> — {t("achievements.items.shinezayaMedical")}</span>
+              </li>
+              <li className="card p-5 flex items-start gap-3">
+                <Icon name="paint-palette" size={20} className="mt-0.5 shrink-0" />
+                <span><strong className="text-foreground">Shinezaya</strong> — {t("achievements.items.shinezayaGerege")}</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Programs & Certifications */}
+          <div className="space-y-3">
+            <h3 className="text-sm font-semibold text-foreground/70 uppercase tracking-wide">Programs &amp; Certifications</h3>
+            <ul className="space-y-3 text-sm text-foreground/80">
+              <li className="card p-5">
+                <strong className="text-foreground">Teen Research Program (2026)</strong> — {t("achievements.items.teenMentor")}
+              </li>
+              <li className="card p-5">
+                <strong className="text-foreground">Grow with Google Mongolia (2025)</strong> — {t("achievements.items.google")}
+              </li>
+              <li className="card p-5">
+                <strong className="text-foreground">Coursera Certificates</strong> — {t("achievements.items.coursera")}
+              </li>
+              <li className="card p-5">
+                <strong className="text-foreground">User Experience Academy</strong> — {t("achievements.items.uxAcademy")}
+              </li>
+              <li className="card p-5">
+                <strong className="text-foreground">Always Learning</strong> — {t("achievements.items.mindset")}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </Section>
+
+      <Section title={t("timeline.title")} description={t("timeline.desc")}>
+        <Timeline
+          items={(t.raw("timeline.items") as Array<{ period: string; title: string; desc: string }>).map((item) => ({
+            title: item.period,
+            subtitle: item.title,
+            details: item.desc,
+          }))}
+        />
+      </Section>
+
+      <Section title={t("next.title")} description={t("next.desc")}>
+        <div className="card p-5 flex items-center justify-between gap-3">
+          <div className="text-sm text-foreground/80">{t("ctaText")}</div>
+          <Link href={`/${locale}/contact`} className="btn btn-primary shrink-0">{t("cta")}</Link>
+        </div>
+      </Section>
+    </div>
   );
 }

@@ -35,7 +35,7 @@ export default async function OpengraphImage() {
             width: 760,
             height: 760,
             borderRadius: 9999,
-            background: "radial-gradient(circle, rgba(99,102,241,0.42) 0%, rgba(8,9,12,0) 70%)",
+            background: "radial-gradient(circle, rgba(20,56,204,0.55) 0%, rgba(8,9,12,0) 70%)",
             display: "flex",
           }}
         />
@@ -46,7 +46,7 @@ export default async function OpengraphImage() {
               width: 18,
               height: 18,
               borderRadius: 5,
-              background: "#6366f1",
+              background: "#1438cc",
               display: "flex",
             }}
           />

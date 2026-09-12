@@ -6,7 +6,11 @@
     "portfolio": "Products",
     "contact": "Contact",
     "ctaContact": "Contact us",
-    "ctaWork": "View work"
+    "ctaWork": "View work",
+    "skipToContent": "Skip to main content",
+    "mainNav": "Main",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu"
   },
   "home": {
     "eyebrow": "Blueprint Studio",
@@ -303,10 +307,11 @@
       },
       {
         "title": "Mongol School",
-        "type": "Web",
-        "summary": "Official website for Mongol School — a foundation school focused on character development, with programs, campus life, and admissions",
-        "features": "Program showcase, campus environment gallery, enrollment registration, contact and admissions flow",
-        "outcome": "Live production website serving the school's admissions and parent communication"
+        "type": "Web · Reels",
+        "summary": "Official website for Mongol School — a foundation school focused on character development — plus an ongoing run of short-form reels for admissions and campus life",
+        "features": "Program showcase, campus environment gallery, enrollment registration, admissions and contact flow, and ongoing social reels",
+        "outcome": "Live production website plus a steady stream of social content supporting admissions and parent communication",
+        "tools": "Next.js · Figma · Reels production & video editing"
       },
       {
         "title": "Sayan Dent",

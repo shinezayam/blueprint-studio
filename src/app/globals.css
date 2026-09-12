@@ -118,6 +118,35 @@ body {
   border-radius: 0.6rem;
 }
 
+/* Windows High Contrast / forced-colors ignores box-shadow, so the ring above
+   disappears there. Fall back to a real outline. */
+@media (forced-colors: active) {
+  :focus-visible {
+    outline: 3px solid Highlight;
+    outline-offset: 2px;
+  }
+}
+
+/* Bypass blocks (WCAG 2.4.1): first tab stop jumps past the nav to #main. */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.6rem;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 0 0 3px var(--ring);
+}
+
 /* ==========================================================================
    Buttons — pill shaped, gradient CTA with glow
    ========================================================================== */

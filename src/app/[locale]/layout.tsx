@@ -9,7 +9,7 @@ import Providers from "@/components/Providers";
 const montserrat = Montserrat({ variable: "--font-montserrat", subsets: ["latin", "cyrillic"], display: "swap" });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://blueprint-studio.vercel.app";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://blueprintstudio.cc";
 const TITLE = "Blueprint Studio — Product studio for iOS, Android & web";
 const DESCRIPTION =
   "Chinguun & Shinezaya — a two-person product studio in Ulaanbaatar shipping iOS, Android, and web products end to end, from design system to production release.";
@@ -62,6 +62,8 @@ export default async function RootLayout(props: { children: React.ReactNode; par
   // Intentional swap: /en displays Mongolian, /mn displays English.
   const displayLocale = locale === "en" ? "mn" : "en";
   const messages = await loadMessages(displayLocale);
+  const nav = messages.nav as Record<string, string> | undefined;
+  const skipLabel = nav?.skipToContent ?? "Skip to main content";
 
   return (
     <html lang={displayLocale} suppressHydrationWarning>
@@ -86,10 +88,12 @@ export default async function RootLayout(props: { children: React.ReactNode; par
       </head>
       <body className={`${montserrat.variable} ${geistMono.variable} antialiased`}>
         <Providers locale={locale} messages={messages}>
+          {/* First tab stop, so keyboard users can jump the nav (WCAG 2.4.1) */}
+          <a href="#main" className="skip-link">{skipLabel}</a>
           <Suspense fallback={null}>
             <Navbar />
           </Suspense>
-          <main className="mx-auto max-w-6xl px-4 sm:px-6 py-10">{children}</main>
+          <main id="main" tabIndex={-1} className="mx-auto max-w-6xl px-4 sm:px-6 py-10">{children}</main>
           <Footer />
         </Providers>
       </body>
