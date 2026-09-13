@@ -1,4 +1,10 @@
-export const metadata = { title: "Terms" };
+import type { Metadata } from "next";
+import { pageAlternates } from "@/lib/site";
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  return { title: "Terms", alternates: pageAlternates(locale, "/terms") };
+}
 
 export default function TermsPage() {
   return (

@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import LandingPage from "@/components/LandingPage";
 import { pageAlternates } from "@/lib/site";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  return { alternates: pageAlternates(locale, "") };
+  return { title: "Services", alternates: pageAlternates(locale, "/services") };
 }
 
-export default function Page() {
-  return <LandingPage />;
+export default function Layout({ children }: { children: React.ReactNode }) {
+  return children;
 }
