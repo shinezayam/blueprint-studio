@@ -76,7 +76,7 @@ const JSON_LD = {
       url: SITE_URL,
       image: `${SITE_URL}/chinguun/image%20187.png`,
       worksFor: { "@id": `${SITE_URL}/#studio` },
-      sameAs: [],
+      sameAs: ["https://github.com/zzzchinguun"],
     },
     {
       "@type": "Person",
