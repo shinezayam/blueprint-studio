@@ -26,11 +26,12 @@ const nextConfig: NextConfig = {
   },
 
   async redirects() {
+    // Blueprint Studio now operates as Focus Hub LLC: the whole site forwards
+    // to focushub.mn. Temporary (307) so it can be reverted without browsers
+    // caching it forever; make it permanent once the move is final.
     return [
-      // Bare domain → /en, which displays Mongolian (the primary audience)
-      { source: "/", destination: "/en", permanent: false },
-      // The about page became the landing page; keep shared links working.
-      { source: "/:locale(en|mn)/about", destination: "/:locale", permanent: true },
+      { source: "/en/:path*", destination: "https://focushub.mn/en", permanent: false },
+      { source: "/:path*", destination: "https://focushub.mn/", permanent: false },
     ];
   },
 };
